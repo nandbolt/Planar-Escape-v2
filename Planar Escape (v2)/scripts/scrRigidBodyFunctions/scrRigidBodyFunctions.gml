@@ -6,6 +6,7 @@ function rbInit()
 	bboxWidth = bbox_right - bbox_left;
 	bboxHeight = bbox_bottom - bbox_top;
 	imageAngle = 0;
+	mass = 1;
 	
 	// States
 	onGround = true;
@@ -18,6 +19,8 @@ function rbInit()
 	collisionThreshold = 0.1;
 	collisionVelocity = new Vector2();
 	onCollision = function(){};
+	checkRbCollisions = true;	// Whether or not it checks for a collision with a rigid body
+	rbCollision = false;		// Whether or not a collision occurred because of a rigid body
 	
 	// Resistances
 	airResistance = new Vector2();
@@ -50,11 +53,17 @@ function rbUpdate()
 	// Resistances
 	rbHandleResistances();
 	
+	// X Rigid Body Collisions
+	rbHandleXRigidBodyCollisions();
+	
 	// X Tiles
 	rbHandleXTileCollisions();
 	
 	// Move x
 	x += velocity.x;
+	
+	// Y Rigid Body Collisions
+	rbHandleYRigidBodyCollisions();
 	
 	// Y Tiles
 	rbHandleYTileCollisions();
@@ -63,7 +72,36 @@ function rbUpdate()
 	y += velocity.y;
 	
 	// Call on collision if collision
-	if (!collisionVelocity.isZero()) onCollision();
+	show_debug_message(collisionVelocity);
+	if (!collisionVelocity.isZero())
+	{
+		// If not bouncy
+		if (bounciness == 0)
+		{
+			// If collision was with rigid body
+			if (rbCollision)
+			{
+				// Set velocity if collision
+				if (collisionVelocity.x != 0)
+				{
+					velocity.x = collisionVelocity.x;
+					collisionVelocity.x = 0;
+				}
+				if (collisionVelocity.y != 0)
+				{
+					velocity.y = collisionVelocity.y;
+					collisionVelocity.y = 0;
+				}
+			
+				// Reset collision
+				rbCollision = false;
+			}
+			else collisionVelocity.set();
+		}
+		
+		// Call on collision function
+		onCollision();
+	}
 }
 
 /// @func	rbDraw();
@@ -150,6 +188,74 @@ function rbHandleYTileCollisions()
 			break;
 		}
 	}
+}
+
+/// @func	rbHandleXRigidBodyCollisions();
+/// @desc	Handles any rigid body collisions on the x-axis.
+function rbHandleXRigidBodyCollisions()
+{
+	// Return if no rigid body collisions
+	if (!checkRbCollisions) return;
+	
+	// Return if not colliding
+	if (!place_meeting(x + velocity.x, y, oBlock)) return;
+	
+	// Get block
+	var _block = instance_place(x + velocity.x, y, oBlock);
+		
+	// Set velocity
+	_block.velocity.x = (mass * velocity.x + _block.mass * _block.velocity.x) / (mass + _block.mass);
+		
+	// Set collision velocity
+	collisionVelocity.x = _block.velocity.x;
+	rbCollision = true;
+	
+	// Loop until close enough to body
+	while (abs(velocity.x) > collisionThreshold)
+	{
+		// Halve velocity
+		velocity.x *= 0.5;
+				
+		// Move if no collision
+		if (!place_meeting(x + velocity.x, y, oBlock)) x += velocity.x;
+	}
+		
+	// Zero velocity
+	velocity.x = 0;
+}
+
+/// @func	rbHandleYRigidBodyCollisions();
+/// @desc	Handles any rigid body collisions on the y-axis.
+function rbHandleYRigidBodyCollisions()
+{
+	// Return if no rigid body collisions
+	if (!checkRbCollisions) return;
+	
+	// Return if not colliding
+	if (!place_meeting(x, y + velocity.y, oBlock)) return;
+	
+	// Get block
+	var _block = instance_place(x, y + velocity.y, oBlock);
+		
+	// Set velocity
+	_block.velocity.y = (mass * velocity.y + _block.mass * _block.velocity.y) / (mass + _block.mass);
+		
+	// Set collision velocity
+	collisionVelocity.y = _block.velocity.y;
+	rbCollision = true;
+	
+	// Loop until close enough to body
+	while (abs(velocity.y) > collisionThreshold)
+	{
+		// Halve velocity
+		velocity.y *= 0.5;
+				
+		// Move if no collision
+		if (!place_meeting(x, y + velocity.y, oBlock)) y += velocity.y;
+	}
+		
+	// Zero velocity
+	velocity.y = 0;
 }
 
 /// @func	rbHandleBounce();
