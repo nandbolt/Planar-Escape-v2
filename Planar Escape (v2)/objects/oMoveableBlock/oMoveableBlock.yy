@@ -1,17 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oPlayer",
+  "name": "oMoveableBlock",
   "spriteId": {
-    "name": "sPlayer",
-    "path": "sprites/sPlayer/sPlayer.yy",
+    "name": "sWhiteBlock",
+    "path": "sprites/sWhiteBlock/sWhiteBlock.yy",
   },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oBlock",
+    "path": "objects/oBlock/oBlock.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -32,7 +35,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Actors",
-    "path": "folders/Objects/Actors.yy",
+    "name": "Moveable",
+    "path": "folders/Objects/Blocks/Moveable.yy",
   },
 }

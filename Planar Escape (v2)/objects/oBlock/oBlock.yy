@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oMain",
+  "name": "oBlock",
   "spriteId": null,
   "solid": false,
   "visible": true,
@@ -21,13 +21,11 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "General",
-    "path": "folders/Objects/General.yy",
+    "name": "Blocks",
+    "path": "folders/Objects/Blocks.yy",
   },
 }
