@@ -1,6 +1,6 @@
-// Rigid body
-rbInit();
+// Inherit the parent event
+event_inherited();
 
 // Movement
 moveInput = new Vector2();
-moveSpeed = 0.2;
+moveSpeed = 200;

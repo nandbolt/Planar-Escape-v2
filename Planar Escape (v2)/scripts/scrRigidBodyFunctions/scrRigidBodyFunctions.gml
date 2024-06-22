@@ -72,7 +72,7 @@ function rbUpdate()
 	y += velocity.y;
 	
 	// Call on collision if collision
-	show_debug_message(collisionVelocity);
+	//show_debug_message(collisionVelocity);
 	if (!collisionVelocity.isZero())
 	{
 		// If not bouncy

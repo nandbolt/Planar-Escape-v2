@@ -1,2 +1,0 @@
-// Rigid body
-rbCleanup();
