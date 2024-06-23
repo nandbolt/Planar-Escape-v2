@@ -74,6 +74,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"BE","folderPath":"folders/Objects/BE.yy","order":5,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Blocks","folderPath":"folders/Objects/Blocks.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Moveable","folderPath":"folders/Objects/Blocks/Moveable.yy","order":1,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Display","folderPath":"folders/Objects/Display.yy","order":7,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Camera","folderPath":"folders/Objects/Display/Camera.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"General","folderPath":"folders/Objects/General.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Levels","folderPath":"folders/Objects/Levels.yy","order":6,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Paths","folderPath":"folders/Paths.yy","order":4,},
@@ -92,8 +94,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tilemaps","folderPath":"folders/Sprites/Tilemaps.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy","order":8,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Display","folderPath":"folders/Objects/Display.yy","order":7,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Camera","folderPath":"folders/Objects/Display/Camera.yy","order":1,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
