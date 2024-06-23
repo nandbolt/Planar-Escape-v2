@@ -22,3 +22,6 @@ with (boxEngine)
 
 // Hide collision layer
 layer_set_visible(collisionLayer, false);
+
+// Entity
+instance_create_layer(room_width * 0.5, room_height, "AirInstances", oEntity);
