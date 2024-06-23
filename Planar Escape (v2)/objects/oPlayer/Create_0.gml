@@ -7,3 +7,6 @@ box.setMass(25);
 // Movement
 moveInput = new Vector2();
 moveSpeed = 5000;
+
+// Collectables
+stars = 0;
