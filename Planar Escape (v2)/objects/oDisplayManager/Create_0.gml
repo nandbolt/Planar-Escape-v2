@@ -10,8 +10,8 @@ canvasWidth = baseCanvasWidth;
 canvasHeight = baseCanvasHeight;
 
 // Camera
-baseCamWidth = 384;
-baseCamHeight = 216;
+baseCamWidth = 336;
+baseCamHeight = 189;
 
 #region Functions
 

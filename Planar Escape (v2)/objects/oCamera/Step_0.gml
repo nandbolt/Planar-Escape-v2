@@ -5,7 +5,7 @@ var _target = oPlayer;
 if (_target != noone && instance_exists(_target))
 {
 	// Set target to player
-	targetPosition.x = clamp(_target.x - halfCamWidth, 0, room_width - camWidth);
+	targetPosition.x = clamp(_target.x - halfCamWidth, 6, room_width - camWidth - 6);
 	targetPosition.y = clamp(_target.y - halfCamHeight, 0, room_height - camHeight);
 }
 
