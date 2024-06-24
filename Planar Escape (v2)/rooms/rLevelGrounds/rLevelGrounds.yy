@@ -52,7 +52,7 @@
       ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"BlockInstances","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2D4A7624","properties":[],"isDnd":false,"objectId":{"name":"oZombie","path":"objects/oZombie/oZombie.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":174.0,"y":882.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1D666E55","properties":[],"isDnd":false,"objectId":{"name":"oLaserBlock","path":"objects/oLaserBlock/oLaserBlock.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":108.0,"y":906.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6CB9830F","properties":[],"isDnd":false,"objectId":{"name":"oZombieLaserBlock","path":"objects/oZombieLaserBlock/oZombieLaserBlock.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":114.0,"y":906.0,},
       ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"CollectableInstances","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_F37B532","properties":[],"isDnd":false,"objectId":{"name":"oPortal","path":"objects/oPortal/oPortal.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":174.0,"y":846.0,},
@@ -96,7 +96,7 @@
     {"name":"inst_44A6DF60","path":"rooms/rLevelGrounds/rLevelGrounds.yy",},
     {"name":"inst_F37B532","path":"rooms/rLevelGrounds/rLevelGrounds.yy",},
     {"name":"inst_2D4A7624","path":"rooms/rLevelGrounds/rLevelGrounds.yy",},
-    {"name":"inst_1D666E55","path":"rooms/rLevelGrounds/rLevelGrounds.yy",},
+    {"name":"inst_6CB9830F","path":"rooms/rLevelGrounds/rLevelGrounds.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

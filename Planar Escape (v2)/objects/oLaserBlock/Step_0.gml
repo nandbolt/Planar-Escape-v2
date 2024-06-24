@@ -15,27 +15,7 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 		if (_inst != noone)
 		{
 			// If actor
-			if (object_is_ancestor(_inst.object_index, oActor))
-			{
-				// Death dust particles
-				with (_inst)
-				{
-					for (var _j = 0; _j <= 1; _j += 0.5)
-					{
-						for (var _i = 0; _i <= 1; _i += 0.5)
-						{
-							var _x = bbox_left + (bbox_right - bbox_left) * _i, _y = bbox_top + (bbox_bottom - bbox_top) * _j;
-							with (oParticleManager)
-							{
-								part_particles_create_color(partSystem, _x, _y, partTypeDust, c_red, 1);
-							}
-						}
-					}
-				}
-				
-				// Destroy actor
-				destroyBox(_inst, be_oBoxEngine);
-			}
+			if (object_is_ancestor(_inst.object_index, oActor)) zapActor(_inst);
 			else if (_inst.object_index == oIceBlock)
 			{
 				// Shrink ice
