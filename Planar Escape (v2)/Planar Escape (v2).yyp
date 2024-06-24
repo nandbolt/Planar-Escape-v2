@@ -34,6 +34,7 @@
     {"id":{"name":"oStar","path":"objects/oStar/oStar.yy",},"order":1,},
     {"id":{"name":"sZombie","path":"sprites/sZombie/sZombie.yy",},"order":1,},
     {"id":{"name":"oActor","path":"objects/oActor/oActor.yy",},"order":1,},
+    {"id":{"name":"oPowerBlock","path":"objects/oPowerBlock/oPowerBlock.yy",},"order":6,},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":0,},
     {"id":{"name":"oHitbox","path":"objects/oHitbox/oHitbox.yy",},"order":0,},
     {"id":{"name":"scrCameraFunctions","path":"scripts/scrCameraFunctions/scrCameraFunctions.yy",},"order":4,},
@@ -67,6 +68,7 @@
     {"id":{"name":"be_scrTopDownControllerForceGenStruct","path":"scripts/be_scrTopDownControllerForceGenStruct/be_scrTopDownControllerForceGenStruct.yy",},"order":0,},
     {"id":{"name":"be_scrBoxContactGenStruct","path":"scripts/be_scrBoxContactGenStruct/be_scrBoxContactGenStruct.yy",},"order":2,},
     {"id":{"name":"scrBlockFunctions","path":"scripts/scrBlockFunctions/scrBlockFunctions.yy",},"order":5,},
+    {"id":{"name":"sPowerBlock","path":"sprites/sPowerBlock/sPowerBlock.yy",},"order":6,},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":0,},
   ],
   "Options": [

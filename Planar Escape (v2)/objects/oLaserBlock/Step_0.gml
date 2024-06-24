@@ -32,6 +32,14 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 					destroyBox(_inst, be_oBoxEngine);
 				}
 			}
+			else if (_inst.object_index == oPowerBlock)
+			{
+				// Turn on power block
+				with (_inst)
+				{
+					turnOn();
+				}
+			}
 			break;
 		}
 	}
