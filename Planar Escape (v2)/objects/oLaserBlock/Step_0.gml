@@ -7,12 +7,12 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 	// Check laser tile collision
 	_x = laserStart.x + lengthdir_x(laserLength, image_angle);
 	_y = laserStart.y + lengthdir_y(laserLength, image_angle);
-	if (tilemap_get_at_pixel(collisionMap, _x, _y) > 0) break;
+	if (tilemap_get_at_pixel(collisionMap, _x, _y) == 1) break;
 	else
 	{
 		// Check laser block collision
 		var _inst = collision_point(_x, _y, be_oBox, false, true);
-		if (_inst != noone)
+		if (_inst != noone && _inst.object_index != oGlassBlock)
 		{
 			// If actor
 			if (object_is_ancestor(_inst.object_index, oActor)) zapActor(_inst);
