@@ -7,9 +7,9 @@
     {"id":{"name":"sStar","path":"sprites/sStar/sStar.yy",},"order":0,},
     {"id":{"name":"be_scrForceGenStruct","path":"scripts/be_scrForceGenStruct/be_scrForceGenStruct.yy",},"order":7,},
     {"id":{"name":"be_oBoxEngine","path":"objects/be_oBoxEngine/be_oBoxEngine.yy",},"order":1,},
-    {"id":{"name":"rLevelSlopes","path":"rooms/rLevelSlopes/rLevelSlopes.yy",},"order":2,},
     {"id":{"name":"scrVector2Struct","path":"scripts/scrVector2Struct/scrVector2Struct.yy",},"order":0,},
     {"id":{"name":"be_scrContactStruct","path":"scripts/be_scrContactStruct/be_scrContactStruct.yy",},"order":6,},
+    {"id":{"name":"oLaserBlock","path":"objects/oLaserBlock/oLaserBlock.yy",},"order":2,},
     {"id":{"name":"scrGlobals","path":"scripts/scrGlobals/scrGlobals.yy",},"order":3,},
     {"id":{"name":"sPixel","path":"sprites/sPixel/sPixel.yy",},"order":0,},
     {"id":{"name":"sIceBlock","path":"sprites/sIceBlock/sIceBlock.yy",},"order":1,},
@@ -21,6 +21,7 @@
     {"id":{"name":"sPortal","path":"sprites/sPortal/sPortal.yy",},"order":0,},
     {"id":{"name":"be_scrSpringForceGenStruct","path":"scripts/be_scrSpringForceGenStruct/be_scrSpringForceGenStruct.yy",},"order":1,},
     {"id":{"name":"oCollectable","path":"objects/oCollectable/oCollectable.yy",},"order":0,},
+    {"id":{"name":"sLaserBlock","path":"sprites/sLaserBlock/sLaserBlock.yy",},"order":0,},
     {"id":{"name":"be_scrBuoyancyForceGenStruct","path":"scripts/be_scrBuoyancyForceGenStruct/be_scrBuoyancyForceGenStruct.yy",},"order":4,},
     {"id":{"name":"be_scrGravityForceGenStruct","path":"scripts/be_scrGravityForceGenStruct/be_scrGravityForceGenStruct.yy",},"order":3,},
     {"id":{"name":"sWorldTiles","path":"sprites/sWorldTiles/sWorldTiles.yy",},"order":1,},
@@ -41,6 +42,7 @@
     {"id":{"name":"oParticleManager","path":"objects/oParticleManager/oParticleManager.yy",},"order":0,},
     {"id":{"name":"sWhiteBlock","path":"sprites/sWhiteBlock/sWhiteBlock.yy",},"order":0,},
     {"id":{"name":"oEntity","path":"objects/oEntity/oEntity.yy",},"order":0,},
+    {"id":{"name":"sLaser","path":"sprites/sLaser/sLaser.yy",},"order":1,},
     {"id":{"name":"rLevelGrounds","path":"rooms/rLevelGrounds/rLevelGrounds.yy",},"order":1,},
     {"id":{"name":"be_oBox","path":"objects/be_oBox/be_oBox.yy",},"order":0,},
     {"id":{"name":"oBlock","path":"objects/oBlock/oBlock.yy",},"order":0,},
@@ -54,6 +56,7 @@
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},"order":0,},
     {"id":{"name":"be_scrTopDownControllerForceGenStruct","path":"scripts/be_scrTopDownControllerForceGenStruct/be_scrTopDownControllerForceGenStruct.yy",},"order":0,},
     {"id":{"name":"be_scrBoxContactGenStruct","path":"scripts/be_scrBoxContactGenStruct/be_scrBoxContactGenStruct.yy",},"order":2,},
+    {"id":{"name":"scrBlockFunctions","path":"scripts/scrBlockFunctions/scrBlockFunctions.yy",},"order":5,},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":0,},
   ],
   "Options": [
@@ -75,7 +78,6 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
-    {"roomId":{"name":"rLevelSlopes","path":"rooms/rLevelSlopes/rLevelSlopes.yy",},},
     {"roomId":{"name":"rLevelGrounds","path":"rooms/rLevelGrounds/rLevelGrounds.yy",},},
   ],
   "Folders": [
@@ -114,6 +116,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tilemaps","folderPath":"folders/Sprites/Tilemaps.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy","order":8,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Laser","folderPath":"folders/Sprites/Blocks/Laser.yy","order":3,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
