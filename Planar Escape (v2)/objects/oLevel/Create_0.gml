@@ -1,3 +1,10 @@
+// State
+levelComplete = false;
+levelFailed = false;
+levelTime = 0;
+startTime = 0;
+starsCollected = 0;
+
 // Layers
 collisionLayer = layer_get_id("CollisionTiles");
 

@@ -8,5 +8,6 @@ collect = function(_actor)
 	{
 		stars++;
 	}
+	oLevel.starsCollected++;
 	instance_destroy();
 }

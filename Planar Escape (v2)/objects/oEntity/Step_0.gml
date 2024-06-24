@@ -16,22 +16,8 @@ with (be_oBox)
 			removeBox(other.box);
 		}
 		
-		// If visible
-		//if (isVisible(id))
-		//{
-		//	// Emit dust particles
-		//	for (var _j = 0; _j <= 1; _j += 0.5)
-		//	{
-		//		for (var _i = 0; _i <= 1; _i += 0.5)
-		//		{
-		//			var _x = bbox_left + (bbox_right - bbox_left) * _i, _y = bbox_top + (bbox_bottom - bbox_top) * _j;
-		//			with (oParticleManager)
-		//			{
-		//				part_particles_create(partSystem, _x, _y, partTypeDust, 1);
-		//			}
-		//		}
-		//	}
-		//}
+		// End game if player
+		if (object_index == oPlayer) oLevel.levelFailed = true;
 		
 		// Destroy box
 		instance_destroy();
