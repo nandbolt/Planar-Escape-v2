@@ -4,7 +4,23 @@ moveInput.y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
 moveInput.normalize();
 
 // Move input strength
-if (keyboard_check_pressed(vk_space)) moveInput.scale(moveSpeed * 50);
+if (keyboard_check_pressed(vk_space))
+{
+	moveInput.scale(moveSpeed * 50);
+	
+	// Dash particles
+	for (var _j = 0; _j <= 1; _j += 0.5)
+	{
+		for (var _i = 0; _i <= 1; _i += 0.5)
+		{
+			var _x = bbox_left + (bbox_right - bbox_left) * _i, _y = bbox_top + (bbox_bottom - bbox_top) * _j;
+			with (oParticleManager)
+			{
+				part_particles_create(partSystem, _x, _y, partTypeDust, 1);
+			}
+		}
+	}
+}
 else moveInput.scale(moveSpeed);
 
 // Apply move input
