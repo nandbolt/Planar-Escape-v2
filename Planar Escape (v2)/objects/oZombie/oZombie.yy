@@ -1,16 +1,19 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oActor",
-  "spriteId": null,
+  "name": "oZombie",
+  "spriteId": {
+    "name": "sZombie",
+    "path": "sprites/sZombie/sZombie.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "be_oBox",
-    "path": "objects/be_oBox/be_oBox.yy",
+    "name": "oActor",
+    "path": "objects/oActor/oActor.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -26,6 +29,7 @@
   "physicsShapePoints": [],
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],

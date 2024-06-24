@@ -14,7 +14,8 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 		var _inst = collision_point(_x, _y, be_oBox, false, true);
 		if (_inst != noone)
 		{
-			if (_inst.object_index == oPlayer)
+			// If actor
+			if (object_is_ancestor(_inst.object_index, oActor))
 			{
 				// Death dust particles
 				with (_inst)
@@ -32,17 +33,17 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 					}
 				}
 				
-				// Destroy player
+				// Destroy actor
 				destroyBox(_inst, be_oBoxEngine);
 			}
 			else if (_inst.object_index == oIceBlock)
 			{
 				// Shrink ice
-				_inst.image_xscale -= 0.005;
-				_inst.image_yscale -= 0.005;
+				_inst.image_xscale -= iceShrinkSpeed;
+				_inst.image_yscale -= iceShrinkSpeed;
 				
 				// Destroy ice if too small
-				if (_inst.image_xscale < 0.25)
+				if (_inst.bbox_right - _inst.bbox_left < iceMinSize)
 				{
 					with (oParticleManager)
 					{
