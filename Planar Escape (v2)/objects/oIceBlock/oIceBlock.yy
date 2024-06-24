@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oMoveableBlock",
+  "name": "oIceBlock",
   "spriteId": {
-    "name": "sWhiteBlock",
-    "path": "sprites/sWhiteBlock/sWhiteBlock.yy",
+    "name": "sIceBlock",
+    "path": "sprites/sIceBlock/sIceBlock.yy",
   },
   "solid": false,
   "visible": true,
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oBlock",
-    "path": "objects/oBlock/oBlock.yy",
+    "name": "oMoveableBlock",
+    "path": "objects/oMoveableBlock/oMoveableBlock.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -29,11 +29,12 @@
   "physicsShapePoints": [],
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Objects/Blocks.yy",
+    "name": "Moveable",
+    "path": "folders/Objects/Blocks/Moveable.yy",
   },
 }
