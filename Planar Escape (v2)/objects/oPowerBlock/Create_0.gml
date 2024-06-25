@@ -16,8 +16,15 @@ wireMap = layer_tilemap_get_id("WireTiles");
 /// @func	togglePower({enum.Power} type);
 togglePower = function(_type)
 {
-	// Return if same powered state requested
-	if (powerType == _type) return;
+	// If same powered state requested
+	if (powerType == _type)
+	{
+		// Reset power off timer and return
+		alarm[0] = offDelay;
+		return;
+	}
+	// Return if trying to turn on power and power is already on
+	else if (_type != Power.OFF && powerType > Power.OFF) return;
 	
 	// Toggle block on/off
 	image_index = _type;

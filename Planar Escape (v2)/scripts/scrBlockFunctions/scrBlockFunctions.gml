@@ -20,8 +20,9 @@ function destroyBox(_boxInst, _boxEngine)
 function toggleWirePowerline(_wireMap, _x, _y, _type)
 {
 	// Return if starting point isn't on a powerline or already toggled
-	var _tile = tilemap_get_at_pixel(_wireMap, _x, _y), _tileType = floor(_tile / 18);
-	if (_tile == 0 || _type == _tileType) return;
+	var _tile = tilemap_get_at_pixel(_wireMap, _x, _y);
+	var _tileType = floor(_tile / 18);
+	if (_tile == 0 || _type == _tileType || (_type != Power.OFF && _tileType > Power.OFF)) return;
 	
 	// Toggle power of first tile
 	toggleWirePower(_wireMap, _tile, _x, _y, _type);
