@@ -9,6 +9,7 @@ iceShrinkSpeed = 0.005;
 iceMinSize = 4;
 sprLaser= sLaser;
 laserColor = c_red;
+powerType = Power.RED;
 
 // Layers
 collisionMap = layer_tilemap_get_id("CollisionTiles");

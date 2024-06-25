@@ -1,2 +1,2 @@
 /// @desc Power Timer
-togglePower(false);
+togglePower(Power.OFF);

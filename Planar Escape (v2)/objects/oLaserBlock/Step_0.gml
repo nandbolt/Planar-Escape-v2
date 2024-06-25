@@ -37,7 +37,7 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 				// Turn on power block
 				with (_inst)
 				{
-					togglePower(true);
+					togglePower(other.powerType);
 				}
 			}
 			break;

@@ -1,5 +1,7 @@
 // Check power
-if (tilemap_get_at_pixel(wireMap, x, y) > 17) updateBelt(-1);
+var _tile = tilemap_get_at_pixel(wireMap, x, y);
+if (_tile > 17 && _tile < 36) updateBelt(1);
+else if (_tile > 35) updateBelt(-1);
 else updateBelt(0);
 
 // Set velocity

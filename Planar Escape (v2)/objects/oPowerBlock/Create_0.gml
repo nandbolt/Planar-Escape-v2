@@ -2,7 +2,7 @@
 event_inherited();
 
 // State
-powered = false;
+powerType = Power.OFF;
 prevTilePosition = new BEVector2(floor(x / TILE_SIZE) * TILE_SIZE, floor(y / TILE_SIZE) * TILE_SIZE);
 
 // Power
@@ -13,26 +13,21 @@ wireMap = layer_tilemap_get_id("WireTiles");
 
 #region Functions
 
-/// @func	togglePower({bool} on);
-togglePower = function(_on)
+/// @func	togglePower({enum.Power} type);
+togglePower = function(_type)
 {
 	// Return if same powered state requested
-	if (powered == _on) return;
+	if (powerType == _type) return;
 	
 	// Toggle block on/off
-	if (_on)
-	{
-		// Set alarm
-		alarm[0] = offDelay;
-		image_index = 1;
-	}
-	else image_index = 0;
+	image_index = _type;
+	if (_type != Power.OFF) alarm[0] = offDelay;
 	
 	// Set powered state
-	powered = _on;
+	powerType = _type;
 	
 	// Toggle powerline
-	toggleWirePowerline(wireMap, x, y, _on);
+	toggleWirePowerline(wireMap, x, y, _type);
 }
 
 #endregion

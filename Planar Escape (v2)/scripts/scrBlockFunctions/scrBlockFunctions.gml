@@ -15,16 +15,16 @@ function destroyBox(_boxInst, _boxEngine)
 	instance_destroy(_boxInst);
 }
 
-/// @func	toggleWirePowerline({id} wireMap, {real} x, {real} y, {bool} on);
+/// @func	toggleWirePowerline({id} wireMap, {real} x, {real} y, {enum.Power} type);
 ///	@desc	Updates the power line by turning it on or off.
-function toggleWirePowerline(_wireMap, _x, _y, _on)
+function toggleWirePowerline(_wireMap, _x, _y, _type)
 {
 	// Return if starting point isn't on a powerline or already toggled
-	var _tile = tilemap_get_at_pixel(_wireMap, _x, _y);
-	if (_tile == 0 || (_on && _tile > 17) || (!_on && _tile < 18)) return;
+	var _tile = tilemap_get_at_pixel(_wireMap, _x, _y), _tileType = floor(_tile / 18);
+	if (_tile == 0 || _type == _tileType) return;
 	
 	// Toggle power of first tile
-	toggleWirePower(_wireMap, _tile, _x, _y, _on);
+	toggleWirePower(_wireMap, _tile, _x, _y, _type);
 	
 	// Loop until all power lines are touched
 	var _frontier = [new BEVector2(floor(_x), floor(_y))], _loops = 0;
@@ -49,11 +49,12 @@ function toggleWirePowerline(_wireMap, _x, _y, _on)
 			// If tile is a wire
 			_x = _tp.x + _dx;
 			_y = _tp.y + _dy;
-			var _tile = tilemap_get_at_pixel(_wireMap, _x, _y);
+			_tile = tilemap_get_at_pixel(_wireMap, _x, _y);
+			_tileType = floor(_tile / 18);
 			if (_tile != 0)
 			{
 				// If not already toggled
-				if ((_on && _tile < 18) || (!_on && _tile > 17))
+				if (_type != _tileType)
 				{
 					// Add to frontier if not already in it
 					var _inFrontier = false;
@@ -74,7 +75,7 @@ function toggleWirePowerline(_wireMap, _x, _y, _on)
 					{
 						// Add to frontier and toggle power 
 						array_push(_frontier, new BEVector2(_x, _y));
-						toggleWirePower(_wireMap, _tile, _x, _y, _on);
+						toggleWirePower(_wireMap, _tile, _x, _y, _type);
 					}
 				}
 			}
@@ -83,11 +84,11 @@ function toggleWirePowerline(_wireMap, _x, _y, _on)
 	_frontier = -1;	
 }
 
-/// @func	toggleWirePower({id} wireMap, {int} tile, {real} x, {real} y, {bool} on);
+/// @func	toggleWirePower({id} wireMap, {int} tile, {real} x, {real} y, {enum.Power} type);
 ///	@desc	Updates the power of one tile by turning it on or off.
-function toggleWirePower(_wireMap, _tile, _x, _y, _on)
+function toggleWirePower(_wireMap, _tile, _x, _y, _type)
 {
 	// Toggle power of first tile
-	if (_on && _tile < 18) tilemap_set_at_pixel(_wireMap, _tile+18, _x, _y);
-	else if (!_on && _tile > 17) tilemap_set_at_pixel(_wireMap, _tile-18, _x, _y);
+	if (_type != Power.OFF && _tile < 18) tilemap_set_at_pixel(_wireMap, _tile+18*_type, _x, _y);
+	else if (_type == Power.OFF && _tile > 17) tilemap_set_at_pixel(_wireMap, _tile-18*floor(_tile/18), _x, _y);
 }
