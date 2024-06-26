@@ -3,7 +3,7 @@ event_inherited();
 
 // Laser
 sprLaser = sEntityLaser;
-laserColor = c_black;
+laserColor = c_dkgray;
 powerType = Power.BLACK;
 
 #region Functions

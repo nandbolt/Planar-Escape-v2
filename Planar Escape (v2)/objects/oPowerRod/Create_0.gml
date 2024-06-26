@@ -20,23 +20,33 @@ updateRod = function(_type)
 {
 	// Set power type
 	powerType = _type;
+	image_index = _type;
 	if (_type == Power.RED)
 	{
-		image_index = 1;
 		zapColor = c_red;
 		sprZap = sLaser;
 	}
 	else if (_type == Power.GREEN)
 	{
-		image_index = 2;
 		zapColor = c_green;
 		sprZap = sZombieLaser;
 	}
-	else
+	else if (_type == Power.BLUE)
 	{
-		image_index = 0;
-		target = noone;
+		zapColor = c_blue;
+		sprZap = sCopLaser;
 	}
+	else if (_type == Power.YELLOW)
+	{
+		zapColor = c_yellow;
+		sprZap = sCitizenLaser;
+	}
+	else if (_type == Power.BLACK)
+	{
+		zapColor = c_dkgray;
+		sprZap = sEntityLaser;
+	}
+	else target = noone;
 }
 
 /// @func	zapActor({id} actor);

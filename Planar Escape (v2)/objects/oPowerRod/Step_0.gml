@@ -4,7 +4,10 @@ if (_tile > 17)
 {
 	// Apply power type
 	if (_tile < 36) updateRod(Power.RED);
-	else if (_tile > 35) updateRod(Power.GREEN);
+	else if (_tile < 54) updateRod(Power.GREEN);
+	else if (_tile < 72) updateRod(Power.BLUE);
+	else if (_tile < 90) updateRod(Power.YELLOW);
+	else if (_tile < 108) updateRod(Power.BLACK);
 	
 	// If has no target
 	if (!instance_exists(target))
