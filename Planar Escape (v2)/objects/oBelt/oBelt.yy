@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Objects/Blocks.yy",
+    "name": "Contraptions",
+    "path": "folders/Objects/Contraptions.yy",
   },
 }
