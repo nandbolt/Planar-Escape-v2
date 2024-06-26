@@ -16,7 +16,7 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 		{
 			// If actor
 			if (object_is_ancestor(_inst.object_index, oActor)) zapActor(_inst);
-			else if (_inst.object_index == oIceBlock)
+			else if (_inst.object_index == oIceBlock || _inst.object_index == oBigIceBlock)
 			{
 				// Shrink ice
 				_inst.image_xscale -= iceShrinkSpeed;
