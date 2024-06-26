@@ -1,6 +1,7 @@
 #region Macros
 
 #macro TILE_SIZE 12
+#macro HALF_TILE_SIZE 6
 
 #endregion
 

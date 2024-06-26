@@ -6,3 +6,6 @@ moveSpeed = 5000;
 
 // Collectables
 stars = 0;
+
+// Gadgets
+gadget = new Grapple();

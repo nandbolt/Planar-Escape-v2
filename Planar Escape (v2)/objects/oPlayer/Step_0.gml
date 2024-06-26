@@ -2,11 +2,14 @@
 moveInput.x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 moveInput.y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
 moveInput.normalize();
+moveInput.scale(moveSpeed);
 
-// Move input strength
+// Dash
 if (keyboard_check_pressed(vk_space))
 {
-	moveInput.scale(moveSpeed * 50);
+	var _facingDir = getFacingVector();
+	_facingDir.scale(moveSpeed * 50);
+	moveInput.addVector(_facingDir);
 	
 	// Dash particles
 	for (var _j = 0; _j <= 1; _j += 0.5)
@@ -21,7 +24,6 @@ if (keyboard_check_pressed(vk_space))
 		}
 	}
 }
-else moveInput.scale(moveSpeed);
 
 // Apply move input
 box.addForceVector(moveInput);
@@ -51,3 +53,6 @@ else
 	else if (moveInput.x < 0 && moveInput.y > 0) image_index = 5;
 	else if (moveInput.x > 0 && moveInput.y > 0) image_index = 7;
 }
+
+// Gadget
+if (!is_undefined(gadget)) gadget.update();
