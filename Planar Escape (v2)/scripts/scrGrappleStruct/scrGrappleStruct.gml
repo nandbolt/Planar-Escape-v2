@@ -1,6 +1,8 @@
 /// @func	Grapple();
 function Grapple() : Gadget() constructor
 {
+	type = GadgetType.GRAPPLE;
+	
 	hand = noone;
 	restLength = 32;
 	pullStrength = 0.01;

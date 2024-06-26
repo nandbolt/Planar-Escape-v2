@@ -14,4 +14,10 @@ enum Power
 	GREEN,
 }
 
+enum GadgetType
+{
+	NONE,
+	GRAPPLE,
+}
+
 #endregion

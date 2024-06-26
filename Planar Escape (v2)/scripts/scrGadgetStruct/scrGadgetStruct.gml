@@ -2,6 +2,7 @@
 function Gadget() constructor
 {
 	owner = other;
+	type = GadgetType.NONE;
 	
 	/// @func	usePressed();
 	static usePressed = function(){}

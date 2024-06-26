@@ -1,0 +1,2 @@
+// Gadget
+setGadget(GadgetType.GRAPPLE);
