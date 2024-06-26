@@ -38,6 +38,18 @@ zapActor = function(_actor)
 	destroyBox(_actor, be_oBoxEngine);
 }
 
+/// @func	zapBlock({id} block);
+zapBlock = function(_block)
+{
+	if (_block.object_index == oIceBlock || _block.object_index == oBigIceBlock)
+	{
+		with (_block)
+		{
+			zap(other.powerType);
+		}
+	}
+}
+
 #endregion
 
 // Start alarms

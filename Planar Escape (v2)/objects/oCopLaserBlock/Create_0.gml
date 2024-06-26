@@ -5,6 +5,7 @@ event_inherited();
 sprLaser = sCopLaser;
 laserColor = c_blue;
 powerType = Power.BLUE;
+pushStrength = 1000;
 
 #region Functions
 
@@ -43,6 +44,13 @@ zapActor = function(_actor)
 				
 	// Destroy actor
 	destroyBox(_actor, be_oBoxEngine);
+}
+
+/// @func	zapBlock({id} block);
+zapBlock = function(_block)
+{
+	// Push block
+	_block.box.addForce(lengthdir_x(pushStrength, image_angle), lengthdir_y(pushStrength, image_angle));
 }
 
 #endregion

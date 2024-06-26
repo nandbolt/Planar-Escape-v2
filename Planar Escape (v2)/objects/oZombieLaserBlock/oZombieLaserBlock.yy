@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Moveable",
-    "path": "folders/Objects/Blocks/Moveable.yy",
+    "name": "Lasers",
+    "path": "folders/Objects/Blocks/Moveable/Lasers.yy",
   },
 }

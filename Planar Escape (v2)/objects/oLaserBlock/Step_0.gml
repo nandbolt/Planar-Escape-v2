@@ -16,13 +16,6 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 		{
 			// If actor
 			if (object_is_ancestor(_inst.object_index, oActor)) zapActor(_inst);
-			else if (_inst.object_index == oIceBlock || _inst.object_index == oBigIceBlock)
-			{
-				with (_inst)
-				{
-					zap(other.powerType);
-				}
-			}
 			else if (_inst.object_index == oPowerBlock)
 			{
 				// Turn on power block
@@ -31,6 +24,7 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 					togglePower(other.powerType);
 				}
 			}
+			else zapBlock(_inst);
 			break;
 		}
 	}
