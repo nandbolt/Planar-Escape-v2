@@ -2,21 +2,18 @@
 event_inherited();
 
 // Laser
-laserStart = new BEVector2(x + lengthdir_x(5, image_angle), y + lengthdir_y(5, image_angle));
-maxLaserLength = 314;
-laserLength = 0;
-sprLaser= sLaser;
-laserColor = c_red;
-powerType = Power.RED;
-
-// Layers
-collisionMap = layer_tilemap_get_id("CollisionTiles");
+sprLaser = sEntityLaser;
+laserColor = c_black;
+powerType = Power.BLACK;
 
 #region Functions
 
 /// @func	zapActor({id} actor);
 zapActor = function(_actor)
 {
+	// Return if zombie
+	//if (_actor.object_index == oCop) return;
+	
 	// Death dust particles
 	var _laserColor = laserColor;
 	with (_actor)
@@ -33,12 +30,19 @@ zapActor = function(_actor)
 			}
 		}
 	}
+	
+	// Create cop
+	//with (instance_create_layer(_actor.x, _actor.y, "Instances", oZombie))
+	//{
+	//	// Add boxes to box engine
+	//	array_push(be_oBoxEngine.boxes, box);
+		
+	//	// Set velocity
+	//	box.setVelocityVector(_actor.box.getVelocity());
+	//}
 				
 	// Destroy actor
 	destroyBox(_actor, be_oBoxEngine);
 }
 
 #endregion
-
-// Start alarms
-alarm[0] = 20;

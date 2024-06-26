@@ -12,6 +12,9 @@ enum Power
 	OFF,
 	RED,
 	GREEN,
+	BLUE,
+	YELLOW,
+	BLACK,
 }
 
 enum GadgetType

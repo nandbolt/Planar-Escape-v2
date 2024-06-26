@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oLaserBlock",
+  "name": "oCitizenLaserBlock",
   "spriteId": {
-    "name": "sLaserBlock",
-    "path": "sprites/sLaserBlock/sLaserBlock.yy",
+    "name": "sCitizenLaserBlock",
+    "path": "sprites/sCitizenLaserBlock/sCitizenLaserBlock.yy",
   },
   "solid": false,
   "visible": true,
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oMoveableBlock",
-    "path": "objects/oMoveableBlock/oMoveableBlock.yy",
+    "name": "oLaserBlock",
+    "path": "objects/oLaserBlock/oLaserBlock.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -29,9 +29,6 @@
   "physicsShapePoints": [],
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
