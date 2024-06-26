@@ -1,5 +1,4 @@
-// Move input direction
-moveInput.set();
+// If target
 if (instance_exists(oPlayer))
 {
 	// Check attack
@@ -39,24 +38,5 @@ if (instance_exists(oPlayer))
 	}
 }
 
-// Move input strength
-moveInput.scale(moveSpeed);
-
-// Apply move input
-box.addForceVector(moveInput);
-
-// Animations
-if (moveInput.x == 0 || moveInput.y == 0)
-{
-	if (moveInput.x > 0) image_index = 0;
-	else if (moveInput.x < 0) image_index = 4;
-	else if (moveInput.y < 0) image_index = 2;
-	else if (moveInput.y > 0) image_index = 6;
-}
-else
-{
-	if (moveInput.x > 0 && moveInput.y < 0) image_index = 1;
-	else if (moveInput.x < 0 && moveInput.y < 0) image_index = 3;
-	else if (moveInput.x < 0 && moveInput.y > 0) image_index = 5;
-	else if (moveInput.x > 0 && moveInput.y > 0) image_index = 7;
-}
+// Inherit the parent event
+event_inherited();

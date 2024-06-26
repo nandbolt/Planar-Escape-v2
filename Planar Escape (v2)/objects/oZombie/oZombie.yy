@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oActor",
-    "path": "objects/oActor/oActor.yy",
+    "name": "oNPC",
+    "path": "objects/oNPC/oNPC.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -34,7 +34,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Actors",
-    "path": "folders/Objects/Actors.yy",
+    "name": "NPCs",
+    "path": "folders/Objects/Actors/NPCs.yy",
   },
 }

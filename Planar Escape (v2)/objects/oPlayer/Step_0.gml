@@ -39,20 +39,7 @@ if (place_meeting(x, y, oCollectable))
 }
 
 // Animations
-if (moveInput.x == 0 || moveInput.y == 0)
-{
-	if (moveInput.x > 0) image_index = 0;
-	else if (moveInput.x < 0) image_index = 4;
-	else if (moveInput.y < 0) image_index = 2;
-	else if (moveInput.y > 0) image_index = 6;
-}
-else
-{
-	if (moveInput.x > 0 && moveInput.y < 0) image_index = 1;
-	else if (moveInput.x < 0 && moveInput.y < 0) image_index = 3;
-	else if (moveInput.x < 0 && moveInput.y > 0) image_index = 5;
-	else if (moveInput.x > 0 && moveInput.y > 0) image_index = 7;
-}
+updateAnimations();
 
 // Gadget
 if (!is_undefined(gadget)) gadget.update();
