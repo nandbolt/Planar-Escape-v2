@@ -13,5 +13,5 @@ part_type_life(partTypeDust, 45, 45);
 partTypePulse = part_type_create();
 part_type_sprite(partTypePulse, sCircleCenter, false, false, false);
 part_type_alpha2(partTypePulse, 1, 0);
-part_type_size(partTypePulse, 0.5, 0.5, 0.02, 0);
-part_type_life(partTypePulse, 45, 45);
+part_type_size(partTypePulse, 0, 0, 1/30, 0);
+part_type_life(partTypePulse, 60, 60);

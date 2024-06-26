@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oBigIceBlock",
   "spriteId": {
-    "name": "sIceBlock",
-    "path": "sprites/sIceBlock/sIceBlock.yy",
+    "name": "sBigIceBlock",
+    "path": "sprites/sBigIceBlock/sBigIceBlock.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,9 +27,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
