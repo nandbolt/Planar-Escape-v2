@@ -32,7 +32,11 @@ updateRod = function(_type)
 		zapColor = c_green;
 		sprZap = sZombieLaser;
 	}
-	else image_index = 0;
+	else
+	{
+		image_index = 0;
+		target = noone;
+	}
 }
 
 /// @func	zapActor({id} actor);
