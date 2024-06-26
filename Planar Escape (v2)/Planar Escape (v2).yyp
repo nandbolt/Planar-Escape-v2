@@ -12,7 +12,7 @@
     {"id":{"name":"scrVector2Struct","path":"scripts/scrVector2Struct/scrVector2Struct.yy",},"order":0,},
     {"id":{"name":"be_scrContactStruct","path":"scripts/be_scrContactStruct/be_scrContactStruct.yy",},"order":6,},
     {"id":{"name":"oLaserBlock","path":"objects/oLaserBlock/oLaserBlock.yy",},"order":2,},
-    {"id":{"name":"sBigIceBlock","path":"sprites/sBigIceBlock/sBigIceBlock.yy",},"order":8,},
+    {"id":{"name":"oBigMoveableBlock","path":"objects/oBigMoveableBlock/oBigMoveableBlock.yy",},"order":8,},
     {"id":{"name":"scrGlobals","path":"scripts/scrGlobals/scrGlobals.yy",},"order":3,},
     {"id":{"name":"sPixel","path":"sprites/sPixel/sPixel.yy",},"order":0,},
     {"id":{"name":"sIceBlock","path":"sprites/sIceBlock/sIceBlock.yy",},"order":1,},

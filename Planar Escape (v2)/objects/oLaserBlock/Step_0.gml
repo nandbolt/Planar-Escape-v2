@@ -18,18 +18,9 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 			if (object_is_ancestor(_inst.object_index, oActor)) zapActor(_inst);
 			else if (_inst.object_index == oIceBlock || _inst.object_index == oBigIceBlock)
 			{
-				// Shrink ice
-				_inst.image_xscale -= iceShrinkSpeed;
-				_inst.image_yscale -= iceShrinkSpeed;
-				
-				// Destroy ice if too small
-				if (_inst.bbox_right - _inst.bbox_left < iceMinSize)
+				with (_inst)
 				{
-					with (oParticleManager)
-					{
-						part_particles_create_color(partSystem, _inst.x, _inst.y, partTypeDust, c_aqua, 3);
-					}
-					destroyBox(_inst, be_oBoxEngine);
+					zap(other.powerType);
 				}
 			}
 			else if (_inst.object_index == oPowerBlock)
