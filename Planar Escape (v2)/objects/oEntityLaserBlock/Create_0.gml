@@ -11,9 +11,6 @@ powerType = Power.BLACK;
 /// @func	zapActor({id} actor);
 zapActor = function(_actor)
 {
-	// Return if zombie
-	//if (_actor.object_index == oCop) return;
-	
 	// Death dust particles
 	var _laserColor = laserColor;
 	with (_actor)
@@ -30,16 +27,6 @@ zapActor = function(_actor)
 			}
 		}
 	}
-	
-	// Create cop
-	//with (instance_create_layer(_actor.x, _actor.y, "Instances", oZombie))
-	//{
-	//	// Add boxes to box engine
-	//	array_push(be_oBoxEngine.boxes, box);
-		
-	//	// Set velocity
-	//	box.setVelocityVector(_actor.box.getVelocity());
-	//}
 				
 	// Destroy actor
 	destroyBox(_actor, be_oBoxEngine);
