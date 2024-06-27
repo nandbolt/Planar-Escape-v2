@@ -1,9 +1,25 @@
-/// @func	Blaster();
-function Blaster() : Gadget() constructor
+/// @func	Blaster({enum.Power} powerType);
+function Blaster(_powerType) : Gadget() constructor
 {
 	type = GadgetType.BLASTER;
 	
+	powerType = _powerType;
+	laserPulse = oLaserPulse;
 	launchSpeed = 5;
+	
+	/// @func	setPower({enum.Power} type);
+	static setPower = function(_type)
+	{
+		// Set power
+		powerType = _type;
+		
+		// Set pulse
+		if (powerType == Power.GREEN) laserPulse = oZombieLaserPulse;
+		else if (powerType == Power.BLUE) laserPulse = oCopLaserPulse;
+		else if (powerType == Power.YELLOW) laserPulse = oCitizenLaserPulse;
+		else if (powerType == Power.BLACK) laserPulse = oEntityLaserPulse;
+		else laserPulse = oLaserPulse;
+	}
 	
 	/// @func	update();
 	static update = function()
@@ -22,7 +38,7 @@ function Blaster() : Gadget() constructor
 		}
 			
 		// Init hand
-		with (instance_create_layer(owner.x + _facingDir.x * 8, owner.y + _facingDir.y * 8, "Instances", oLaserPulse))
+		with (instance_create_layer(owner.x + _facingDir.x * 8, owner.y + _facingDir.y * 8, "Instances", laserPulse))
 		{
 			// Launch
 			velocity.x = _facingDir.x;
@@ -32,4 +48,7 @@ function Blaster() : Gadget() constructor
 			velocity.scale(other.launchSpeed);
 		}
 	}
+	
+	// Set power
+	setPower(powerType);
 }

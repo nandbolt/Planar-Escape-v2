@@ -8,4 +8,4 @@ moveSpeed = 5000;
 stars = 0;
 
 // Gadgets
-gadget = new Blaster();
+gadget = new Blaster(Power.BLACK);

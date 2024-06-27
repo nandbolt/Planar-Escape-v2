@@ -3,6 +3,7 @@ velocity = new BEVector2();
 
 // Power
 powerType = Power.RED;
+laserColor = c_red;
 
 // Tiles
 collisionMap = layer_tilemap_get_id("CollisionTiles");
