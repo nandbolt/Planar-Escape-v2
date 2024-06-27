@@ -8,4 +8,4 @@ moveSpeed = 5000;
 stars = 0;
 
 // Gadgets
-gadget = undefined;
+gadget = new Blaster();

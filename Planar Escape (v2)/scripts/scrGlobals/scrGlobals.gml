@@ -21,6 +21,7 @@ enum GadgetType
 {
 	NONE,
 	GRAPPLE,
+	BLASTER,
 }
 
 #endregion
