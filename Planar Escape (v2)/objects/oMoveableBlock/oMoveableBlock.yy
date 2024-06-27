@@ -34,6 +34,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Blocks",
-    "path": "folders/Objects/Blocks.yy",
+    "path": "folders/Objects/Solids/Blocks.yy",
   },
 }

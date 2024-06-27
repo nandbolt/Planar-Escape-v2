@@ -32,6 +32,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Moveable",
-    "path": "folders/Objects/Blocks/Moveable.yy",
+    "path": "folders/Objects/Solids/Blocks/Moveable.yy",
   },
 }

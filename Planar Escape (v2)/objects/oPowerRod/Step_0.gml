@@ -34,16 +34,8 @@ if (_tile > 17)
 	{
 		// Move zap position to target
 		
-		// If on actor
-		if (object_is_ancestor(target.object_index, oActor)) zapActor(target);
-		else if (target.object_index == oPowerBlock)
-		{
-			// Turn on power block
-			with (target)
-			{
-				togglePower(other.powerType);
-			}
-		}
+		// Zap
+		zap(self, target, powerType);
 	}
 }
 else updateRod(Power.OFF);

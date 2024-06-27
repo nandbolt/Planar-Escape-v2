@@ -9,8 +9,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "be_oBox",
-    "path": "objects/be_oBox/be_oBox.yy",
+    "name": "oSolid",
+    "path": "objects/oSolid/oSolid.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -31,6 +31,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Actors",
-    "path": "folders/Objects/Actors.yy",
+    "path": "folders/Objects/Solids/Actors.yy",
   },
 }

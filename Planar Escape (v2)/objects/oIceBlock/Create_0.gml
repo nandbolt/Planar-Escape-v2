@@ -12,17 +12,6 @@ baseMass = box.getMass();
 
 #region Functions
 
-/// @func	zap({enum.Power} type);
-zap = function(_type)
-{
-	// Set zap velocity
-	var _zapVel = changeSpeed;
-	if (_type == Power.GREEN) _zapVel *= -1;
-	
-	// Change ice
-	setSize(image_xscale - _zapVel);
-}
-
 /// @func	setSize({real} imageScale);
 setSize = function(_imageScale)
 {

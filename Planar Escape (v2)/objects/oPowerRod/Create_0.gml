@@ -12,6 +12,8 @@ targetRange = 60;
 // Zap
 zapColor = c_red;
 sprZap = sLaser;
+pushStrength = 1000;
+pullStrength = 1000;
 
 #region Functions
 

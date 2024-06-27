@@ -1,19 +1,16 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oCitizen",
-  "spriteId": {
-    "name": "sCitizen",
-    "path": "sprites/sCitizen/sCitizen.yy",
-  },
+  "name": "oSolid",
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oNPC",
-    "path": "objects/oNPC/oNPC.yy",
+    "name": "be_oBox",
+    "path": "objects/be_oBox/be_oBox.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -27,14 +24,11 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "NPCs",
-    "path": "folders/Objects/Solids/Actors/NPCs.yy",
+    "name": "Solids",
+    "path": "folders/Objects/Solids.yy",
   },
 }

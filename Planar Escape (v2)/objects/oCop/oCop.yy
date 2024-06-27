@@ -35,6 +35,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "NPCs",
-    "path": "folders/Objects/Actors/NPCs.yy",
+    "path": "folders/Objects/Solids/Actors/NPCs.yy",
   },
 }

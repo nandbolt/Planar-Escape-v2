@@ -11,20 +11,13 @@ for (laserLength = 6; laserLength <= maxLaserLength; laserLength += 3)
 	else
 	{
 		// Check laser block collision
-		var _inst = collision_point(_x, _y, be_oBox, false, true);
+		var _inst = collision_point(_x, _y, oSolid, false, true);
 		if (_inst != noone && _inst.object_index != oGlassBlock)
 		{
-			// If actor
-			if (object_is_ancestor(_inst.object_index, oActor)) zapActor(_inst);
-			else if (_inst.object_index == oPowerBlock)
-			{
-				// Turn on power block
-				with (_inst)
-				{
-					togglePower(other.powerType);
-				}
-			}
-			else zapBlock(_inst);
+			// Zap solid
+			zap(self, _inst, powerType);
+			
+			// Break from loop
 			break;
 		}
 	}

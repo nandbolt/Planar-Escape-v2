@@ -37,6 +37,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Lasers",
-    "path": "folders/Objects/Blocks/Moveable/Lasers.yy",
+    "path": "folders/Objects/Solids/Blocks/Moveable/Lasers.yy",
   },
 }
