@@ -60,24 +60,9 @@ function zap(_zapper, _target, _type)
 				// Return if a zombie
 				if (_target.object_index == oZombie) return;
 				
-				// Zap particles
-				emitZapParticles(_target, c_green);
-				
-				// Create zombie
-				with (instance_create_layer(_target.x, _target.y, "Instances", oZombie))
-				{
-					// Add boxes to box engine
-					array_push(be_oBoxEngine.boxes, box);
-		
-					// Set velocity
-					box.setVelocityVector(_target.box.getVelocity());
-					
-					// Set zapper target if zapper is a rod
-					if (_zapper.object_index == oPowerRod) _zapper.target = self;
-				}
-				
-				// Destroy actor
-				destroyBox(_target, be_oBoxEngine);
+				// Zombify target
+				if (_zapper.object_index == oPowerRod) _zapper.target = zombify(_target);
+				else zombify(_target);
 			}
 			// Else if ice block
 			else if (_target.object_index == oIceBlock || _target.object_index == oBigIceBlock)
@@ -229,4 +214,33 @@ function emitZapParticles(_target, _c)
 			}
 		}
 	}
+}
+
+/// @func	zombify({id} target);
+function zombify(_target)
+{
+	// Zap particles
+	emitZapParticles(_target, c_green);
+				
+	// Create zombie
+	var _zombie = instance_create_layer(_target.x, _target.y, "Instances", oZombie);
+	with (_zombie)
+	{
+		// Add boxes to box engine
+		array_push(be_oBoxEngine.boxes, box);
+		
+		// Set velocity
+		box.setVelocityVector(_target.box.getVelocity());
+		
+		// Set facing
+		image_index = _target.image_index;
+		facingDirection.setVector(_target.facingDirection);
+		facingAngle = _target.facingAngle;
+	}
+				
+	// Destroy actor
+	destroyBox(_target, be_oBoxEngine);
+	
+	// Return zombie
+	return _zombie;
 }

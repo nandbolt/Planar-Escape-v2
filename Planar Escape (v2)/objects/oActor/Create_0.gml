@@ -40,4 +40,25 @@ updateAnimations = function()
 	facingAngle = facingDirection.angleDegrees();
 }
 
+/// @func	setFacing({int} imageIdx);
+setFacing = function(_imageIdx)
+{
+	// Set index
+	image_index = _imageIdx;
+	
+	// Set direction
+	if (image_index == 0) facingDirection.set(1, 0);
+	else if (image_index == 1) facingDirection.set(1, -1);
+	else if (image_index == 2) facingDirection.set(0, -1);
+	else if (image_index == 3) facingDirection.set(-1, -1);
+	else if (image_index == 4) facingDirection.set(-1, 0);
+	else if (image_index == 5) facingDirection.set(-1, 1);
+	else if (image_index == 6) facingDirection.set(0, 1);
+	else if (image_index == 7) facingDirection.set(1, 1);
+	
+	// Normalize and set angle
+	facingDirection.normalize();
+	facingAngle = facingDirection.angleDegrees();
+}
+
 #endregion

@@ -24,4 +24,11 @@ enum GadgetType
 	BLASTER,
 }
 
+enum ZombieState
+{
+	WANDER,
+	ALERTED,
+	CHASE,
+}
+
 #endregion
