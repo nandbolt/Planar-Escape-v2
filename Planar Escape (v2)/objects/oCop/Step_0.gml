@@ -21,3 +21,5 @@ if (instance_exists(oPlayer))
 // Inherit the parent event
 event_inherited();
 
+// Gadget
+if (!is_undefined(gadget)) gadget.update();

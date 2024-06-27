@@ -46,13 +46,6 @@ function Grapple() : Gadget() constructor
 	{
 		if (hand == noone || !instance_exists(hand))
 		{
-			// Get launch direction
-			var _facingDir = undefined;
-			with (owner)
-			{
-				_facingDir = getFacingVector();
-			}
-			
 			// Init hand
 			hand = instance_create_layer(owner.x, owner.y, "Instances", oGrappleHand);
 			with (hand)
@@ -61,8 +54,8 @@ function Grapple() : Gadget() constructor
 				gadget = other;
 				
 				// Launch
-				velocity.x = _facingDir.x;
-				velocity.y = _facingDir.y;
+				velocity.x = other.owner.facingDirection.x;
+				velocity.y = other.owner.facingDirection.y;
 				velocity.normalize();
 				velocity.scale(other.launchSpeed);
 			}

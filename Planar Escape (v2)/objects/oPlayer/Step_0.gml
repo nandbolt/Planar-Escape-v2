@@ -7,9 +7,7 @@ moveInput.scale(moveSpeed);
 // Dash
 if (keyboard_check_pressed(vk_space))
 {
-	var _facingDir = getFacingVector();
-	_facingDir.scale(moveSpeed * 50);
-	moveInput.addVector(_facingDir);
+	moveInput.addScaledVector(facingDirection, moveSpeed * 50);
 	
 	// Dash particles
 	for (var _j = 0; _j <= 1; _j += 0.5)

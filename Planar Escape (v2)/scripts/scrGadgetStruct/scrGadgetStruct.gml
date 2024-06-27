@@ -4,17 +4,35 @@ function Gadget() constructor
 	owner = other;
 	type = GadgetType.NONE;
 	
+	// Inputs
+	useHeld = false;
+	
+	/// @func	use();
+	static use = function(){}
+	
 	/// @func	usePressed();
 	static usePressed = function(){}
 	
 	/// @func	useReleased();
 	static useReleased = function(){}
 	
+	/// @func	actionUse();
+	static actionUse = function(){ return keyboard_check(vk_shift); }
+	
 	/// @func	updateActions();
 	static updateActions = function()
 	{
-		if (keyboard_check_pressed(vk_shift)) usePressed();
-		else if (keyboard_check_released(vk_shift)) useReleased();
+		if (actionUse())
+		{
+			if (!useHeld) usePressed();
+			use();
+			useHeld = true;
+		}
+		else
+		{
+			if (useHeld) useReleased();
+			useHeld = false;
+		}
 	}
 	
 	/// @func	update();
