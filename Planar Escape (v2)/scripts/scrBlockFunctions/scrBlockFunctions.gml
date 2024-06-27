@@ -9,7 +9,7 @@ function destroyBox(_boxInst, _boxEngine)
 	}
 		
 	// End game if player
-	if (_boxInst.object_index == oPlayer) oLevel.levelFailed = true;
+	if (_boxInst.object_index == oPlayer && !oLevel.levelComplete) oLevel.levelFailed = true;
 		
 	// Destroy box instance
 	instance_destroy(_boxInst);

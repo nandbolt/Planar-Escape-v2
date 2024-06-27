@@ -1,14 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oPortal",
-  "spriteId": null,
+  "name": "oBluePortal",
+  "spriteId": {
+    "name": "sBluePortal",
+    "path": "sprites/sBluePortal/sBluePortal.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oTelePortal",
+    "path": "objects/oTelePortal/oTelePortal.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -22,13 +28,12 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"oSolid","path":"objects/oSolid/oSolid.yy",},},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Portal",
-    "path": "folders/Objects/Portal.yy",
+    "name": "Teleportals",
+    "path": "folders/Objects/Portal/Teleportals.yy",
   },
 }
