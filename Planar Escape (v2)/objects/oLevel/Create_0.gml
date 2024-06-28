@@ -13,6 +13,9 @@ gridLayer = layer_get_id("GridBackground");
 checkpoint = noone;
 respawnDelay = 60;
 
+// Text
+worldTextScale = 2/3;
+
 // Camera
 instance_create_layer(0, 0, "Instances", oCamera);
 
