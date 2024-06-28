@@ -14,6 +14,20 @@ function zap(_zapper, _target, _type)
 		// Exit
 		return;
 	}
+	else if (_target.object_index == oCrystalBlock)
+	{
+		// Activate
+		_target.active = true;
+		_target.alarm[1] = 2;
+		if (_zapper.object_index == oPowerRod)
+		{
+			_target.image_angle = point_direction(_zapper.x, _zapper.y, _target.x, _target.y);
+		}
+		else _target.image_angle = _zapper.image_angle;
+		
+		// Exit
+		return;
+	}
 	
 	switch (_type)
 	{

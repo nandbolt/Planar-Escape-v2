@@ -1,6 +1,9 @@
 // Inherit the parent event
 event_inherited();
 
+// States
+active = true;
+
 // Laser
 laserStart = new BEVector2(x + lengthdir_x(5, image_angle), y + lengthdir_y(5, image_angle));
 maxLaserLength = 314;

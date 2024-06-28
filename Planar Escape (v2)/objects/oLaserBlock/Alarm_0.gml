@@ -1,5 +1,5 @@
 /// @desc Particles
-if (isVisible(id))
+if (active && isVisible(id))
 {
 	with (oParticleManager)
 	{
