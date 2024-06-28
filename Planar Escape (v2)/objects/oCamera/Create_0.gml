@@ -16,5 +16,10 @@ if (instance_exists(oPlayer))
 {
 	targetPosition.x = clamp(oPlayer.x - halfCamWidth, 0, room_width - camWidth);
 	targetPosition.y = clamp(oPlayer.y - halfCamHeight, 0, room_height - camHeight);
-	camera_set_view_pos(view_camera[0], targetPosition.x, targetPosition.y);
 }
+else
+{
+	targetPosition.x = room_width * 0.5 - halfCamWidth;
+	targetPosition.y = room_height - camHeight;
+}
+camera_set_view_pos(view_camera[0], targetPosition.x, targetPosition.y);

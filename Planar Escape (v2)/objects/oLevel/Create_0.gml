@@ -7,6 +7,7 @@ starsCollected = 0;
 
 // Layers
 collisionLayer = layer_get_id("CollisionTiles");
+gridLayer = layer_get_id("GridBackground");
 
 // Checkpoint
 checkpoint = noone;
@@ -31,8 +32,9 @@ with (boxEngine)
 
 #endregion
 
-// Hide collision layer
+// Hide debug layer
 layer_set_visible(collisionLayer, false);
+layer_set_visible(gridLayer, false);
 
 // Entity
 instance_create_layer(room_width * 0.5, room_height, "AirInstances", oEntity);

@@ -22,6 +22,22 @@ function destroyBox(_boxInst, _boxEngine)
 	instance_destroy(_boxInst);
 }
 
+/// @func	spawnBox({object} boxObj, {real} x, {real} y, {string} layerName, {id} boxEngine);
+function spawnBox(_boxObj, _x, _y, _layerName, _boxEngine)
+{
+	// Create box instance
+	var _boxInst = instance_create_layer(_x, _y, _layerName, _boxObj);
+	
+	// Add box to engine
+	with (_boxEngine)
+	{
+		array_push(boxes, _boxInst.box);
+	}
+	
+	// Return box instance
+	return _boxInst;
+}
+
 /// @func	isIce({id} block);
 function isIce(_block)
 {
