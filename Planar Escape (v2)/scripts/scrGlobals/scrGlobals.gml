@@ -31,4 +31,11 @@ enum ZombieState
 	CHASE,
 }
 
+enum CopState
+{
+	PATROL,
+	ALERTED,
+	CHASE,
+}
+
 #endregion

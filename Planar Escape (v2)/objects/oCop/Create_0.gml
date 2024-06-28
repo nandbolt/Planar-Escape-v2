@@ -4,18 +4,23 @@ event_inherited();
 // Movement
 moveSpeed = 5000;
 
+// View
+viewAngle = 0;
+viewAngleSpeed = 0.1;
+
+// Think
+thinkFreq = 60;
+
 // Gadgets
 gadget = new Blaster(Power.RED);
 with (gadget)
 {
 	actionUse = function()
 	{
-		if (instance_exists(oPlayer))
-		{
-			// Check attack
-			var _dx = oPlayer.x - other.x, _dy = oPlayer.y - other.y;
-			if (point_distance(0, 0, _dx, _dy) < 128) return true;
-		}
+		if (other.mentalState == CopState.CHASE && instance_exists(other.target)) return true
 		return false;
 	}
 }
+
+// Set think alarm
+alarm[0] = thinkFreq;

@@ -3,7 +3,7 @@
 // State logic
 switch (mentalState)
 {
-	case ZombieState.WANDER:
+	case CopState.PATROL:
 		// Rotate if on the same tile as before
 		var _tx = floor(x / TILE_SIZE) * TILE_SIZE, _ty = floor(y / TILE_SIZE) * TILE_SIZE;
 		if (_tx == prevTilePosition.x && _ty == prevTilePosition.y)
@@ -17,14 +17,14 @@ switch (mentalState)
 		prevTilePosition.x = floor(x / TILE_SIZE) * TILE_SIZE;
 		prevTilePosition.y = floor(y / TILE_SIZE) * TILE_SIZE;
 		break;
-	case ZombieState.ALERTED:
+	case CopState.ALERTED:
 		// Switch to chase
-		mentalState = ZombieState.CHASE;
+		mentalState = CopState.CHASE;
 		alarm[0] = 180;
 		break;
-	case ZombieState.CHASE:
+	case CopState.CHASE:
 		// Switch to wander if no target or target is too far
-		if (!instance_exists(target) || point_distance(x, y, target.x, target.y) > maxViewDistance) mentalState = ZombieState.WANDER;
+		if (!instance_exists(target) || point_distance(x, y, target.x, target.y) > maxViewDistance) mentalState = CopState.PATROL;
 		break;
 }
 
