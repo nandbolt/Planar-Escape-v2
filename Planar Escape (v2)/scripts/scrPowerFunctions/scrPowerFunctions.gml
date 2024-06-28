@@ -35,7 +35,7 @@ function zap(_zapper, _target, _type)
 				destroyBox(_target, be_oBoxEngine);
 			}
 			// Else if ice block
-			else if (_target.object_index == oIceBlock || _target.object_index == oBigIceBlock)
+			else if (isIce(_target))
 			{
 				// Shrink
 				with (_target)
@@ -65,7 +65,7 @@ function zap(_zapper, _target, _type)
 				else zombify(_target);
 			}
 			// Else if ice block
-			else if (_target.object_index == oIceBlock || _target.object_index == oBigIceBlock)
+			else if (isIce(_target))
 			{
 				// Shrink
 				with (_target)

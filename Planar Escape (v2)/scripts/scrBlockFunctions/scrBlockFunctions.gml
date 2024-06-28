@@ -93,3 +93,10 @@ function toggleWirePower(_wireMap, _tile, _x, _y, _type)
 	if (_type != Power.OFF && _tile < 18) tilemap_set_at_pixel(_wireMap, _tile+18*_type, _x, _y);
 	else if (_type == Power.OFF && _tile > 17) tilemap_set_at_pixel(_wireMap, _tile-18*floor(_tile/18), _x, _y);
 }
+
+/// @func	isIce({id} block);
+function isIce(_block)
+{
+	if (object_is_ancestor(_block.object_index, oIceBlock) || _block.object_index == oIceBlock) return true;
+	return false;
+}
