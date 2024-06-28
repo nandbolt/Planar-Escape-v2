@@ -15,13 +15,26 @@ if (active)
 		{
 			// Check laser block collision
 			var _inst = collision_point(_x, _y, oSolid, false, true);
-			if (_inst != noone && _inst.object_index != oGlassBlock)
+			if (_inst != noone)
 			{
-				// Zap solid
-				zap(self, _inst, powerType);
+				// If not glass or a beamsplitter
+				if (_inst.object_index != oGlassBlock && _inst.object_index != oBeamSplitterBlock)
+				{
+					// Zap solid
+					zap(self, _inst, powerType);
 			
-				// Break from loop
-				break;
+					// Break from loop
+					break;
+				}
+				// If a beamsplitter
+				else if (_inst.object_index == oBeamSplitterBlock)
+				{
+					// Split beam
+					with (_inst)
+					{
+						splitBeam(other, other.powerType);
+					}
+				}
 			}
 		}
 	}

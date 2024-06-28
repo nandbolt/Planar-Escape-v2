@@ -7,7 +7,7 @@ if (place_meeting(x, y, oSolid))
 {
 	// Check laser block collision
 	var _inst = instance_place(x, y, oSolid);
-	if (_inst != noone && _inst.object_index != oGlassBlock)
+	if (_inst != noone && _inst.object_index != oGlassBlock && _inst.object_index != oBeamSplitterBlock)
 	{
 		// Zap solid
 		zap(self, _inst, powerType);
