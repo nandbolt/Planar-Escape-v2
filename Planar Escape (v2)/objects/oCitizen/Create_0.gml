@@ -11,7 +11,7 @@ thinkFreq = 45;
 scanPhase = 0;
 scanSpeed = 0.05;
 scanRange = 10;
-sight = new Sightline([oPlayer, oZombie, oCop], 144, 0);
+sight = new Sightline([oPlayer, oZombie, oCop, oCitizen, oRobot], 144, 0);
 
 #region Functions
 
