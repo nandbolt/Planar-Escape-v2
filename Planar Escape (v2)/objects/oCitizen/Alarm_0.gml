@@ -3,18 +3,18 @@
 // State logic
 switch (mentalState)
 {
-	case CopState.PATROL:
+	case CitizenState.WANDER:
 		// Update rotation
 		updateRotation();
 		break;
-	case CopState.ALERTED:
+	case CitizenState.ALERTED:
 		// Switch to chase
-		mentalState = CopState.CHASE;
+		mentalState = CitizenState.FLEE;
 		alarm[0] = 180;
 		break;
-	case CopState.CHASE:
+	case CitizenState.FLEE:
 		// Switch to wander if no target or target is too far
-		if (!instance_exists(target) || point_distance(x, y, target.x, target.y) > sight1.maxViewDistance) mentalState = CopState.PATROL;
+		if (!instance_exists(target) || point_distance(x, y, target.x, target.y) > sight.maxViewDistance) mentalState = CitizenState.WANDER;
 		break;
 }
 

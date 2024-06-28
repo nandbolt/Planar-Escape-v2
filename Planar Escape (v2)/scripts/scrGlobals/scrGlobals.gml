@@ -38,4 +38,11 @@ enum CopState
 	CHASE,
 }
 
+enum CitizenState
+{
+	WANDER,
+	ALERTED,
+	FLEE,
+}
+
 #endregion

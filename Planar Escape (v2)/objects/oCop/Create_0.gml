@@ -11,6 +11,7 @@ targets = [oPlayer, oZombie, oCitizen];
 // View
 scanPhase = 0;
 scanSpeed = 0.05;
+scanRange = 45;
 sight1 = new Sightline(targets, 72, 45);
 sight2 = new Sightline(targets, 72, -45);
 
@@ -24,6 +25,17 @@ with (gadget)
 		return false;
 	}
 }
+
+#region Functions
+
+/// @func	onRotate();
+onRotate = function()
+{
+	sight1.currentMaxViewDistance = 0;
+	sight2.currentMaxViewDistance = 0;
+}
+
+#endregion
 
 // Set think alarm
 alarm[0] = thinkFreq;

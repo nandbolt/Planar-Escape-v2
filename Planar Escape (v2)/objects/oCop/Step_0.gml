@@ -8,7 +8,7 @@ switch (mentalState)
 		
 		// Update sight
 		scanPhase += scanSpeed;
-		var _scanOffset = sin(scanPhase) * 45;
+		var _scanOffset = sin(scanPhase) * scanRange;
 		sight1.viewAngleOffset = _scanOffset;
 		sight2.viewAngleOffset = -_scanOffset;
 		sight1.update();
@@ -32,6 +32,14 @@ switch (mentalState)
 			else if (abs(_dx) > abs(_dy)) moveInput.x = sign(_dx);
 			else moveInput.y = sign(_dy);
 			moveInput.normalize();
+			
+			// If close to target
+			if (point_distance(x, y, target.x, target.y) < 60)
+			{
+				// Don't move to target, just rotate
+				updateAnimations();
+				moveInput.set();
+			}
 		}
 		else mentalState = CopState.PATROL;
 		break;
