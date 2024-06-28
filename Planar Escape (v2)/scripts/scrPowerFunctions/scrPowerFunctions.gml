@@ -75,8 +75,8 @@ function zap(_zapper, _target, _type)
 				if (_target.object_index == oZombie) return;
 				
 				// Zombify target
-				if (_zapper.object_index == oPowerRod) _zapper.target = zombify(_target);
-				else zombify(_target);
+				if (_zapper.object_index == oPowerRod) _zapper.target = transformTarget(_target, oZombie, c_green);
+				else transformTarget(_target, oZombie, c_green);
 			}
 			// Else if ice block
 			else if (isIce(_target))
@@ -101,27 +101,12 @@ function zap(_zapper, _target, _type)
 			// If actor
 			if (object_is_ancestor(_target.object_index, oActor))
 			{
-				// Return if a zombie
+				// Return if a cop
 				if (_target.object_index == oCop) return;
 				
-				// Zap particles
-				emitZapParticles(_target, c_blue);
-				
-				// Create cop
-				with (instance_create_layer(_target.x, _target.y, "Instances", oCop))
-				{
-					// Add boxes to box engine
-					array_push(be_oBoxEngine.boxes, box);
-		
-					// Set velocity
-					box.setVelocityVector(_target.box.getVelocity());
-					
-					// Set zapper target if zapper is a rod
-					if (_zapper.object_index == oPowerRod) _zapper.target = self;
-				}
-				
-				// Destroy actor
-				destroyBox(_target, be_oBoxEngine);
+				// Copify target
+				if (_zapper.object_index == oPowerRod) _zapper.target = transformTarget(_target, oCop, c_blue);
+				else transformTarget(_target, oCop, c_blue);
 			}
 			else
 			{
@@ -155,24 +140,9 @@ function zap(_zapper, _target, _type)
 				// Return if a zombie
 				if (_target.object_index == oCitizen || _target.object_index == oPlayer) return;
 				
-				// Zap particles
-				emitZapParticles(_target, c_yellow);
-				
-				// Create citizen
-				with (instance_create_layer(_target.x, _target.y, "Instances", oCitizen))
-				{
-					// Add boxes to box engine
-					array_push(be_oBoxEngine.boxes, box);
-		
-					// Set velocity
-					box.setVelocityVector(_target.box.getVelocity());
-					
-					// Set zapper target if zapper is a rod
-					if (_zapper.object_index == oPowerRod) _zapper.target = self;
-				}
-				
-				// Destroy actor
-				destroyBox(_target, be_oBoxEngine);
+				// Citify target
+				if (_zapper.object_index == oPowerRod) _zapper.target = transformTarget(_target, oCitizen, c_yellow);
+				else transformTarget(_target, oCitizen, c_yellow);
 			}
 			else
 			{
@@ -230,15 +200,15 @@ function emitZapParticles(_target, _c)
 	}
 }
 
-/// @func	zombify({id} target);
-function zombify(_target)
+/// @func	transformTarget({id} target, {object} newObject, {color} color);
+function transformTarget(_target, _newObject, _color)
 {
 	// Zap particles
-	emitZapParticles(_target, c_green);
+	emitZapParticles(_target, _color);
 				
-	// Create zombie
-	var _zombie = instance_create_layer(_target.x, _target.y, "Instances", oZombie);
-	with (_zombie)
+	// Create citizen
+	var _actor = instance_create_layer(_target.x, _target.y, "Instances", _newObject);
+	with (_actor)
 	{
 		// Add boxes to box engine
 		array_push(be_oBoxEngine.boxes, box);
@@ -255,6 +225,6 @@ function zombify(_target)
 	// Destroy actor
 	destroyBox(_target, be_oBoxEngine);
 	
-	// Return zombie
-	return _zombie;
+	// Return object
+	return _actor;
 }
