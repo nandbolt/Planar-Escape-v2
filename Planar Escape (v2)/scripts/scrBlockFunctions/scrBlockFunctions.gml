@@ -7,9 +7,16 @@ function destroyBox(_boxInst, _boxEngine)
 	{
 		removeBox(_boxInst.box);
 	}
-		
-	// End game if player
-	if (_boxInst.object_index == oPlayer && !oLevel.levelComplete) oLevel.levelFailed = true;
+	
+	// If player
+	if (_boxInst.object_index == oPlayer && !oLevel.levelComplete)
+	{
+		// Set level alarm to either respawn or end game
+		with (oLevel)
+		{
+			alarm[0] = respawnDelay;
+		}
+	}
 		
 	// Destroy box instance
 	instance_destroy(_boxInst);

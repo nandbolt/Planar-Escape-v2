@@ -8,6 +8,10 @@ starsCollected = 0;
 // Layers
 collisionLayer = layer_get_id("CollisionTiles");
 
+// Checkpoint
+checkpoint = noone;
+respawnDelay = 60;
+
 // Camera
 instance_create_layer(0, 0, "Instances", oCamera);
 
