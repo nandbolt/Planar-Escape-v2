@@ -18,6 +18,8 @@ switch (mentalState)
 		prevTilePosition.y = floor(y / TILE_SIZE) * TILE_SIZE;
 		break;
 	case ZombieState.ALERTED:
+		// Switch to chase
+		mentalState = ZombieState.CHASE;
 		break;
 	case ZombieState.CHASE:
 		break;
