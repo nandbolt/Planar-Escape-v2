@@ -14,7 +14,7 @@ function zap(_zapper, _target, _type)
 		// Exit
 		return;
 	}
-	else if (_target.object_index == oCrystalBlock)
+	else if (_target.object_index == oCrystalBlock || object_is_ancestor(_target.object_index, oCrystalBlock))
 	{
 		// Activate
 		_target.active = true;
