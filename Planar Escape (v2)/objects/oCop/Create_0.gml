@@ -4,12 +4,15 @@ event_inherited();
 // Movement
 moveSpeed = 5000;
 
-// View
-viewAngle = 0;
-viewAngleSpeed = 0.1;
-
 // Think
 thinkFreq = 60;
+targets = [oPlayer, oZombie, oCitizen];
+
+// View
+scanPhase = 0;
+scanSpeed = 0.05;
+sight1 = new Sightline(targets, 72, 45);
+sight2 = new Sightline(targets, 72, -45);
 
 // Gadgets
 gadget = new Blaster(Power.RED);

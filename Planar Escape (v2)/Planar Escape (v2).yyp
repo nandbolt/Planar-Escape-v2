@@ -88,6 +88,7 @@
     {"id":{"name":"sWhiteBlock","path":"sprites/sWhiteBlock/sWhiteBlock.yy",},"order":0,},
     {"id":{"name":"oEntity","path":"objects/oEntity/oEntity.yy",},"order":0,},
     {"id":{"name":"oRedPortal","path":"objects/oRedPortal/oRedPortal.yy",},"order":0,},
+    {"id":{"name":"scrSightlineStruct","path":"scripts/scrSightlineStruct/scrSightlineStruct.yy",},"order":10,},
     {"id":{"name":"sLaser","path":"sprites/sLaser/sLaser.yy",},"order":1,},
     {"id":{"name":"oBelt","path":"objects/oBelt/oBelt.yy",},"order":2,},
     {"id":{"name":"sEntityLaserBlock","path":"sprites/sEntityLaserBlock/sEntityLaserBlock.yy",},"order":8,},
