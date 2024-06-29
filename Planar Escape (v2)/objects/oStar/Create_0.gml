@@ -9,5 +9,10 @@ collect = function(_actor)
 		stars++;
 	}
 	oLevel.starsCollected++;
+	
+	// Particles
+	emitZapParticles(self, c_gray);
+	
+	// Destroy star
 	instance_destroy();
 }

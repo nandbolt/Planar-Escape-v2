@@ -2,8 +2,16 @@
 levelComplete = false;
 levelFailed = false;
 levelTime = 0;
+fastestTime = 0;
 startTime = 0;
 starsCollected = 0;
+totalStars = 0;
+
+// End menu
+levelEndMenus = 0;
+levelEndMenuDelay = 60;
+maxCompleteLevelMenu = 3;
+maxFailedLevelMenu = 1;
 
 // Layers
 collisionLayer = layer_get_id("CollisionTiles");
@@ -15,6 +23,24 @@ respawnDelay = 60;
 
 // Text
 worldTextScale = 2/3;
+
+#region Functions
+
+/// @func	completeLevel();
+completeLevel = function()
+{
+	levelComplete = true;
+	alarm[0] = levelEndMenuDelay;
+}
+
+/// @func	failLevel();
+failLevel = function()
+{
+	levelFailed = true;
+	alarm[0] = levelEndMenuDelay;
+}
+
+#endregion
 
 // Camera
 instance_create_layer(0, 0, "Instances", oCamera);
@@ -41,3 +67,6 @@ layer_set_visible(gridLayer, false);
 
 // Entity
 instance_create_layer(room_width * 0.5, room_height, "AirInstances", oEntity);
+
+// Start fade
+alarm[1] = 60;

@@ -1,7 +1,27 @@
 /// @desc Spawn Player/End Game
 
+// If level complete
+if (levelComplete)
+{
+	// Increment menu if below max
+	if (levelEndMenus < maxCompleteLevelMenu)
+	{
+		levelEndMenus++;
+		alarm[0] = levelEndMenuDelay;
+	}
+}
+// If level failed
+else if (levelFailed)
+{
+	// Increment menu if below max
+	if (levelEndMenus < maxFailedLevelMenu)
+	{
+		levelEndMenus++;
+		alarm[0] = levelEndMenuDelay;
+	}
+}
 // If a checkpoint exists
-if (instance_exists(checkpoint))
+else if (instance_exists(checkpoint))
 {
 	// Spawn player
 	with (instance_create_layer(checkpoint.x, checkpoint.y, "Instances", oPlayer))
@@ -11,4 +31,4 @@ if (instance_exists(checkpoint))
 	}
 }
 // Else end game
-else levelFailed = true;
+else failLevel();
