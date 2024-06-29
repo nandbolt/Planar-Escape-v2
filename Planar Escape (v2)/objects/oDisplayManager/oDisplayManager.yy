@@ -29,7 +29,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Display",
-    "path": "folders/Objects/Display.yy",
+    "name": "Managers",
+    "path": "folders/Objects/Managers.yy",
   },
 }

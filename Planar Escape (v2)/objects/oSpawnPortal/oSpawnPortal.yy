@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oSpawnPortal",
   "spriteId": {
-    "name": "sPortal",
-    "path": "sprites/sPortal/sPortal.yy",
+    "name": "sStartPortal",
+    "path": "sprites/sStartPortal/sStartPortal.yy",
   },
   "solid": false,
   "visible": true,
