@@ -11,7 +11,12 @@ collect = function(_actor)
 	oLevel.starsCollected++;
 	
 	// Particles
-	emitZapParticles(self, c_gray);
+	with (oParticleManager)
+	{
+		part_particles_create(partSystem, other.x, other.y, partTypeStardustN, 1);
+		part_particles_create(partSystem, other.x, other.y, partTypeStardustSW, 1);
+		part_particles_create(partSystem, other.x, other.y, partTypeStardustSE, 1);
+	}
 	
 	// Destroy star
 	instance_destroy();

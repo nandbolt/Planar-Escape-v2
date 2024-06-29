@@ -6,6 +6,7 @@ fastestTime = 0;
 startTime = 0;
 starsCollected = 0;
 totalStars = 0;
+levelName = "escape";
 
 // End menu
 levelEndMenus = 0;
@@ -84,3 +85,14 @@ for (var _y = HALF_TILE_SIZE; _y < room_height; _y += TILE_SIZE)
 		tilemap_set_at_pixel(collisionMap, tilemap_get_at_pixel(worldMap, _x, _y), _x, _y);
 	}
 }
+
+#region Update Level Name
+
+switch (room)
+{
+	case rLevelTiles:
+		levelName = "tiles"; 
+		break;
+}
+
+#endregion

@@ -17,7 +17,7 @@ function Gadget() constructor
 	static useReleased = function(){}
 	
 	/// @func	actionUse();
-	static actionUse = function(){ return keyboard_check(vk_shift); }
+	static actionUse = function(){ return keyboard_check(ord("J")); }
 	
 	/// @func	updateActions();
 	static updateActions = function()

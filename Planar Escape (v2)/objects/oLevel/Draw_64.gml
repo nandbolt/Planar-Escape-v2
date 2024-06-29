@@ -58,4 +58,9 @@ else
 	if (starsCollected == totalStars) draw_set_color(c_yellow);
 	draw_text(_x, _y, "stars: " + string(starsCollected));
 	draw_set_color(c_white);
+	
+	// Controls
+	draw_set_valign(fa_bottom);
+	_y = display_get_gui_height() - 8;
+	draw_text(_x, _y, "move: AWSD, dash: space, use: j");
 }
