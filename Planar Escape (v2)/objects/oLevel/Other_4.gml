@@ -7,5 +7,3 @@ with (be_oBox)
 // Init start time + stars
 startTime = current_time;
 totalStars = instance_number(oStar);
-
-// Start fade

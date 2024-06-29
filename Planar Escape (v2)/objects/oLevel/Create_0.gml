@@ -17,6 +17,10 @@ maxFailedLevelMenu = 1;
 collisionLayer = layer_get_id("CollisionTiles");
 gridLayer = layer_get_id("GridBackground");
 
+// Tilemaps
+collisionMap = layer_tilemap_get_id("CollisionTiles");
+worldMap = layer_tilemap_get_id("WorldTiles");
+
 // Checkpoint
 checkpoint = noone;
 respawnDelay = 60;
@@ -70,3 +74,13 @@ instance_create_layer(room_width * 0.5, room_height, "AirInstances", oEntity);
 
 // Start fade
 alarm[1] = 60;
+
+// Set world tiles
+for (var _y = HALF_TILE_SIZE; _y < room_height; _y += TILE_SIZE)
+{
+	for (var _x = HALF_TILE_SIZE; _x < room_width; _x += TILE_SIZE)
+	{
+		// Set collision tile
+		tilemap_set_at_pixel(collisionMap, tilemap_get_at_pixel(worldMap, _x, _y), _x, _y);
+	}
+}

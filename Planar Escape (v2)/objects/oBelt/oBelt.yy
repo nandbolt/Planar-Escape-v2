@@ -11,7 +11,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oContraption",
+    "path": "objects/oContraption/oContraption.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
