@@ -5,3 +5,4 @@ event_inherited();
 sprLaser = sCopLaser;
 laserColor = c_blue;
 powerType = Power.BLUE;
+pushStrength = 1000;

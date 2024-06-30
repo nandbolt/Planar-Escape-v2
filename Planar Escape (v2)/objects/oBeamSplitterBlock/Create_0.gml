@@ -3,6 +3,8 @@ event_inherited();
 
 // States
 active = false;
+pushStrength = 1000;
+pullStrength = 1000;
 
 /// @func	splitBeam({id} zapper, {enum.Power} type);
 splitBeam = function(_zapper, _type)

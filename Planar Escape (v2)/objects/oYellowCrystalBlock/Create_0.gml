@@ -5,3 +5,4 @@ event_inherited();
 sprLaser = sCitizenLaser;
 laserColor = c_yellow;
 powerType = Power.YELLOW;
+pullStrength = 1000;

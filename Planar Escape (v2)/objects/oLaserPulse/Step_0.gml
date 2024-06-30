@@ -23,7 +23,7 @@ if (place_meeting(x, y, oSolid))
 	}
 }
 // Else if colliding with a tile
-else if (tilemap_get_at_pixel(collisionMap, x, y) > 0)
+else if (tilemap_get_at_pixel(collisionMap, x, y) == 1)
 {
 	// Particles
 	with (oParticleManager)

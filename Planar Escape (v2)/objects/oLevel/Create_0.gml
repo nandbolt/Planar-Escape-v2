@@ -71,7 +71,7 @@ layer_set_visible(collisionLayer, false);
 layer_set_visible(gridLayer, false);
 
 // Entity
-instance_create_layer(room_width * 0.5, room_height, "AirInstances", oEntity);
+instance_create_layer(room_width * 0.5, room_height, "Instances", oEntity);
 
 // Start fade
 alarm[1] = 60;
@@ -90,7 +90,7 @@ for (var _y = HALF_TILE_SIZE; _y < room_height; _y += TILE_SIZE)
 
 switch (room)
 {
-	case rLevelTiles:
+	case rLevelEmpty:
 		levelName = "tiles"; 
 		break;
 }
