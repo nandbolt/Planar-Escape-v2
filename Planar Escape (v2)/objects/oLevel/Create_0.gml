@@ -96,3 +96,6 @@ switch (room)
 }
 
 #endregion
+
+// Play music if not already playing
+if (!audio_is_playing(mCreation)) audio_play_sound(mCreation, 10, true);

@@ -1,10 +1,10 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "sfxEntity",
+  "name": "mCreation",
   "conversionMode": 0,
   "compression": 0,
-  "volume": 1.0,
+  "volume": 0.2,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -14,10 +14,10 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxEntity.wav",
-  "duration": 3.931361,
+  "soundFile": "mCreation.ogg",
+  "duration": 43.885715,
   "parent": {
-    "name": "Entity",
-    "path": "folders/Sounds/Sfxs/Entity.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
 }
