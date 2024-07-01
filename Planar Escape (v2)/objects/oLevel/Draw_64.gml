@@ -63,4 +63,20 @@ else
 	draw_set_valign(fa_bottom);
 	_y = display_get_gui_height() - 8;
 	draw_text(_x, _y, "move: AWSD, dash: space, use: j");
+	
+	// Entity
+	_x = display_get_gui_width() - 8;
+	_y = 32;
+	var _y2 = display_get_gui_height() - 32;
+	var _amount = clamp(room_height - oEntity.y, 0, room_height) / room_height * 100;
+	draw_healthbar(_x - 1, _y, _x + 4, _y2, _amount, c_gray, c_black, c_black, 3, true, false);
+	var _sprPlayer = sPlayer, _subimage = 0;
+	if (instance_exists(oPlayer))
+	{
+		playerY = oPlayer.y;
+		_sprPlayer = sPlayer;
+		_subimage = 2;
+	}
+	else if (levelFailed) _sprPlayer = sNone;
+	draw_sprite(_sprPlayer, 2, _x + 2, _y2 - clamp(room_height - playerY, 0, room_height ) / room_height * (_y2 - _y));
 }

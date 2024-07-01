@@ -29,6 +29,9 @@ respawnDelay = 60;
 // Text
 worldTextScale = 2/3;
 
+// Entity meter
+playerY = room_height;
+
 #region Functions
 
 /// @func	completeLevel();
