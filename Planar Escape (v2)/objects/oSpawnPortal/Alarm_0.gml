@@ -7,6 +7,9 @@ if (!spawned)
 	emitZapParticles(spawnBox(oPlayer, x, y, "Instances", be_oBoxEngine), c_gray);
 	spawned = true;
 	
+	// Spawn sound
+	audio_play_sound(sfxPortalEnter, 10, false);
+	
 	// Reset alarm
 	alarm[0] = fadeOutSpeed;
 }

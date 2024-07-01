@@ -11,6 +11,9 @@ teleport = function(_solid)
 		{
 			if (!levelComplete) completeLevel();
 		}
+		
+		// Teleport sound
+		audio_play_sound(sfxPortalEnter, 100, false);
 	}
 	
 	// Destroy box

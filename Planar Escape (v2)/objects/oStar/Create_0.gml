@@ -18,6 +18,10 @@ collect = function(_actor)
 		part_particles_create(partSystem, other.x, other.y, partTypeStardustSE, 1);
 	}
 	
+	// Sound
+	audio_play_sound(sfxCollect, 10, false);
+	audio_sound_pitch(sfxCollect, random_range(0.8, 1.2));
+	
 	// Destroy star
 	instance_destroy();
 }

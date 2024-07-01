@@ -93,8 +93,8 @@ for (var _y = HALF_TILE_SIZE; _y < room_height; _y += TILE_SIZE)
 
 switch (room)
 {
-	case rLevelEmpty:
-		levelName = "tiles"; 
+	case rLevelMainCreation1:
+		levelName = "what's going on?"; 
 		break;
 }
 
