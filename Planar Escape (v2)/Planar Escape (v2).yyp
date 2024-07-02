@@ -46,6 +46,7 @@
     {"id":{"name":"oNPC","path":"objects/oNPC/oNPC.yy",},"order":5,},
     {"id":{"name":"sLaserBlock","path":"sprites/sLaserBlock/sLaserBlock.yy",},"order":0,},
     {"id":{"name":"be_scrBuoyancyForceGenStruct","path":"scripts/be_scrBuoyancyForceGenStruct/be_scrBuoyancyForceGenStruct.yy",},"order":4,},
+    {"id":{"name":"sfxPlayerDeathEntity","path":"sounds/sfxPlayerDeathEntity/sfxPlayerDeathEntity.yy",},"order":1,},
     {"id":{"name":"sBlaster","path":"sprites/sBlaster/sBlaster.yy",},"order":5,},
     {"id":{"name":"oCheckpoint","path":"objects/oCheckpoint/oCheckpoint.yy",},"order":3,},
     {"id":{"name":"sActorShape","path":"sprites/sActorShape/sActorShape.yy",},"order":0,},

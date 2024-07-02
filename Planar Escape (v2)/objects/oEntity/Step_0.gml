@@ -34,7 +34,14 @@ if (!instance_exists(oSolid)) exit;
 with (oSolid)
 {
 	// Destroy box if box is colliding with entity
-	if (other.y < bbox_top) destroyBox(id, be_oBoxEngine);
+	if (other.y < bbox_top)
+	{
+		// Player death entity sound
+		if (object_index == oPlayer) audio_play_sound(sfxPlayerDeathEntity, 20, false);
+		
+		// Destroy box
+		destroyBox(id, be_oBoxEngine);
+	}
 }
 
 // Exit if no contraptions exists

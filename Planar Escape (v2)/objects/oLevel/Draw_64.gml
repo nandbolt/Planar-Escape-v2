@@ -59,7 +59,13 @@ else
 	draw_text(_x, _y, "stars: " + string(starsCollected));
 	draw_set_color(c_white);
 	
+	// Level name
+	draw_set_halign(fa_right);
+	_y = 8;
+	draw_text(display_get_gui_width() - 8, _y, levelName);
+	
 	// Controls
+	draw_set_halign(fa_left);
 	draw_set_valign(fa_bottom);
 	_y = display_get_gui_height() - 8;
 	draw_text(_x, _y, "move: AWSD, dash: space, use: j");
