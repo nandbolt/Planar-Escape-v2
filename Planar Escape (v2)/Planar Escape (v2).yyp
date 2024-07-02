@@ -52,6 +52,7 @@
     {"id":{"name":"be_scrGravityForceGenStruct","path":"scripts/be_scrGravityForceGenStruct/be_scrGravityForceGenStruct.yy",},"order":3,},
     {"id":{"name":"oCitizenLaserPulse","path":"objects/oCitizenLaserPulse/oCitizenLaserPulse.yy",},"order":3,},
     {"id":{"name":"sRedPortal","path":"sprites/sRedPortal/sRedPortal.yy",},"order":1,},
+    {"id":{"name":"shdrOutline","path":"shaders/shdrOutline/shdrOutline.yy",},"order":0,},
     {"id":{"name":"sWorldTiles","path":"sprites/sWorldTiles/sWorldTiles.yy",},"order":1,},
     {"id":{"name":"scrBlasterStruct","path":"scripts/scrBlasterStruct/scrBlasterStruct.yy",},"order":1,},
     {"id":{"name":"be_scrContactResolverStruct","path":"scripts/be_scrContactResolverStruct/be_scrContactResolverStruct.yy",},"order":5,},
