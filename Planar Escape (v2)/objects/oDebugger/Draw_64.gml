@@ -3,8 +3,10 @@ if (instance_exists(be_oBoxEngine))
 {
 	boxCount = array_length(be_oBoxEngine.boxes);
 	contacts = be_oBoxEngine.resolver.getIterationsUsed();
+	maxContacts = max(maxContacts, contacts);
 	dt = delta_time / 1000000;
 	maxDt = max(maxDt, dt);
+	dtClamped = clamp(dt, 0, 0.02175);
 }
 
 // Player
@@ -22,6 +24,8 @@ draw_text_transformed(_x, _y, "instances: " + string(instance_count), 0.5, 0.5, 
 _y += 8;
 draw_text_transformed(_x, _y, "boxes: " + string(boxCount), 0.5, 0.5, 0);
 _y += 8;
+draw_text_transformed(_x, _y, "contacts: " + string(maxContacts), 0.5, 0.5, 0);
+_y += 8;
 draw_text_transformed(_x, _y, "contacts: " + string(contacts), 0.5, 0.5, 0);
 _y += 8;
 draw_text_transformed(_x, _y, "max speed: " + string(maxSpeed), 0.5, 0.5, 0);
@@ -31,4 +35,6 @@ _y += 8;
 draw_text_transformed(_x, _y, "maxdt: " + string(maxDt), 0.5, 0.5, 0);
 _y += 8;
 draw_text_transformed(_x, _y, "dt: " + string(dt), 0.5, 0.5, 0);
+_y += 8;
+draw_text_transformed(_x, _y, "dt (clamped): " + string(dtClamped), 0.5, 0.5, 0);
 draw_set_color(c_white);
