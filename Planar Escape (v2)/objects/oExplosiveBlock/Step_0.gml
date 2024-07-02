@@ -12,6 +12,9 @@ if (!activated)
 			other.activated = true;
 			other.alarm[0] = 60;
 			other.image_index++;
+			
+			// Countdown sound
+			if (isVisible(id)) audio_play_sound(sfxCountdown, 10, false);
 		}
 	}
 }

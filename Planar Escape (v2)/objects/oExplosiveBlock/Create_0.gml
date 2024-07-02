@@ -95,6 +95,8 @@ explode = function()
 		}
 	}
 	
+	// Explosion sound
+	audio_play_sound(sfxExplosion, 10, false);
 	
 	// Explode
 	destroyBox(id, be_oBoxEngine);
