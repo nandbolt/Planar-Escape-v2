@@ -102,3 +102,6 @@ switch (room)
 
 // Play music if not already playing
 if (!audio_is_playing(mCreation)) audio_play_sound(mCreation, 10, true);
+
+// Create debugger if it doesn't exist
+if (!instance_exists(oDebugger)) instance_create_layer(0, 0, "Instances", oDebugger);
