@@ -15,15 +15,7 @@ selectLevel = function(_room)
 	
 	// Set room
 	selectedLevel = _room;
-	switch (selectedLevel)
-	{
-		case rLevelMainCreation1:
-			selectedLevelName = "on the brink";
-			break;
-		case rLevelMainCreation2:
-			selectedLevelName = "ice cold";
-			break;
-	}
+	selectedLevelName = getLevelName(_room);
 }
 
 #region Button Functions
@@ -49,94 +41,94 @@ level1ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
 level2ButtonClicked = function(){ selectLevel(rLevelMainCreation2); }
 
 /// @func	level3ButtonClicked();
-level3ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level3ButtonClicked = function(){ selectLevel(rLevelMainCreation3); }
 
 /// @func	level4ButtonClicked();
-level4ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level4ButtonClicked = function(){ selectLevel(rLevelMainCreation4); }
 
 /// @func	level5ButtonClicked();
-level5ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level5ButtonClicked = function(){ selectLevel(rLevelMainRadiation1); }
 
 /// @func	level6ButtonClicked();
-level6ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level6ButtonClicked = function(){ selectLevel(rLevelMainRadiation2); }
 
 /// @func	level7ButtonClicked();
-level7ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level7ButtonClicked = function(){ selectLevel(rLevelMainRadiation3); }
 
 /// @func	level8ButtonClicked();
-level8ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level8ButtonClicked = function(){ selectLevel(rLevelMainRadiation4); }
 
 /// @func	level9ButtonClicked();
-level9ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level9ButtonClicked = function(){ selectLevel(rLevelMainZombification1); }
 
 /// @func	level10ButtonClicked();
-level10ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level10ButtonClicked = function(){ selectLevel(rLevelMainZombification2); }
 
 /// @func	level11ButtonClicked();
-level11ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level11ButtonClicked = function(){ selectLevel(rLevelMainZombification3); }
 
 /// @func	level12ButtonClicked();
-level12ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level12ButtonClicked = function(){ selectLevel(rLevelMainZombification4); }
 
 /// @func	level13ButtonClicked();
-level13ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level13ButtonClicked = function(){ selectLevel(rLevelMainPopulation1); }
 
 /// @func	level14ButtonClicked();
-level14ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level14ButtonClicked = function(){ selectLevel(rLevelMainPopulation2); }
 
 /// @func	level15ButtonClicked();
-level15ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level15ButtonClicked = function(){ selectLevel(rLevelMainPopulation3); }
 
 /// @func	level16ButtonClicked();
-level16ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level16ButtonClicked = function(){ selectLevel(rLevelMainPopulation4); }
 
 /// @func	level17ButtonClicked();
-level17ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level17ButtonClicked = function(){ selectLevel(rLevelMainElectrification1); }
 
 /// @func	level18ButtonClicked();
-level18ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level18ButtonClicked = function(){ selectLevel(rLevelMainElectrification2); }
 
 /// @func	level19ButtonClicked();
-level19ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level19ButtonClicked = function(){ selectLevel(rLevelMainElectrification3); }
 
 /// @func	level20ButtonClicked();
-level20ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level20ButtonClicked = function(){ selectLevel(rLevelMainElectrification4); }
 
 /// @func	level21ButtonClicked();
-level21ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level21ButtonClicked = function(){ selectLevel(rLevelMainMachination1); }
 
 /// @func	level22ButtonClicked();
-level22ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level22ButtonClicked = function(){ selectLevel(rLevelMainMachination2); }
 
 /// @func	level23ButtonClicked();
-level23ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level23ButtonClicked = function(){ selectLevel(rLevelMainMachination3); }
 
 /// @func	level24ButtonClicked();
-level24ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level24ButtonClicked = function(){ selectLevel(rLevelMainMachination4); }
 
 /// @func	level25ButtonClicked();
-level25ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level25ButtonClicked = function(){ selectLevel(rLevelMainTeleportation1); }
 
 /// @func	level26ButtonClicked();
-level26ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level26ButtonClicked = function(){ selectLevel(rLevelMainTeleportation2); }
 
 /// @func	level27ButtonClicked();
-level27ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level27ButtonClicked = function(){ selectLevel(rLevelMainTeleportation3); }
 
 /// @func	level28ButtonClicked();
-level28ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level28ButtonClicked = function(){ selectLevel(rLevelMainTeleportation4); }
 
 /// @func	level29ButtonClicked();
-level29ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level29ButtonClicked = function(){ selectLevel(rLevelMainSalvation1); }
 
 /// @func	level30ButtonClicked();
-level30ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level30ButtonClicked = function(){ selectLevel(rLevelMainSalvation2); }
 
 /// @func	level31ButtonClicked();
-level31ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level31ButtonClicked = function(){ selectLevel(rLevelMainSalvation3); }
 
 /// @func	level32ButtonClicked();
-level32ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level32ButtonClicked = function(){ selectLevel(rLevelMainSalvation4); }
 
 #endregion
 

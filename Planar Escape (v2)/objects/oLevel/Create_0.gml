@@ -6,7 +6,7 @@ fastestTime = 0;
 startTime = 0;
 starsCollected = 0;
 totalStars = 0;
-levelName = "escape";
+levelName = getLevelName(room);
 
 // End menu
 levelEndMenus = 0;
@@ -88,20 +88,6 @@ for (var _y = HALF_TILE_SIZE; _y < room_height; _y += TILE_SIZE)
 		tilemap_set_at_pixel(collisionMap, tilemap_get_at_pixel(worldMap, _x, _y), _x, _y);
 	}
 }
-
-#region Update Level Name
-
-switch (room)
-{
-	case rLevelMainCreation1:
-		levelName = "on the brink"; 
-		break;
-	case rLevelMainCreation2:
-		levelName = "ice cold"; 
-		break;
-}
-
-#endregion
 
 // Play music if not already playing
 if (!audio_is_playing(mCreation)) audio_play_sound(mCreation, 10, true);
