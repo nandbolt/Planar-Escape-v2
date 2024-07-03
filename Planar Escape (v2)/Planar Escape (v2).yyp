@@ -17,6 +17,7 @@
     {"id":{"name":"oBeamSplitterBlock","path":"objects/oBeamSplitterBlock/oBeamSplitterBlock.yy",},"order":13,},
     {"id":{"name":"scrGlobals","path":"scripts/scrGlobals/scrGlobals.yy",},"order":3,},
     {"id":{"name":"oCopLaserBlock","path":"objects/oCopLaserBlock/oCopLaserBlock.yy",},"order":1,},
+    {"id":{"name":"sDoor","path":"sprites/sDoor/sDoor.yy",},"order":5,},
     {"id":{"name":"sPixel","path":"sprites/sPixel/sPixel.yy",},"order":0,},
     {"id":{"name":"rLevelMainTeleportation4","path":"rooms/rLevelMainTeleportation4/rLevelMainTeleportation4.yy",},"order":2,},
     {"id":{"name":"oBigDryIceBlock","path":"objects/oBigDryIceBlock/oBigDryIceBlock.yy",},"order":11,},
@@ -84,6 +85,7 @@
     {"id":{"name":"tsWorld","path":"tilesets/tsWorld/tsWorld.yy",},"order":1,},
     {"id":{"name":"sCitizenLaserPulse","path":"sprites/sCitizenLaserPulse/sCitizenLaserPulse.yy",},"order":3,},
     {"id":{"name":"oStar","path":"objects/oStar/oStar.yy",},"order":1,},
+    {"id":{"name":"oDoor","path":"objects/oDoor/oDoor.yy",},"order":7,},
     {"id":{"name":"sZombie","path":"sprites/sZombie/sZombie.yy",},"order":1,},
     {"id":{"name":"sYellowPortal","path":"sprites/sYellowPortal/sYellowPortal.yy",},"order":2,},
     {"id":{"name":"oActor","path":"objects/oActor/oActor.yy",},"order":1,},
@@ -347,6 +349,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tilemaps","folderPath":"folders/Sprites/Tilemaps.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy","order":8,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Doors","folderPath":"folders/Objects/Contraptions/Doors.yy","order":6,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
