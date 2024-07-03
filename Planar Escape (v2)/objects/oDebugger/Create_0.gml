@@ -3,8 +3,8 @@ boxCount = 0;
 maxContacts = 0;
 contacts = 0;
 maxDt = 0;
+minDt = 1;
 dt = 0;
-dtClamped = 0;
 
 // Player
 maxSpeed = 0;

@@ -6,7 +6,7 @@ if (instance_exists(be_oBoxEngine))
 	maxContacts = max(maxContacts, contacts);
 	dt = delta_time / 1000000;
 	maxDt = max(maxDt, dt);
-	dtClamped = clamp(dt, 0, 0.02175);
+	if (dt != 0) minDt = min(minDt, dt);
 }
 
 // Player
@@ -34,7 +34,7 @@ draw_text_transformed(_x, _y, "speed: " + string(currSpeed), 0.5, 0.5, 0);
 _y += 8;
 draw_text_transformed(_x, _y, "maxdt: " + string(maxDt), 0.5, 0.5, 0);
 _y += 8;
-draw_text_transformed(_x, _y, "dt: " + string(dt), 0.5, 0.5, 0);
+draw_text_transformed(_x, _y, "mindt: " + string(minDt), 0.5, 0.5, 0);
 _y += 8;
-draw_text_transformed(_x, _y, "dt (clamped): " + string(dtClamped), 0.5, 0.5, 0);
+draw_text_transformed(_x, _y, "dt: " + string(dt), 0.5, 0.5, 0);
 draw_set_color(c_white);
