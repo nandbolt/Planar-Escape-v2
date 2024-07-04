@@ -3,7 +3,7 @@ yVelocity = 0;
 moveSpeed = 0.2;
 
 // Start delay
-alarm[0] = 60;
+//alarm[0] = 60;
 
 // Entity sound
 audio_play_sound(sfxEntity, 5, true);

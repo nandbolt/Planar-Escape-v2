@@ -6,18 +6,13 @@ if (selfPowered)
 	exit;
 }
 
-// If power is on
-var _tile = tilemap_get_at_pixel(wireMap, x, y);
-if (_tile > 17)
+// If power is different
+var _powerType = wireToPower(tilemap_get_at_pixel(wireMap, x, y));
+if (_powerType != powerType)
 {
-	// If power is different
-	var _powerType = wireToPower(_tile);
-	if (_powerType != powerType)
-	{
-		// Set power
-		updatePower(_powerType);
-		powerType = _powerType;
-	}
+	// Set power
+	updatePower(_powerType);
+	powerType = _powerType;
 }
 
 // Reset alarm
