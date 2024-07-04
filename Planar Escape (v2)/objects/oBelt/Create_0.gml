@@ -1,19 +1,22 @@
+// Inherit the parent event
+event_inherited();
+
 // States
 beltDirection = 0;
 beltStrength = 0.175;
 //beltStrength = 5;
 
-// Layer
-wireMap = layer_tilemap_get_id("WireTiles");
+#region Functions
 
-/// @func	updateBelt({int} dir);
-updateBelt = function(_dir)
+///	@func	updatePower({enum.Power} type);
+updatePower = function(_type)
 {
-	// Return if no belt change
-	if (beltDirection == _dir) return;
-	
 	// Set belt direction
-	beltDirection = _dir;
+	if (_type == Power.OFF) beltDirection = 0;
+	else if ((_type mod 2) == 1) beltDirection = 1;
+	else beltDirection = -1;
+	
+	// Update sprite
 	if (beltDirection == 0) image_speed = 0;
 	else
 	{
@@ -22,6 +25,8 @@ updateBelt = function(_dir)
 		else sprite_index = sBeltBackward;
 	}
 }
+
+#endregion
 
 // Init belt
 image_speed = 0;
