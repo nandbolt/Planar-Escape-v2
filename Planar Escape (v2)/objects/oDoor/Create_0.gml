@@ -29,6 +29,9 @@ updatePower = function(_type)
 	// If powers match or is a white door + any power
 	if (_type == doorType || (sprite_index == sDoor && _type > 0)) open();
 	else close();
+	
+	// Door sound
+	if (isVisible(id) && !audio_is_playing(sfxDoor)) audio_play_sound(sfxDoor, 10, false);
 }
 
 #endregion

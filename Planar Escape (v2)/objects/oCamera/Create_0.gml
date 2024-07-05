@@ -5,6 +5,7 @@ halfCamWidth = camWidth * 0.5;
 halfCamHeight = camHeight * 0.5;
 
 // Follow
+target = oPlayer;
 targetPosition = new BEVector2();
 followAcceleration = 0.25;
 
@@ -12,10 +13,10 @@ followAcceleration = 0.25;
 view_enabled = true;
 view_visible[0] = true;
 camera_set_view_size(view_camera[0], camWidth, camHeight);
-if (instance_exists(oPlayer))
+if (instance_exists(target))
 {
-	targetPosition.x = clamp(oPlayer.x - halfCamWidth, 0, room_width - camWidth);
-	targetPosition.y = clamp(oPlayer.y - halfCamHeight, 0, room_height - camHeight);
+	targetPosition.x = clamp(target.x - halfCamWidth, 0, room_width - camWidth);
+	targetPosition.y = clamp(target.y - halfCamHeight, 0, room_height - camHeight);
 }
 else
 {
