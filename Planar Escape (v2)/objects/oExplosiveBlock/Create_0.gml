@@ -3,12 +3,16 @@ event_inherited();
 
 // States
 activated = false;
+deadly = false;
+detonateExplosives = false;
+startExplosives = true;
 
 // Explosion
 maxExplosionForce = 500000;
 maxExplosionForceRadius = 24;
 explosionRadius = 60;
 explosionParticleDensityFactor = 1/32;
+explosionColor = c_orange;
 
 // Tiles
 collisionMap = layer_tilemap_get_id("CollisionTiles");
@@ -18,17 +22,28 @@ worldMap = layer_tilemap_get_id("WorldTiles");
 detectionBox = instance_create_layer(x, y, "Instances", oHitbox);
 with (detectionBox)
 {
-	image_xscale = (other.bbox_right - other.bbox_left + 2) * 0.5;
-	image_yscale = (other.bbox_bottom - other.bbox_top + 2) * 0.5;
+	image_xscale = (other.bbox_right - other.bbox_left + 4) * 0.5;
+	image_yscale = (other.bbox_bottom - other.bbox_top + 4) * 0.5;
 }
 
 #region Functions
+
+/// @func	activate();
+activate = function()
+{
+	activated = true;
+	alarm[0] = 60;
+	image_index++;
+			
+	// Countdown sound
+	if (isVisible(id) && !audio_is_playing(sfxCountdown)) audio_play_sound(sfxCountdown, 10, false);
+}
 
 /// @func	explode();
 explode = function()
 {
 	// Loop through boxes
-	with (be_oBox)
+	with (oSolid)
 	{
 		// If close
 		var _dist = point_distance(x, y, other.x, other.y);
@@ -41,6 +56,15 @@ explode = function()
 				emitZapParticles(self, c_ltgray);
 				
 				// Destroy box
+				destroyBox(id, be_oBoxEngine);
+			}
+			// If explosion is deadly and non-robot actor and close enough
+			else if (other.deadly && object_is_ancestor(object_index, oActor) && object_index != oRobot && _dist < other.maxExplosionForceRadius)
+			{
+				// Actor particles
+				emitZapParticles(self, c_red);
+				
+				// Destroy actor
 				destroyBox(id, be_oBoxEngine);
 			}
 			else
@@ -59,6 +83,25 @@ explode = function()
 			
 				// Apply explosion force
 				box.addForceVector(_explosionForce);
+				
+				// If detonate explosives and an explosive block
+				if ((object_index == oExplosiveBlock || object_index == oRedExplosiveBlock) && _dist < other.maxExplosionForceRadius)
+				{
+					if (other.detonateExplosives)
+					{
+						// Explode block (next frame)
+						if (!activated) activate();
+						
+						// Set to explode next frame
+						image_index = image_number-1;
+						alarm[0] = 2;
+					}
+					else if (other.startExplosives)
+					{
+						// Start explosive
+						if (!activated) activate();
+					}
+				}
 			}
 		}
 	}
@@ -91,12 +134,12 @@ explode = function()
 		var _x = x + lengthdir_x(_len, _dir), _y = y + lengthdir_y(_len, _dir);
 		with (oParticleManager)
 		{
-			part_particles_create_color(partSystem, _x, _y, partTypeDust, c_orange, 1);
+			part_particles_create_color(partSystem, _x, _y, partTypeDust, other.explosionColor, 1);
 		}
 	}
 	
 	// Explosion sound
-	audio_play_sound(sfxExplosion, 10, false);
+	if (isVisible(id) && !audio_is_playing(sfxExplosion)) audio_play_sound(sfxExplosion, 10, false);;
 	
 	// Explode
 	destroyBox(id, be_oBoxEngine);

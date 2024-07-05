@@ -6,5 +6,5 @@ else
 	alarm[0] = 60;
 	
 	// Countdown sound
-	if (isVisible(id)) audio_play_sound(sfxCountdown, 10, false);
+	if (isVisible(id) && !audio_is_playing(sfxCountdown)) audio_play_sound(sfxCountdown, 10, false);
 }

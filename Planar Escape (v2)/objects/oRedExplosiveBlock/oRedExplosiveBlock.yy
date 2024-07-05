@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oGlassBlock",
+  "name": "oRedExplosiveBlock",
   "spriteId": {
-    "name": "sGlassBlock",
-    "path": "sprites/sGlassBlock/sGlassBlock.yy",
+    "name": "sRedExplosiveBlock",
+    "path": "sprites/sRedExplosiveBlock/sRedExplosiveBlock.yy",
   },
   "solid": false,
   "visible": true,
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oMoveableBlock",
-    "path": "objects/oMoveableBlock/oMoveableBlock.yy",
+    "name": "oExplosiveBlock",
+    "path": "objects/oExplosiveBlock/oExplosiveBlock.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

@@ -14,7 +14,7 @@ function GuiButton(_controller, _name, _x, _y, _onClick=function(){}) : GuiEleme
 	static click = function()
 	{
 		setFocus();
-		audio_play_sound(sfxButtonPressed, 10, false);
+		audio_play_sound(sfxButtonReleased, 10, false);
 		onClick();
 	}
 	
