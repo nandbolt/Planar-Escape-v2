@@ -23,6 +23,9 @@ else if (levelFailed)
 // If a checkpoint exists
 else if (instance_exists(checkpoint))
 {
+	// Respawn sound
+	audio_play_sound(sfxRespawn, 10, false);
+	
 	// Spawn player
 	with (instance_create_layer(checkpoint.x, checkpoint.y, "Instances", oPlayer))
 	{

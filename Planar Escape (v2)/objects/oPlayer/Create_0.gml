@@ -8,7 +8,7 @@ moveSpeed = 5000;
 stars = 0;
 
 // Gadgets
-gadget = new Grapple();
+gadget = undefined;
 
 // Dash
 dashStrength = 40;

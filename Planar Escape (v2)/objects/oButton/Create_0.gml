@@ -8,6 +8,9 @@ pressButton = function()
 {
 	image_index = 1;
 	
+	// Button sound
+	if (isVisible(id)) audio_play_sound(sfxButtonPressed, 5, false);
+	
 	// Add wire
 	tilemap_set_at_pixel(wireMap, 7, x, y);
 	
@@ -47,6 +50,9 @@ pressButton = function()
 releaseButton = function()
 {
 	image_index = 0;
+	
+	// Button sound
+	if (isVisible(id)) audio_play_sound(sfxButtonReleased, 5, false);
 	
 	// Remove wire
 	tilemap_set_at_pixel(wireMap, 0, x, y);

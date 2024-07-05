@@ -8,6 +8,9 @@ activate = function()
 	active = true;
 	sprite_index = sCheckPointActive;
 	
+	// Checkpoint sound
+	audio_play_sound(sfxCheckpoint, 20, false);
+	
 	// Level scope
 	with (oLevel)
 	{

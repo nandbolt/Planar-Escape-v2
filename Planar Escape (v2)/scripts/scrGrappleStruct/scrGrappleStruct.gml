@@ -59,8 +59,18 @@ function Grapple() : Gadget() constructor
 				velocity.normalize();
 				velocity.scale(other.launchSpeed);
 			}
+			
+			// Shoot grapple sound
+			audio_play_sound(sfxGrappleShoot, 10, false);
 		}
-		else instance_destroy(hand);
+		else
+		{
+			// Release grapple sound
+			audio_play_sound(sfxGrappleRelease, 10, false);
+			
+			// Destroy hand
+			instance_destroy(hand);
+		}
 	}
 	
 	/// @func	cleanup();

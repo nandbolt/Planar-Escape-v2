@@ -211,6 +211,9 @@ function zap(_zapper, _target, _type)
 				// Zap particles
 				emitZapParticles(_target, c_red);
 				
+				// Zap sound
+				if (isVisible(_target)) audio_play_sound(sfxZap, 10, false);
+				
 				// Destroy actor
 				destroyBox(_target, be_oBoxEngine);
 			}
@@ -337,6 +340,9 @@ function zap(_zapper, _target, _type)
 			
 			// Zap particles
 			emitZapParticles(_target, c_dkgray);
+			
+			// Zap sound
+			if (isVisible(_target)) audio_play_sound(sfxZap, 10, false);
 				
 			// Destroy box
 			destroyBox(_target, be_oBoxEngine);
@@ -371,6 +377,9 @@ function transformTarget(_target, _newObject, _color)
 {
 	// Zap particles
 	emitZapParticles(_target, _color);
+	
+	// Zap sound
+	if (isVisible(_target)) audio_play_sound(sfxZap, 10, false);
 				
 	// Create citizen
 	var _actor = instance_create_layer(_target.x, _target.y, "Instances", _newObject);
