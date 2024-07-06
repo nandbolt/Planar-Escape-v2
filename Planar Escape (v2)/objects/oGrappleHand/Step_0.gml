@@ -21,13 +21,16 @@ if (!grabbing)
 			grabbing = true;
 		}
 	}
-	// Else if colliding with a tile
-	else if (tilemap_get_at_pixel(collisionMap, x, y) > 0)
+	else
 	{
-		// Grab tile
-		x = floor(x / TILE_SIZE) * TILE_SIZE + HALF_TILE_SIZE;
-		y = floor(y / TILE_SIZE) * TILE_SIZE + HALF_TILE_SIZE;
-		grabbing = true;
+		// Grab tile if not empty or rubble
+		var _tile = tilemap_get_at_pixel(collisionMap, x, y);
+		if (_tile == 1 || _tile == 2)
+		{
+			x = floor(x / TILE_SIZE) * TILE_SIZE + HALF_TILE_SIZE;
+			y = floor(y / TILE_SIZE) * TILE_SIZE + HALF_TILE_SIZE;
+			grabbing = true;
+		}
 	}
 }
 else

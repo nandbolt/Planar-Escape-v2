@@ -9,7 +9,7 @@ startExplosives = true;
 
 // Explosion
 maxExplosionForce = 500000;
-maxExplosionForceRadius = 24;
+maxExplosionForceRadius = 36;
 explosionRadius = 60;
 explosionParticleDensityFactor = 1/32;
 explosionColor = c_orange;
