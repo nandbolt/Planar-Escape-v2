@@ -5,6 +5,7 @@
   "resources": [
     {"id":{"name":"sBeltBackward","path":"sprites/sBeltBackward/sBeltBackward.yy",},"order":6,},
     {"id":{"name":"oMoveableBlock","path":"objects/oMoveableBlock/oMoveableBlock.yy",},"order":2,},
+    {"id":{"name":"oPauseMenu","path":"objects/oPauseMenu/oPauseMenu.yy",},"order":4,},
     {"id":{"name":"sStar","path":"sprites/sStar/sStar.yy",},"order":0,},
     {"id":{"name":"sCop","path":"sprites/sCop/sCop.yy",},"order":2,},
     {"id":{"name":"be_scrForceGenStruct","path":"scripts/be_scrForceGenStruct/be_scrForceGenStruct.yy",},"order":7,},

@@ -3,7 +3,6 @@ levelComplete = false;
 levelFailed = false;
 levelTime = 0;
 fastestTime = 0;
-startTime = 0;
 starsCollected = 0;
 totalStars = 0;
 levelName = getLevelName(room);

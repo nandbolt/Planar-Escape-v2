@@ -1,5 +1,5 @@
 // Update time
-if (!levelComplete && !levelFailed) levelTime = (current_time - startTime) * 0.001;
+if (!levelComplete && !levelFailed) levelTime += delta_time / 1000000;
 else
 {
 	// Get space pressed
@@ -19,3 +19,6 @@ else
 		else room_restart();
 	}
 }
+
+// Check pause
+if (keyboard_check_pressed(vk_escape)) instance_create_layer(0, 0, "Instances", oPauseMenu);
