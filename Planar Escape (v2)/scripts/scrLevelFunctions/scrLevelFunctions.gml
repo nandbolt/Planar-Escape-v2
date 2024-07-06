@@ -4,101 +4,65 @@ function getLevelName(_room)
 {
 	switch (_room)
 	{
-		case rLevelMainCreation1:
+		case rLevelMain01:
 			return "on the brink";
 			break;
-		case rLevelMainCreation2:
+		case rLevelMain02:
 			return "ice cold";
 			break;
-		case rLevelMainCreation3:
+		case rLevelMain03:
 			return "pressing on";
 			break;
-		case rLevelMainCreation4:
+		case rLevelMain04:
 			return "grasping flames";
 			break;
-		case rLevelMainRadiation1:
-			return "laser grid";
+		case rLevelMain05:
+			return "laser focused";
 			break;
-		case rLevelMainRadiation2:
+		case rLevelMain06:
 			return "powered optics";
 			break;
-		case rLevelMainRadiation3:
-			return "glassware";
+		case rLevelMain07:
+			return "electrodes";
 			break;
-		case rLevelMainRadiation4:
-			return "portalaser";
+		case rLevelMain08:
+			return "chromatosis";
 			break;
-		case rLevelMainZombification1:
+		case rLevelMain09:
 			return "zombification";
 			break;
-		case rLevelMainZombification2:
-			return "zombeams";
+		case rLevelMain10:
+			return "town panick";
 			break;
-		case rLevelMainZombification3:
-			return "growing pains";
+		case rLevelMain11:
+			return "breaking in";
 			break;
-		case rLevelMainZombification4:
-			return "portazombie";
+		case rLevelMain12:
+			return "busting out";
 			break;
-		case rLevelMainPopulation1:
-			return "city limits";
+		case rLevelMain13:
+			return "linked up";
 			break;
-		case rLevelMainPopulation2:
-			return "unfree town";
+		case rLevelMain14:
+			return "crystal wake";
 			break;
-		case rLevelMainPopulation3:
-			return "locked in";
+		case rLevelMain15:
+			return "forced away";
 			break;
-		case rLevelMainPopulation4:
-			return "outta the city";
+		case rLevelMain16:
+			return "robonauts";
 			break;
-		case rLevelMainElectrification1:
-			return "zippity zap";
+		case rLevelMain17:
+			return "hyper coolant";
 			break;
-		case rLevelMainElectrification2:
-			return "forces";
-			break;
-		case rLevelMainElectrification3:
-			return "super fried";
-			break;
-		case rLevelMainElectrification4:
-			return "semi circuitry";
-			break;
-		case rLevelMainMachination1:
-			return "robos";
-			break;
-		case rLevelMainMachination2:
-			return "belted";
-			break;
-		case rLevelMainMachination3:
-			return "gadgetry";
-			break;
-		case rLevelMainMachination4:
+		case rLevelMain18:
 			return "logitronics";
 			break;
-		case rLevelMainTeleportation1:
-			return "linked";
+		case rLevelMain19:
+			return "inner machinations";
 			break;
-		case rLevelMainTeleportation2:
-			return "laserportation";
-			break;
-		case rLevelMainTeleportation3:
-			return "multidimensional";
-			break;
-		case rLevelMainTeleportation4:
-			return "portal logic";
-			break;
-		case rLevelMainSalvation1:
-			return "entity realize";
-			break;
-		case rLevelMainSalvation2:
-			return "entity fight";
-			break;
-		case rLevelMainSalvation3:
-			return "entity accept";
-			break;
-		case rLevelMainSalvation4:
-			return "entity farewell";
+		case rLevelMain20:
+			return "final bout";
 			break;
 	}
 	return "???";

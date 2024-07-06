@@ -2,8 +2,8 @@
 event_inherited();
 
 // Levels
-selectedLevel = rLevelMainCreation1;
-selectedLevelName = "on the brink";
+selectedLevel = rLevelMain01;
+selectedLevelName = getLevelName(selectedLevel);
 
 #region Functions
 
@@ -35,100 +35,64 @@ playButtonClicked = function()
 }
 
 /// @func	level1ButtonClicked();
-level1ButtonClicked = function(){ selectLevel(rLevelMainCreation1); }
+level1ButtonClicked = function(){ selectLevel(rLevelMain01); }
 
 /// @func	level2ButtonClicked();
-level2ButtonClicked = function(){ selectLevel(rLevelMainCreation2); }
+level2ButtonClicked = function(){ selectLevel(rLevelMain02); }
 
 /// @func	level3ButtonClicked();
-level3ButtonClicked = function(){ selectLevel(rLevelMainCreation3); }
+level3ButtonClicked = function(){ selectLevel(rLevelMain03); }
 
 /// @func	level4ButtonClicked();
-level4ButtonClicked = function(){ selectLevel(rLevelMainCreation4); }
+level4ButtonClicked = function(){ selectLevel(rLevelMain04); }
 
 /// @func	level5ButtonClicked();
-level5ButtonClicked = function(){ selectLevel(rLevelMainRadiation1); }
+level5ButtonClicked = function(){ selectLevel(rLevelMain05); }
 
 /// @func	level6ButtonClicked();
-level6ButtonClicked = function(){ selectLevel(rLevelMainRadiation2); }
+level6ButtonClicked = function(){ selectLevel(rLevelMain06); }
 
 /// @func	level7ButtonClicked();
-level7ButtonClicked = function(){ selectLevel(rLevelMainRadiation3); }
+level7ButtonClicked = function(){ selectLevel(rLevelMain07); }
 
 /// @func	level8ButtonClicked();
-level8ButtonClicked = function(){ selectLevel(rLevelMainRadiation4); }
+level8ButtonClicked = function(){ selectLevel(rLevelMain08); }
 
 /// @func	level9ButtonClicked();
-level9ButtonClicked = function(){ selectLevel(rLevelMainZombification1); }
+level9ButtonClicked = function(){ selectLevel(rLevelMain09); }
 
 /// @func	level10ButtonClicked();
-level10ButtonClicked = function(){ selectLevel(rLevelMainZombification2); }
+level10ButtonClicked = function(){ selectLevel(rLevelMain10); }
 
 /// @func	level11ButtonClicked();
-level11ButtonClicked = function(){ selectLevel(rLevelMainZombification3); }
+level11ButtonClicked = function(){ selectLevel(rLevelMain11); }
 
 /// @func	level12ButtonClicked();
-level12ButtonClicked = function(){ selectLevel(rLevelMainZombification4); }
+level12ButtonClicked = function(){ selectLevel(rLevelMain12); }
 
 /// @func	level13ButtonClicked();
-level13ButtonClicked = function(){ selectLevel(rLevelMainPopulation1); }
+level13ButtonClicked = function(){ selectLevel(rLevelMain13); }
 
 /// @func	level14ButtonClicked();
-level14ButtonClicked = function(){ selectLevel(rLevelMainPopulation2); }
+level14ButtonClicked = function(){ selectLevel(rLevelMain14); }
 
 /// @func	level15ButtonClicked();
-level15ButtonClicked = function(){ selectLevel(rLevelMainPopulation3); }
+level15ButtonClicked = function(){ selectLevel(rLevelMain15); }
 
 /// @func	level16ButtonClicked();
-level16ButtonClicked = function(){ selectLevel(rLevelMainPopulation4); }
+level16ButtonClicked = function(){ selectLevel(rLevelMain16); }
 
 /// @func	level17ButtonClicked();
-level17ButtonClicked = function(){ selectLevel(rLevelMainElectrification1); }
+level17ButtonClicked = function(){ selectLevel(rLevelMain17); }
 
 /// @func	level18ButtonClicked();
-level18ButtonClicked = function(){ selectLevel(rLevelMainElectrification2); }
+level18ButtonClicked = function(){ selectLevel(rLevelMain18); }
 
 /// @func	level19ButtonClicked();
-level19ButtonClicked = function(){ selectLevel(rLevelMainElectrification3); }
+level19ButtonClicked = function(){ selectLevel(rLevelMain19); }
 
 /// @func	level20ButtonClicked();
-level20ButtonClicked = function(){ selectLevel(rLevelMainElectrification4); }
-
-/// @func	level21ButtonClicked();
-level21ButtonClicked = function(){ selectLevel(rLevelMainMachination1); }
-
-/// @func	level22ButtonClicked();
-level22ButtonClicked = function(){ selectLevel(rLevelMainMachination2); }
-
-/// @func	level23ButtonClicked();
-level23ButtonClicked = function(){ selectLevel(rLevelMainMachination3); }
-
-/// @func	level24ButtonClicked();
-level24ButtonClicked = function(){ selectLevel(rLevelMainMachination4); }
-
-/// @func	level25ButtonClicked();
-level25ButtonClicked = function(){ selectLevel(rLevelMainTeleportation1); }
-
-/// @func	level26ButtonClicked();
-level26ButtonClicked = function(){ selectLevel(rLevelMainTeleportation2); }
-
-/// @func	level27ButtonClicked();
-level27ButtonClicked = function(){ selectLevel(rLevelMainTeleportation3); }
-
-/// @func	level28ButtonClicked();
-level28ButtonClicked = function(){ selectLevel(rLevelMainTeleportation4); }
-
-/// @func	level29ButtonClicked();
-level29ButtonClicked = function(){ selectLevel(rLevelMainSalvation1); }
-
-/// @func	level30ButtonClicked();
-level30ButtonClicked = function(){ selectLevel(rLevelMainSalvation2); }
-
-/// @func	level31ButtonClicked();
-level31ButtonClicked = function(){ selectLevel(rLevelMainSalvation3); }
-
-/// @func	level32ButtonClicked();
-level32ButtonClicked = function(){ selectLevel(rLevelMainSalvation4); }
+level20ButtonClicked = function(){ selectLevel(rLevelMain20); }
 
 #endregion
 
@@ -216,50 +180,5 @@ level19Button.width = 32;
 _x += 34;
 level20Button = new GuiButton(guiController, "20", _x, _y, level20ButtonClicked);
 level20Button.width = 32;
-
-// Row 6
-_y += 34;
-_x = 8;
-level21Button = new GuiButton(guiController, "21", _x, _y, level21ButtonClicked);
-level21Button.width = 32;
-_x += 34;
-level22Button = new GuiButton(guiController, "22", _x, _y, level22ButtonClicked);
-level22Button.width = 32;
-_x += 34;
-level23Button = new GuiButton(guiController, "23", _x, _y, level23ButtonClicked);
-level23Button.width = 32;
-_x += 34;
-level24Button = new GuiButton(guiController, "24", _x, _y, level24ButtonClicked);
-level24Button.width = 32;
-
-// Row 7
-_y += 34;
-_x = 8;
-level25Button = new GuiButton(guiController, "25", _x, _y, level25ButtonClicked);
-level25Button.width = 32;
-_x += 34;
-level26Button = new GuiButton(guiController, "26", _x, _y, level26ButtonClicked);
-level26Button.width = 32;
-_x += 34;
-level27Button = new GuiButton(guiController, "27", _x, _y, level27ButtonClicked);
-level27Button.width = 32;
-_x += 34;
-level28Button = new GuiButton(guiController, "28", _x, _y, level28ButtonClicked);
-level28Button.width = 32;
-
-// Row 8
-_y += 34;
-_x = 8;
-level29Button = new GuiButton(guiController, "29", _x, _y, level29ButtonClicked);
-level29Button.width = 32;
-_x += 34;
-level30Button = new GuiButton(guiController, "30", _x, _y, level30ButtonClicked);
-level30Button.width = 32;
-_x += 34;
-level31Button = new GuiButton(guiController, "31", _x, _y, level31ButtonClicked);
-level31Button.width = 32;
-_x += 34;
-level32Button = new GuiButton(guiController, "32", _x, _y, level32ButtonClicked);
-level32Button.width = 32;
 
 #endregion
