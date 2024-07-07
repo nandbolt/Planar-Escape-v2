@@ -33,6 +33,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Menus",
-    "path": "folders/Objects/Menus.yy",
+    "path": "folders/Objects/Rooms/Menus.yy",
   },
 }

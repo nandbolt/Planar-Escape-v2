@@ -7,7 +7,7 @@ event_inherited();
 startButtonClicked = function()
 {
 	// Go to first level in campaign
-	room_goto(rLevelMain01);
+	room_goto(rCutsceneMain01);
 }
 
 /// @func	levelSelectButtonClicked();

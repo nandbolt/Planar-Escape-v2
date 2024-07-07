@@ -107,7 +107,7 @@ playButton = new GuiButton(guiController, "play", _x, _y, playButtonClicked);
 #region Init Level Buttons
 
 // Row 1
-_y = 32;
+_y = 80;
 _x = 8;
 level1Button = new GuiButton(guiController, "01", _x, _y, level1ButtonClicked);
 level1Button.width = 32;
