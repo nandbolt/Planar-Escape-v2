@@ -3,7 +3,8 @@ event_inherited();
 
 // States
 beltDirection = 0;
-beltStrength = 0.175;
+//beltStrength = 0.175;
+beltStrength = 0.35;
 //beltStrength = 5;
 
 #region Functions
