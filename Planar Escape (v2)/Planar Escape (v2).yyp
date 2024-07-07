@@ -5,7 +5,6 @@
   "resources": [
     {"id":{"name":"sBeltBackward","path":"sprites/sBeltBackward/sBeltBackward.yy",},"order":6,},
     {"id":{"name":"oMoveableBlock","path":"objects/oMoveableBlock/oMoveableBlock.yy",},"order":2,},
-    {"id":{"name":"oPauseMenu","path":"objects/oPauseMenu/oPauseMenu.yy",},"order":4,},
     {"id":{"name":"sStar","path":"sprites/sStar/sStar.yy",},"order":0,},
     {"id":{"name":"sCop","path":"sprites/sCop/sCop.yy",},"order":2,},
     {"id":{"name":"be_scrForceGenStruct","path":"scripts/be_scrForceGenStruct/be_scrForceGenStruct.yy",},"order":7,},
@@ -162,6 +161,7 @@
     {"id":{"name":"rLevelMain16","path":"rooms/rLevelMain16/rLevelMain16.yy",},"order":20,},
     {"id":{"name":"oEntity","path":"objects/oEntity/oEntity.yy",},"order":0,},
     {"id":{"name":"oRedPortal","path":"objects/oRedPortal/oRedPortal.yy",},"order":0,},
+    {"id":{"name":"oPauseManager","path":"objects/oPauseManager/oPauseManager.yy",},"order":3,},
     {"id":{"name":"oGreenCrystalBlock","path":"objects/oGreenCrystalBlock/oGreenCrystalBlock.yy",},"order":1,},
     {"id":{"name":"scrSightlineStruct","path":"scripts/scrSightlineStruct/scrSightlineStruct.yy",},"order":10,},
     {"id":{"name":"sLaser","path":"sprites/sLaser/sLaser.yy",},"order":1,},
