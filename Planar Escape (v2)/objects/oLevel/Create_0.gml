@@ -6,6 +6,7 @@ fastestTime = 0;
 starsCollected = 0;
 totalStars = 0;
 levelName = getLevelName(room);
+mode = Mode.NORMAL;
 
 // End menu
 levelEndMenus = 0;

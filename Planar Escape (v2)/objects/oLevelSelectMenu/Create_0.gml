@@ -5,6 +5,16 @@ event_inherited();
 selectedLevel = rLevelMain01;
 selectedLevelName = getLevelName(selectedLevel);
 
+// Map
+mapWidth = 29;
+mapHeight = 90;
+mapDrawWidth = mapWidth * 3;
+mapDrawHeight = mapHeight * 3;
+mapArray = array_create(mapWidth * mapHeight, 0);
+
+// Buttons
+levelSelectButtonStartX = 16;
+
 #region Functions
 
 /// @func	selectLevel({room} room);
@@ -16,6 +26,66 @@ selectLevel = function(_room)
 	// Set room
 	selectedLevel = _room;
 	selectedLevelName = getLevelName(_room);
+	getMapData(_room);
+}
+
+/// @func	getMapData({room} room);
+getMapData = function(_room)
+{
+	// Reset map data
+	for (var _i = 0; _i < array_length(mapArray); _i++)
+	{
+		mapArray[_i] = 0;
+	}
+	
+	// Set target room for layers to level
+	layer_set_target_room(_room);
+	
+	// Get layers
+	var _collisionLayer = layer_get_id("WorldTiles");
+	var _collisionMap = layer_tilemap_get_id(_collisionLayer);
+	
+	// Loop through tilemap
+	for (var _j = 0; _j < mapHeight; _j++)
+	{
+		for (var _i = 0; _i < mapWidth; _i++)
+		{
+			// Get position
+			var _x = _i * TILE_SIZE, _y = _j * TILE_SIZE;
+			
+			// Get tile
+			var _tile = tilemap_get_at_pixel(_collisionMap, _x, _y);
+			mapArray[_j * mapWidth + _i] = _tile;
+		}
+	}
+	
+	// Reset target room
+	layer_reset_target_room();
+}
+
+/// @func	drawMap({real} startX, {real} startY);
+drawMap = function(_startX, _startY)
+{
+	// Loop through map
+	for (var _i = 0; _i < array_length(mapArray); _i++)
+	{
+		// Get draw position
+		var _x = _startX + (_i mod mapWidth) * 3, _y = _startY + floor(_i / mapWidth) * 3;
+		
+		// Draw based off of value
+		switch (mapArray[_i])
+		{
+			case 1:
+				draw_sprite_stretched_ext(sPixel, 0, _x, _y, 3, 3, c_dkgray, 1);
+				break;
+			case 2:
+				draw_sprite_stretched_ext(sPixel, 0, _x, _y, 3, 3, c_gray, 1);
+				break;
+			case 3:
+				draw_sprite_stretched_ext(sPixel, 0, _x, _y, 3, 3, c_ltgray, 1);
+				break;
+		}
+	}
 }
 
 #region Button Functions
@@ -99,16 +169,16 @@ level20ButtonClicked = function(){ selectLevel(rLevelMain20); }
 #endregion
 
 // Init gui buttons
-var _x = 8, _y = display_get_gui_height() - 48;
+var _x = 16, _y = 28 + mapDrawHeight - 16 - 8;
 backButton = new GuiButton(guiController, "back", _x, _y, backButtonClicked);
-_x = guiCenterX + guiCenterX * 0.5 - 75;
+_x = guiCenterX + 16 + mapDrawWidth + 8;
 playButton = new GuiButton(guiController, "play", _x, _y, playButtonClicked);
 
 #region Init Level Buttons
 
 // Row 1
 _y = 80;
-_x = 8;
+_x = levelSelectButtonStartX;
 level1Button = new GuiButton(guiController, "01", _x, _y, level1ButtonClicked);
 level1Button.width = 32;
 _x += 34;
@@ -123,7 +193,7 @@ level4Button.width = 32;
 
 // Row 2
 _y += 34;
-_x = 8;
+_x = levelSelectButtonStartX;
 level5Button = new GuiButton(guiController, "05", _x, _y, level5ButtonClicked);
 level5Button.width = 32;
 _x += 34;
@@ -138,7 +208,7 @@ level8Button.width = 32;
 
 // Row 3
 _y += 34;
-_x = 8;
+_x = levelSelectButtonStartX;
 level9Button = new GuiButton(guiController, "09", _x, _y, level9ButtonClicked);
 level9Button.width = 32;
 _x += 34;
@@ -153,7 +223,7 @@ level12Button.width = 32;
 
 // Row 4
 _y += 34;
-_x = 8;
+_x = levelSelectButtonStartX;
 level13Button = new GuiButton(guiController, "13", _x, _y, level13ButtonClicked);
 level13Button.width = 32;
 _x += 34;
@@ -168,7 +238,7 @@ level16Button.width = 32;
 
 // Row 5
 _y += 34;
-_x = 8;
+_x = levelSelectButtonStartX;
 level17Button = new GuiButton(guiController, "17", _x, _y, level17ButtonClicked);
 level17Button.width = 32;
 _x += 34;
@@ -182,3 +252,6 @@ level20Button = new GuiButton(guiController, "20", _x, _y, level20ButtonClicked)
 level20Button.width = 32;
 
 #endregion
+
+// Init map data
+getMapData(rLevelMain01);

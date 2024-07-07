@@ -45,4 +45,12 @@ enum CitizenState
 	FLEE,
 }
 
+enum Mode
+{
+	STASIS,
+	NORMAL,
+	HYPER,
+	TRACE,
+}
+
 #endregion

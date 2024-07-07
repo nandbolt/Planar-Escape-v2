@@ -6,7 +6,7 @@ function GuiButton(_controller, _name, _x, _y, _onClick=function(){}) : GuiEleme
 	x = _x;
 	y = _y;
 	onClick = _onClick;
-	backSprite = sWhiteBlock;
+	backSprite = sBorder2;
 	textColor = c_black;
 	textScale = 1;
 	

@@ -98,3 +98,47 @@ function roomIsLevel(_room)
 			return false;
 	}
 }
+
+/// @func   getModeName({enum.Mode} mode);
+/// @desc   Returns the name of the mode.
+function getModeName(_mode)
+{
+	switch (_mode)
+	{
+		case Mode.STASIS:
+			return "chill";
+			break;
+		case Mode.NORMAL:
+			return "normal";
+			break;
+		case Mode.HYPER:
+			return "hyper";
+			break;
+		case Mode.TRACE:
+			return "trace";
+			break;
+	}
+	return "???";
+}
+
+/// @func   getModeDescription({enum.Mode} mode);
+/// @desc   Returns the description of the mode.
+function getModeDescription(_mode)
+{
+	switch (_mode)
+	{
+		case Mode.STASIS:
+			return "no entity.";
+			break;
+		case Mode.NORMAL:
+			return "the standard mode: escape.";
+			break;
+		case Mode.HYPER:
+			return "ecape with 2x entity speed.";
+			break;
+		case Mode.TRACE:
+			return "cover as much ground as possible.";
+			break;
+	}
+	return "???";
+}
