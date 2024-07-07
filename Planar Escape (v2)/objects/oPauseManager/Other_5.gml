@@ -1,5 +1,2 @@
-/// @desc Event
-
-
-
-
+// Prevent pause
+canPause = false;

@@ -91,8 +91,5 @@ for (var _y = HALF_TILE_SIZE; _y < room_height; _y += TILE_SIZE)
 // Update music
 updateMusic();
 
-// Create debugger if it doesn't exist
-if (!instance_exists(oDebugger)) instance_create_layer(0, 0, "Instances", oDebugger);
-
 // Hide cursor
 window_set_cursor(cr_none);

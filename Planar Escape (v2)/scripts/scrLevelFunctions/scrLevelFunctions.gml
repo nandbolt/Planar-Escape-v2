@@ -67,3 +67,34 @@ function getLevelName(_room)
 	}
 	return "???";
 }
+
+/// @func	roomIsLevel({room} room);
+function roomIsLevel(_room)
+{
+	switch (_room)
+	{
+		case rLevelMain01:
+		case rLevelMain02:
+		case rLevelMain03:
+		case rLevelMain04:
+		case rLevelMain05:
+		case rLevelMain06:
+		case rLevelMain07:
+		case rLevelMain08:
+		case rLevelMain09:
+		case rLevelMain10:
+		case rLevelMain11:
+		case rLevelMain12:
+		case rLevelMain13:
+		case rLevelMain14:
+		case rLevelMain15:
+		case rLevelMain16:
+		case rLevelMain17:
+		case rLevelMain18:
+		case rLevelMain19:
+		case rLevelMain20:
+			return true;
+		default:
+			return false;
+	}
+}

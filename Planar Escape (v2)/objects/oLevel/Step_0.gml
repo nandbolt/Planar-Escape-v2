@@ -3,6 +3,9 @@ if (!levelComplete && !levelFailed)
 {
 	// Increment level time
 	levelTime += delta_time / 1000000;
+	
+	// Queue pause if pause pressed
+	if (keyboard_check_pressed(vk_escape)) oPauseManager.pauseQueued = true;
 }
 else
 {

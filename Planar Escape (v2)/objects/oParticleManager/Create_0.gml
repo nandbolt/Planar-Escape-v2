@@ -2,6 +2,24 @@
 partSystem = part_system_create();
 partSystemLow = part_system_create();
 
+#region Functions
+
+/// @func	pauseParticles();
+pauseParticles = function()
+{
+	part_system_automatic_update(partSystem, false);
+	part_system_automatic_update(partSystemLow, false);
+}
+
+/// @func	resumeParticles();
+resumeParticles = function()
+{
+	part_system_automatic_update(partSystem, true);
+	part_system_automatic_update(partSystemLow, true);
+}
+
+#endregion
+
 // Dust
 partTypeDust = part_type_create();
 part_type_sprite(partTypeDust, sSquareCenter, false, false, false);
