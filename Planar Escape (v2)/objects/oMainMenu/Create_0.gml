@@ -6,6 +6,9 @@ event_inherited();
 /// @func	startButtonClicked();
 startButtonClicked = function()
 {
+	// Set mode to normal
+	global.mode = Mode.NORMAL;
+	
 	// Go to first level in campaign
 	room_goto(rCutsceneMain01);
 }

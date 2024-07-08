@@ -18,6 +18,9 @@ dashAfterImageNumber = 5;
 dashAfterImageCounter = 0;
 dashCooldown = 60;
 
+// Tiles
+groundTiles = layer_tilemap_get_id("GroundTiles");
+
 #region Functions
 
 /// @func	dash();

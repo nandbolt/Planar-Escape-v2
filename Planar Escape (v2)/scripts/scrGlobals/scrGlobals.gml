@@ -1,3 +1,10 @@
+#region Global Variables
+
+// Mode
+global.mode = Mode.NORMAL;
+
+#endregion
+
 #region Macros
 
 #macro TILE_SIZE 12

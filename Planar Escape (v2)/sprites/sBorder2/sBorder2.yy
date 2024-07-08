@@ -92,7 +92,7 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "group1",
-    "path": "folders/Sprites/GUI/group1.yy",
+    "name": "Borders",
+    "path": "folders/Sprites/GUI/Borders.yy",
   },
 }

@@ -104,6 +104,34 @@ playButtonClicked = function()
 	room_goto(selectedLevel);
 }
 
+/// @func	modeButtonClicked();
+modeButtonClicked = function()
+{
+	// Change mode
+	if (global.mode == Mode.NORMAL)
+	{
+		global.mode = Mode.STASIS;
+		modeButton.name = "mode: stasis";
+	}
+	else if (global.mode == Mode.STASIS)
+	{
+		global.mode = Mode.HYPER;
+		modeButton.name = "mode: hyper";
+	}
+	else if (global.mode == Mode.HYPER)
+	{
+		global.mode = Mode.TRACE;
+		modeButton.name = "mode: trace";
+	}
+	else if (global.mode == Mode.TRACE)
+	{
+		global.mode = Mode.NORMAL;
+		modeButton.name = "mode: normal";
+	}
+}
+
+#region Level Button Functions
+
 /// @func	level1ButtonClicked();
 level1ButtonClicked = function(){ selectLevel(rLevelMain01); }
 
@@ -168,16 +196,21 @@ level20ButtonClicked = function(){ selectLevel(rLevelMain20); }
 
 #endregion
 
+#endregion
+
 // Init gui buttons
 var _x = 16, _y = 28 + mapDrawHeight - 16 - 8;
 backButton = new GuiButton(guiController, "back", _x, _y, backButtonClicked);
 _x = guiCenterX + 16 + mapDrawWidth + 8;
 playButton = new GuiButton(guiController, "play", _x, _y, playButtonClicked);
+_x = guiCenterX + 16 + mapDrawWidth + 8;
+_y -= 40;
+modeButton = new GuiButton(guiController, "mode: normal", _x, _y, modeButtonClicked);
 
 #region Init Level Buttons
 
 // Row 1
-_y = 80;
+_y = 36;
 _x = levelSelectButtonStartX;
 level1Button = new GuiButton(guiController, "01", _x, _y, level1ButtonClicked);
 level1Button.width = 32;

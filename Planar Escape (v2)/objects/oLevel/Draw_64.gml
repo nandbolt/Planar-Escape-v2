@@ -63,6 +63,8 @@ else
 	draw_set_halign(fa_right);
 	_y = 8;
 	draw_text(display_get_gui_width() - 8, _y, levelName);
+	_y += 16;
+	draw_text(display_get_gui_width() - 8, _y, modeName);
 	
 	// Controls
 	draw_set_halign(fa_left);
