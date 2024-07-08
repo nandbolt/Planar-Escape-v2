@@ -1,6 +1,9 @@
 // Inherit the parent event
 event_inherited();
 
+// State
+traceActive = false;
+
 // Movement
 moveSpeed = 5000;
 
@@ -52,4 +55,36 @@ dash = function()
 	alarm[0] = dashCooldown;
 }
 
+/// @func	trace();
+trace = function()
+{
+	// Init trace
+	var _traced = false;
+	
+	// Loop around bbox
+	for (var _j = 0; _j < 2; _j++)
+	{
+		for (var _i = 0; _i < 2; _i++)
+		{
+			// Get position
+			var _x = bbox_left + _i * (bbox_right - bbox_left), _y = bbox_top + _j * (bbox_bottom - bbox_top);
+			
+			// If tile is not already traced
+			if (tilemap_get_at_pixel(groundTiles, _x, _y) == 0)
+			{
+				// Trace tile
+				tilemap_set_at_pixel(groundTiles, 1, _x, _y);
+				_traced = true;
+				oLevel.tilesTraced++;
+			}
+		}
+	}
+	
+	// Trace sound
+	if (_traced) audio_play_sound(sfxTrace, 5, false);
+}
+
 #endregion
+
+// If grafitti mode
+if (global.mode == Mode.TRACE) traceActive = true;

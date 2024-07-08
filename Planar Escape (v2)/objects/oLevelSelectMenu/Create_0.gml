@@ -108,25 +108,36 @@ playButtonClicked = function()
 modeButtonClicked = function()
 {
 	// Change mode
-	if (global.mode == Mode.NORMAL)
-	{
-		global.mode = Mode.STASIS;
-		modeButton.name = "mode: stasis";
-	}
-	else if (global.mode == Mode.STASIS)
-	{
-		global.mode = Mode.HYPER;
-		modeButton.name = "mode: hyper";
-	}
-	else if (global.mode == Mode.HYPER)
+	if (global.mode == Mode.ESCAPE)
 	{
 		global.mode = Mode.TRACE;
 		modeButton.name = "mode: trace";
 	}
 	else if (global.mode == Mode.TRACE)
 	{
-		global.mode = Mode.NORMAL;
-		modeButton.name = "mode: normal";
+		global.mode = Mode.ESCAPE;
+		modeButton.name = "mode: escape";
+	}
+}
+
+/// @func	entitySpeedButtonClicked();
+entitySpeedButtonClicked = function()
+{
+	// Change mode
+	if (global.entitySpeed == EntitySpeed.NORMAL)
+	{
+		global.entitySpeed = EntitySpeed.HYPER;
+		entitySpeedButton.name = "speed: hyper";
+	}
+	else if (global.entitySpeed == EntitySpeed.HYPER)
+	{
+		global.entitySpeed = EntitySpeed.STASIS;
+		entitySpeedButton.name = "speed: stasis";
+	}
+	else if (global.entitySpeed == EntitySpeed.STASIS)
+	{
+		global.entitySpeed = EntitySpeed.NORMAL;
+		entitySpeedButton.name = "speed: normal";
 	}
 }
 
@@ -205,7 +216,9 @@ _x = guiCenterX + 16 + mapDrawWidth + 8;
 playButton = new GuiButton(guiController, "play", _x, _y, playButtonClicked);
 _x = guiCenterX + 16 + mapDrawWidth + 8;
 _y -= 40;
-modeButton = new GuiButton(guiController, "mode: normal", _x, _y, modeButtonClicked);
+entitySpeedButton = new GuiButton(guiController, "speed: normal", _x, _y, entitySpeedButtonClicked);
+_y -= 40;
+modeButton = new GuiButton(guiController, "mode: escape", _x, _y, modeButtonClicked);
 
 #region Init Level Buttons
 

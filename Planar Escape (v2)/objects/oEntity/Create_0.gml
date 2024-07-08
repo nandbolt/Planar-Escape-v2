@@ -9,6 +9,6 @@ alarm[0] = 60;
 audio_play_sound(sfxEntity, 5, true);
 audio_sound_gain(sfxEntity, 0, 0);
 
-// Set speed (based on mode)
-if (global.mode == Mode.STASIS) moveSpeed = 0;
-else if (global.mode == Mode.HYPER) moveSpeed *= 2;
+// Set speed
+if (global.entitySpeed == EntitySpeed.STASIS) moveSpeed = 0;
+else if (global.entitySpeed == EntitySpeed.HYPER) moveSpeed *= 2;

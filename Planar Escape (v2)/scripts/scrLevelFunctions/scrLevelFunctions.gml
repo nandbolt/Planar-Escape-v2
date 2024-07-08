@@ -105,17 +105,30 @@ function getModeName(_mode)
 {
 	switch (_mode)
 	{
-		case Mode.STASIS:
-			return "chill";
-			break;
-		case Mode.NORMAL:
-			return "normal";
-			break;
-		case Mode.HYPER:
-			return "hyper";
+		case Mode.ESCAPE:
+			return "escape";
 			break;
 		case Mode.TRACE:
 			return "trace";
+			break;
+	}
+	return "???";
+}
+
+/// @func   getEntitySpeedName({enum.EntitySpeed} speed);
+/// @desc   Returns the name of the entity's speed.
+function getEntitySpeedName(_speed)
+{
+	switch (_speed)
+	{
+		case EntitySpeed.STASIS:
+			return "stasis";
+			break;
+		case EntitySpeed.NORMAL:
+			return "normal";
+			break;
+		case EntitySpeed.HYPER:
+			return "hyper";
 			break;
 	}
 	return "???";
@@ -127,14 +140,8 @@ function getModeDescription(_mode)
 {
 	switch (_mode)
 	{
-		case Mode.STASIS:
-			return "no entity.";
-			break;
-		case Mode.NORMAL:
-			return "the standard mode: escape.";
-			break;
-		case Mode.HYPER:
-			return "ecape with 2x entity speed.";
+		case Mode.ESCAPE:
+			return "exit quickly while collecting stars.";
 			break;
 		case Mode.TRACE:
 			return "cover as much ground as possible.";

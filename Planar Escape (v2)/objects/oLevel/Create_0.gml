@@ -8,6 +8,8 @@ totalStars = 0;
 levelName = getLevelName(room);
 mode = global.mode;
 modeName = getModeName(mode);
+entitySpeedName = getEntitySpeedName(global.entitySpeed);
+tilesTraced = 0;
 
 // End menu
 levelEndMenus = 0;
@@ -21,7 +23,7 @@ gridLayer = layer_get_id("GridBackground");
 
 // Tilemaps
 collisionMap = layer_tilemap_get_id("CollisionTiles");
-worldMap = layer_tilemap_get_id("WorldTiles");
+worldMap = layer_tilemap_get_id("WorldTiles"); 
 
 // Checkpoint
 checkpoint = noone;

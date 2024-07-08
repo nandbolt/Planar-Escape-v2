@@ -1,7 +1,8 @@
 #region Global Variables
 
-// Mode
-global.mode = Mode.NORMAL;
+// Run
+global.mode = Mode.ESCAPE;
+global.entitySpeed = EntitySpeed.NORMAL;
 
 #endregion
 
@@ -54,10 +55,15 @@ enum CitizenState
 
 enum Mode
 {
+	ESCAPE,
+	TRACE,
+}
+
+enum EntitySpeed
+{
 	STASIS,
 	NORMAL,
 	HYPER,
-	TRACE,
 }
 
 #endregion

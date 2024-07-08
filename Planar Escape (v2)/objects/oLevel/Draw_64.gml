@@ -26,9 +26,16 @@ if (levelComplete)
 		if (levelEndMenus > 1)
 		{
 			_y += 16;
-			if (starsCollected == totalStars) draw_set_color(c_yellow);
-			draw_text(_x, _y, "stars: " + string(starsCollected) + "/" + string(totalStars));
-			draw_set_color(c_white);
+			if (mode == Mode.ESCAPE)
+			{
+				if (starsCollected == totalStars) draw_set_color(c_yellow);
+				draw_text(_x, _y, "stars: " + string(starsCollected) + "/" + string(totalStars));
+				draw_set_color(c_white);
+			}
+			else if (mode == Mode.TRACE)
+			{
+				draw_text(_x, _y, "traces: " + string(tilesTraced));
+			}
 			if (levelEndMenus > 2)
 			{
 				_y += 32;
@@ -55,15 +62,25 @@ else
 	var _x = 8, _y = 8;
 	draw_text(_x, _y, modeName);
 	_y += 16;
+	draw_text(_x, _y, entitySpeedName);
+	_y += 16;
 	starAnimCounter += starAnimSpeed;
 	var _imageIdx = floor(starAnimCounter) mod 5;
 	draw_sprite_stretched(sClock, _imageIdx, _x, _y, 14, 14);
 	draw_text(_x + 16, _y, "" + string(levelTime));
 	_y += 16;
-	draw_sprite_stretched(sStar, _imageIdx, _x, _y, 14, 14);
-	if (starsCollected == totalStars) draw_set_color(c_yellow);
-	draw_text(_x + 16, _y, string(starsCollected));
-	draw_set_color(c_white);
+	if (mode == Mode.ESCAPE)
+	{
+		draw_sprite_stretched(sStar, _imageIdx, _x, _y, 14, 14);
+		if (starsCollected == totalStars) draw_set_color(c_yellow);
+		draw_text(_x + 16, _y, string(starsCollected));
+		draw_set_color(c_white);
+	}
+	else if (mode == Mode.TRACE)
+	{
+		draw_sprite_stretched(sTrace, _imageIdx, _x, _y, 14, 14);
+		draw_text(_x + 16, _y, string(tilesTraced));
+	}
 	
 	// Level name
 	draw_set_halign(fa_right);

@@ -44,3 +44,6 @@ if ((afterimageCounter >= afterimageFrequency && alarm[0] == -1) || dashAfterIma
 else afterimageCounter++;
 
 #endregion
+
+// Trace
+if (traceActive) trace();
