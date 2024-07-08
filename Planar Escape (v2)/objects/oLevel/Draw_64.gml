@@ -49,28 +49,32 @@ else if (levelFailed)
 }
 else
 {
-	// Time + stars
+	// Mode
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	var _x = 8, _y = 8;
-	draw_text(_x, _y, "time: " + string(levelTime));
+	draw_text(_x, _y, modeName);
 	_y += 16;
+	starAnimCounter += starAnimSpeed;
+	var _imageIdx = floor(starAnimCounter) mod 5;
+	draw_sprite_stretched(sClock, _imageIdx, _x, _y, 14, 14);
+	draw_text(_x + 16, _y, "" + string(levelTime));
+	_y += 16;
+	draw_sprite_stretched(sStar, _imageIdx, _x, _y, 14, 14);
 	if (starsCollected == totalStars) draw_set_color(c_yellow);
-	draw_text(_x, _y, "stars: " + string(starsCollected));
+	draw_text(_x + 16, _y, string(starsCollected));
 	draw_set_color(c_white);
 	
 	// Level name
 	draw_set_halign(fa_right);
 	_y = 8;
 	draw_text(display_get_gui_width() - 8, _y, levelName);
-	_y += 16;
-	draw_text(display_get_gui_width() - 8, _y, modeName);
 	
 	// Controls
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_bottom);
 	_y = display_get_gui_height() - 8;
-	draw_text(_x, _y, "move: AWSD, dash: space, use: j");
+	draw_text_color(_x, _y, "move: AWSD, dash: space, use: j", c_white, c_white, c_white, c_white, 0.25);
 	
 	// Entity
 	_x = display_get_gui_width() - 8;

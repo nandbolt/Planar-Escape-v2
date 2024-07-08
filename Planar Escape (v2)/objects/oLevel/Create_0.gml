@@ -33,6 +33,10 @@ worldTextScale = 2/3;
 // Entity meter
 playerY = room_height;
 
+// GUI
+starAnimCounter = 0;
+starAnimSpeed = 0.1;
+
 #region Functions
 
 /// @func	completeLevel();
