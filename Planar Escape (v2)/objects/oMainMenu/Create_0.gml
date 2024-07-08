@@ -31,10 +31,18 @@ quitButtonClicked = function()
 #endregion
 
 // Init gui buttons
-var _x = display_get_gui_width() * 0.25 - 75, _y = guiCenterY - 16;
-startButton = new GuiButton(guiController, "begin escape", _x, _y - 48, startButtonClicked);
+var _x = display_get_gui_width() * 0.25 - 75, _y = display_get_gui_height() / 6 - 16;
+startButton = new GuiButton(guiController, "begin escape", _x, _y, startButtonClicked);
+_y = display_get_gui_height() / 6 * 1.8 - 16;
 levelSelectButton = new GuiButton(guiController, "level select", _x, _y, levelSelectButtonClicked);
-quitButton = new GuiButton(guiController, "quit", _x, _y + 48, quitButtonClicked);
+_y = display_get_gui_height() / 6 * 2.6 - 16;
+levelEditorButton = new GuiButton(guiController, "level editor", _x, _y, levelSelectButtonClicked);
+_y = display_get_gui_height() / 6 * 3.4 - 16;
+logbookSelectButton = new GuiButton(guiController, "logbook", _x, _y, levelSelectButtonClicked);
+_y = display_get_gui_height() / 6 * 4.2 - 16;
+optionsSelectButton = new GuiButton(guiController, "options", _x, _y, levelSelectButtonClicked);
+_y = display_get_gui_height() / 6 * 5 - 16;
+quitButton = new GuiButton(guiController, "quit", _x, _y, quitButtonClicked);
 
 // Show cursor
 window_set_cursor(cr_arrow);
