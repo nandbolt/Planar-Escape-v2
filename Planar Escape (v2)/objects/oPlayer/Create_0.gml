@@ -9,6 +9,7 @@ moveSpeed = 5000;
 
 // Collectables
 stars = 0;
+stardisks = 0;
 
 // Gadgets
 gadget = undefined;
@@ -47,6 +48,7 @@ dash = function()
 	
 	// Dash sound
 	audio_play_sound(sfxDash, 10, false);
+	audio_sound_pitch(sfxDash, random_range(0.9, 1.1));
 	
 	// Set afterimage
 	dashAfterImageCounter = dashAfterImageNumber;

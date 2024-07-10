@@ -9,6 +9,7 @@ if (mode == Mode.ESCAPE)
 {
 	// Init start time + stars
 	totalStars = instance_number(oStar);
+	totalStardisks = instance_number(oStarDisk);
 }
 else if (mode == Mode.TRACE)
 {

@@ -28,8 +28,15 @@ if (levelComplete)
 			_y += 16;
 			if (mode == Mode.ESCAPE)
 			{
+				// Stars
 				if (starsCollected == totalStars) draw_set_color(c_yellow);
 				draw_text(_x, _y, "stars: " + string(starsCollected) + "/" + string(totalStars));
+				draw_set_color(c_white);
+				
+				// Stardisks
+				_y += 16;
+				if (stardisksCollected == totalStardisks) draw_set_color(c_yellow);
+				draw_text(_x, _y, "stardisks: " + string(stardisksCollected) + "/" + string(totalStardisks));
 				draw_set_color(c_white);
 			}
 			else if (mode == Mode.TRACE)
