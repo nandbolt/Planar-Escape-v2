@@ -1,13 +1,20 @@
+// States
+inCamView = false;
+
 // Power
 powerType = Power.OFF;
 particleFreq = 20;
+pulseFreq = 60;
 
 // Layer
 wireMap = layer_tilemap_get_id("WireTiles");
 
 // Target
 target = noone;
-targetRange = 60;
+targetRange = 48;
+sprTargetCircle = sCircleDottedCenter;
+targetCircleBuffer = 36;
+targetCircleMaxAlpha = 0.5;
 
 // Zap
 zapColor = c_red;
@@ -55,3 +62,4 @@ updateRod = function(_type)
 
 // Particle alarm
 alarm[0] = particleFreq;
+alarm[1] = pulseFreq;

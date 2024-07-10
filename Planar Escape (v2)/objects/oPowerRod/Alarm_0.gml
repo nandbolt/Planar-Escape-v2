@@ -1,11 +1,13 @@
 // Emit particles if on
-if (isVisible(id) && powerType != Power.OFF)
+if (inCamView && powerType != Power.OFF)
 {
 	var _c = zapColor;
 	with (oParticleManager)
 	{
-		if (instance_exists(other.target)) part_particles_create_color(partSystem, other.target.x, other.target.y, partTypeDust, _c, 1);
-		part_particles_create_color(partSystem, other.x, other.y, partTypePulse, _c, 1);
+		if (instance_exists(other.target))
+		{
+			part_particles_create_color(partSystem, other.target.x, other.target.y, partTypeDust, _c, 1);
+		}
 	}
 }
 

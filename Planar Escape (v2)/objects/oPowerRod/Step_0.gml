@@ -39,3 +39,12 @@ if (_tile > 17)
 	}
 }
 else updateRod(Power.OFF);
+
+// Update visibility
+inCamView = isVisible(id);
+
+// Zap sound
+if (inCamView && instance_exists(target) && !audio_is_playing(sfxRodZap))
+{
+	audio_play_sound(sfxRodZap, 5, false);
+}
