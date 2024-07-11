@@ -3,6 +3,7 @@
 // Run
 global.mode = Mode.ESCAPE;
 global.entitySpeed = EntitySpeed.NORMAL;
+global.skin = sPlayerDebug;
 
 #endregion
 
