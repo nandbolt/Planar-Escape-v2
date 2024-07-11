@@ -156,6 +156,7 @@
     {"id":{"name":"be_scrForceRegistryStruct","path":"scripts/be_scrForceRegistryStruct/be_scrForceRegistryStruct.yy",},"order":8,},
     {"id":{"name":"oParticleManager","path":"objects/oParticleManager/oParticleManager.yy",},"order":1,},
     {"id":{"name":"rLevelMain09","path":"rooms/rLevelMain09/rLevelMain09.yy",},"order":13,},
+    {"id":{"name":"sPlayerSquare","path":"sprites/sPlayerSquare/sPlayerSquare.yy",},"order":2,},
     {"id":{"name":"oEscapedMenu","path":"objects/oEscapedMenu/oEscapedMenu.yy",},"order":3,},
     {"id":{"name":"oDryIceBlock","path":"objects/oDryIceBlock/oDryIceBlock.yy",},"order":10,},
     {"id":{"name":"oYellowDoor","path":"objects/oYellowDoor/oYellowDoor.yy",},"order":3,},

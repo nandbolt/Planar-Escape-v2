@@ -92,4 +92,4 @@ trace = function()
 if (global.mode == Mode.TRACE) traceActive = true;
 
 // Set player sprite
-sprite_index = sPlayerCar;
+sprite_index = sPlayerSquare;
