@@ -46,3 +46,10 @@ quitButton = new GuiButton(guiController, "quit", _x, _y, quitButtonClicked);
 
 // Show cursor
 window_set_cursor(cr_arrow);
+
+// Play music
+if (!audio_is_playing(mEscape))
+{
+	audio_stop_all();
+	audio_play_sound(mEscape, 20, true);
+}

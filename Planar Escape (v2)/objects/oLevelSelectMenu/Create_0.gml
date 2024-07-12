@@ -191,18 +191,6 @@ level15ButtonClicked = function(){ selectLevel(rLevelMain15); }
 /// @func	level16ButtonClicked();
 level16ButtonClicked = function(){ selectLevel(rLevelMain16); }
 
-/// @func	level17ButtonClicked();
-level17ButtonClicked = function(){ selectLevel(rLevelMain17); }
-
-/// @func	level18ButtonClicked();
-level18ButtonClicked = function(){ selectLevel(rLevelMain18); }
-
-/// @func	level19ButtonClicked();
-level19ButtonClicked = function(){ selectLevel(rLevelMain19); }
-
-/// @func	level20ButtonClicked();
-level20ButtonClicked = function(){ selectLevel(rLevelMain20); }
-
 #endregion
 
 #endregion
@@ -277,21 +265,6 @@ level15Button.width = 32;
 _x += _xSpacing;
 level16Button = new GuiButton(guiController, "16", _x, _y, level16ButtonClicked);
 level16Button.width = 32;
-
-// Row 5
-_y += 34;
-_x = levelSelectButtonStartX;
-level17Button = new GuiButton(guiController, "17", _x, _y, level17ButtonClicked);
-level17Button.width = 32;
-_x += _xSpacing;
-level18Button = new GuiButton(guiController, "18", _x, _y, level18ButtonClicked);
-level18Button.width = 32;
-_x += _xSpacing;
-level19Button = new GuiButton(guiController, "19", _x, _y, level19ButtonClicked);
-level19Button.width = 32;
-_x += _xSpacing;
-level20Button = new GuiButton(guiController, "20", _x, _y, level20ButtonClicked);
-level20Button.width = 32;
 
 #endregion
 

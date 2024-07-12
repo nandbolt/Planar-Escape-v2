@@ -47,21 +47,9 @@ function getLevelName(_room)
 			return "crystal wake";
 			break;
 		case rLevelMain15:
-			return "forced away";
-			break;
-		case rLevelMain16:
-			return "robonauts";
-			break;
-		case rLevelMain17:
-			return "hyper coolant";
-			break;
-		case rLevelMain18:
-			return "logitronics";
-			break;
-		case rLevelMain19:
 			return "inner machinations";
 			break;
-		case rLevelMain20:
+		case rLevelMain16:
 			return "final bout";
 			break;
 	}
@@ -89,10 +77,6 @@ function roomIsLevel(_room)
 		case rLevelMain14:
 		case rLevelMain15:
 		case rLevelMain16:
-		case rLevelMain17:
-		case rLevelMain18:
-		case rLevelMain19:
-		case rLevelMain20:
 			return true;
 		default:
 			return false;

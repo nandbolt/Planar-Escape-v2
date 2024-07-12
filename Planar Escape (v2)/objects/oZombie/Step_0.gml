@@ -34,7 +34,7 @@ switch (mentalState)
 // Check zombification
 with (oActor)
 {
-	if ((object_index == oPlayer || object_index == oCop || object_index == oCitizen) && point_distance(x, y, other.x, other.y) < 8) zombify(self);
+	if ((object_index == oPlayer || object_index == oCop || object_index == oCitizen) && point_distance(x, y, other.x, other.y) < 8) transformTarget(self, oZombie, c_green);
 }
 
 // Inherit the parent event
