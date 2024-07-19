@@ -5,7 +5,7 @@ event_inherited();
 moveSpeed = 2000;
 
 // Sightline
-sight = new Sightline([oPlayer, oCop, oCitizen, oRobot], 144, 0);
+sight = new Sightline([oPlayer, oCop, oCitizen, oRobot], 108, 0);
 
 #region Functions
 

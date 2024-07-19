@@ -41,7 +41,7 @@ updateAnimations = function()
 }
 
 /// @func	setFacing({int} imageIdx);
-setFacing = function(_imageIdx)
+setFacing = function(_imageIdx=0)
 {
 	// Set index
 	image_index = _imageIdx;

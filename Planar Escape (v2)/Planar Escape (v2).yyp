@@ -27,7 +27,6 @@
     {"id":{"name":"sBlueDoor","path":"sprites/sBlueDoor/sBlueDoor.yy",},"order":3,},
     {"id":{"name":"sIceBlock","path":"sprites/sIceBlock/sIceBlock.yy",},"order":1,},
     {"id":{"name":"rCutsceneMain04","path":"rooms/rCutsceneMain04/rCutsceneMain04.yy",},"order":3,},
-    {"id":{"name":"rCutsceneMain06","path":"rooms/rCutsceneMain06/rCutsceneMain06.yy",},"order":5,},
     {"id":{"name":"scrGuiButtonStruct","path":"scripts/scrGuiButtonStruct/scrGuiButtonStruct.yy",},"order":0,},
     {"id":{"name":"be_scrAnchoredSpringForceGenStruct","path":"scripts/be_scrAnchoredSpringForceGenStruct/be_scrAnchoredSpringForceGenStruct.yy",},"order":6,},
     {"id":{"name":"sGrid","path":"sprites/sGrid/sGrid.yy",},"order":3,},
@@ -120,6 +119,7 @@
     {"id":{"name":"scrCameraFunctions","path":"scripts/scrCameraFunctions/scrCameraFunctions.yy",},"order":4,},
     {"id":{"name":"sfxCollectStardisk","path":"sounds/sfxCollectStardisk/sfxCollectStardisk.yy",},"order":1,},
     {"id":{"name":"sfxDash","path":"sounds/sfxDash/sfxDash.yy",},"order":0,},
+    {"id":{"name":"sfxAlert","path":"sounds/sfxAlert/sfxAlert.yy",},"order":2,},
     {"id":{"name":"oSpawnPortal","path":"objects/oSpawnPortal/oSpawnPortal.yy",},"order":5,},
     {"id":{"name":"sBluePortal","path":"sprites/sBluePortal/sBluePortal.yy",},"order":4,},
     {"id":{"name":"rLevelMain06","path":"rooms/rLevelMain06/rLevelMain06.yy",},"order":10,},
@@ -294,7 +294,6 @@
     {"roomId":{"name":"rLevelMain15","path":"rooms/rLevelMain15/rLevelMain15.yy",},},
     {"roomId":{"name":"rLevelMain16","path":"rooms/rLevelMain16/rLevelMain16.yy",},},
     {"roomId":{"name":"rCutsceneMain05","path":"rooms/rCutsceneMain05/rCutsceneMain05.yy",},},
-    {"roomId":{"name":"rCutsceneMain06","path":"rooms/rCutsceneMain06/rCutsceneMain06.yy",},},
     {"roomId":{"name":"rEscapedMenu","path":"rooms/rEscapedMenu/rEscapedMenu.yy",},},
   ],
   "Folders": [

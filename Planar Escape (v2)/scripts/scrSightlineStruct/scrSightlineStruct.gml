@@ -13,7 +13,7 @@ function Sightline(_targets, _maxViewDist, _viewAngleOffset) constructor
 	viewDashImgSpd = 4/60;
 	viewDashImgNum = 2;
 	viewAngleOffset = _viewAngleOffset;
-	viewAdjustSpeed = 0.02;
+	viewAdjustSpeed = 0.01;
 	viewResolution = 6;
 
 	// Tiles
@@ -80,6 +80,7 @@ function Sightline(_targets, _maxViewDist, _viewAngleOffset) constructor
 			mentalState = ZombieState.ALERTED;
 			alertY = y;
 			alarm[0] = 30;
+			audio_play_sound(sfxAlert, 10, false);
 		}
 	}
 }
