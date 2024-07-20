@@ -1,5 +1,8 @@
 #region Global Variables
 
+// Build
+global.version = "1.9";
+
 // Run
 global.mode = Mode.ESCAPE;
 global.entitySpeed = EntitySpeed.NORMAL;

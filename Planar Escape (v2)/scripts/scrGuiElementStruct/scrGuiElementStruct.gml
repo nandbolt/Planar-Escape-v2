@@ -13,6 +13,11 @@ function GuiElement(_controller) constructor
 	static height = 32;
 	static padding = 16;
 	
+	// Hover
+	hovering = false;
+	hoverCounter = 0;
+	static maxHoverCounter = 10;
+	
 	// Add to controller's list of gui elements
 	controller.addElement(self);
 	
@@ -41,13 +46,30 @@ function GuiElement(_controller) constructor
 	/// @func	update();
 	static update = function()
 	{
-		// Check click + not already clicking something + clicked this element
-		if (mouse_check_button_pressed(mb_left) && controller.canClick &&
-			point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), x, y, x + width, y + height))
+		// If not already clicking something
+		if (controller.canClick)
 		{
-			// Click element
-			controller.canClick = false;
-			click();
+			// If hovering over element
+			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), x, y, x + width, y + height))
+			{
+				// Set hover
+				hovering = true;
+				hoverCounter = clamp(hoverCounter + 1, 0, maxHoverCounter);
+				
+				// If clicked
+				if (mouse_check_button_pressed(mb_left))
+				{
+					// Click element
+					controller.canClick = false;
+					click();
+				}
+			}
+			else
+			{
+				// Set hover
+				hovering = false;
+				hoverCounter = clamp(hoverCounter - 1, 0, maxHoverCounter);
+			}
 		}
 		
 		// Listen for input if element has focus

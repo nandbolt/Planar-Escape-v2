@@ -1,6 +1,9 @@
 // Inherit the parent event
 event_inherited();
 
+// Version
+version = global.version;
+
 #region Button Functions
 
 /// @func	startButtonClicked();
