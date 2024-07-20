@@ -7,6 +7,7 @@ function GuiElement(_controller) constructor
 	// Value
 	value = undefined;
 	name = undefined;
+	locked = false;
 	
 	// Dimensions
 	static width = 150;
@@ -53,15 +54,21 @@ function GuiElement(_controller) constructor
 			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), x, y, x + width, y + height))
 			{
 				// Set hover
+				if (!hovering) audio_play_sound(sfxGuiButtonHover, 10, false);
 				hovering = true;
 				hoverCounter = clamp(hoverCounter + 1, 0, maxHoverCounter);
 				
 				// If clicked
 				if (mouse_check_button_pressed(mb_left))
 				{
-					// Click element
-					controller.canClick = false;
-					click();
+					// If not locked
+					if (!locked)
+					{
+						// Click element
+						controller.canClick = false;
+						click();
+					}
+					else audio_play_sound(sfxGuiButtonLockedPressed, 10, false);
 				}
 			}
 			else
