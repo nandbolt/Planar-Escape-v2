@@ -21,7 +21,14 @@ startButtonClicked = function()
 levelSelectButtonClicked = function()
 {
 	// Go to first level in campaign
-	room_goto(rLevelSelectMenu);
+	room_goto(rMainLevelSelectMenu);
+}
+
+/// @func	levelEditorButtonClicked();
+levelEditorButtonClicked = function()
+{
+	// Go to first level in campaign
+	room_goto(rCustomLevelSelectMenu);
 }
 
 /// @func	quitButtonClicked();
@@ -39,7 +46,7 @@ startButton = new GuiButton(guiController, "begin escape", _x, _y, startButtonCl
 _y = display_get_gui_height() / 6 * 1.8 - 16;
 levelSelectButton = new GuiButton(guiController, "level select", _x, _y, levelSelectButtonClicked);
 _y = display_get_gui_height() / 6 * 2.6 - 16;
-levelEditorButton = new GuiButton(guiController, "level editor", _x, _y, levelSelectButtonClicked);
+levelEditorButton = new GuiButton(guiController, "level editor", _x, _y, levelEditorButtonClicked);
 _y = display_get_gui_height() / 6 * 3.4 - 16;
 logbookSelectButton = new GuiButton(guiController, "logbook", _x, _y, levelSelectButtonClicked);
 _y = display_get_gui_height() / 6 * 4.2 - 16;

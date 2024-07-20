@@ -52,6 +52,9 @@ function getLevelName(_room)
 		case rLevelMain16:
 			return "final bout";
 			break;
+		case rLevelEmpty:
+			return "new level";
+			break;
 	}
 	return "???";
 }

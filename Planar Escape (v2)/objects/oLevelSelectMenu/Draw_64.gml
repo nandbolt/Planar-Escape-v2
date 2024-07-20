@@ -30,4 +30,4 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 _x = 8;
 _y = 8;
-draw_text(_x, _y, "main levels");
+draw_text(_x, _y, levelSelectName + " levels");

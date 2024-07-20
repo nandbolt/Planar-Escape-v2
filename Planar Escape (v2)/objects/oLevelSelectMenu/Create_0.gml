@@ -1,9 +1,8 @@
 // Inherit the parent event
 event_inherited();
 
-// Levels
-selectedLevel = rLevelMain01;
-selectedLevelName = getLevelName(selectedLevel);
+// Level select
+levelSelectName = "???";
 
 // Map
 mapWidth = 29;
@@ -12,8 +11,12 @@ mapDrawWidth = mapWidth * 3;
 mapDrawHeight = mapHeight * 3;
 mapArray = array_create(mapWidth * mapHeight, 0);
 
-// Buttons
-levelSelectButtonStartX = 16;
+// Levels
+levels = [];
+levelSelectButtons = [];
+selectedLevelIdx = 0;
+selectedLevel = rLevelMain01;
+selectedLevelName = getLevelName(selectedLevel);
 
 #region Functions
 
@@ -88,6 +91,46 @@ drawMap = function(_startX, _startY)
 	}
 }
 
+/// @func initLevelSelection();
+initLevelSelection = function()
+{
+	// Create level select buttons
+	for (var _i = 0; _i < array_length(levels); _i++)
+	{
+		// Get position
+		var _spacing = 34;
+		var _x = 16 + (_i mod 8) * _spacing, _y = 36 + floor(_i / 8) * _spacing;
+		
+		// Make button
+		var _level = levels[_i], _buttonName = string(_i + 1);
+		if (_level == rLevelEmpty) _buttonName = "++";
+		var _button = new GuiButton(guiController, _buttonName, _x, _y, levelSelectButtonClicked)
+		_button.width = 32;
+		
+		// Set locks
+		if (room == rMainLevelSelectMenu)
+		{
+			// If not first level
+			if (_i > 0)
+			{
+				// Lock levels
+				_button.locked = true;
+				
+				// Set lock text
+				if (_i < 8) _button.lockedHoverText = "escape level " + string(_i) + " to unlock!";
+				else _button.lockedHoverText = "coming soon!";
+			}
+		}
+		
+		// Add button to list
+		array_push(levelSelectButtons, _button);
+	}
+	
+	// Select first level
+	selectedLevel = levels[selectedLevelIdx];
+	selectLevel(selectedLevel);
+}
+
 #region Button Functions
 
 /// @func	backButtonClicked();
@@ -141,57 +184,22 @@ entitySpeedButtonClicked = function()
 	}
 }
 
-#region Level Button Functions
-
-/// @func	level1ButtonClicked();
-level1ButtonClicked = function(){ selectLevel(rLevelMain01); }
-
-/// @func	level2ButtonClicked();
-level2ButtonClicked = function(){ selectLevel(rLevelMain02); }
-
-/// @func	level3ButtonClicked();
-level3ButtonClicked = function(){ selectLevel(rLevelMain03); }
-
-/// @func	level4ButtonClicked();
-level4ButtonClicked = function(){ selectLevel(rLevelMain04); }
-
-/// @func	level5ButtonClicked();
-level5ButtonClicked = function(){ selectLevel(rLevelMain05); }
-
-/// @func	level6ButtonClicked();
-level6ButtonClicked = function(){ selectLevel(rLevelMain06); }
-
-/// @func	level7ButtonClicked();
-level7ButtonClicked = function(){ selectLevel(rLevelMain07); }
-
-/// @func	level8ButtonClicked();
-level8ButtonClicked = function(){ selectLevel(rLevelMain08); }
-
-/// @func	level9ButtonClicked();
-level9ButtonClicked = function(){ selectLevel(rLevelMain09); }
-
-/// @func	level10ButtonClicked();
-level10ButtonClicked = function(){ selectLevel(rLevelMain10); }
-
-/// @func	level11ButtonClicked();
-level11ButtonClicked = function(){ selectLevel(rLevelMain11); }
-
-/// @func	level12ButtonClicked();
-level12ButtonClicked = function(){ selectLevel(rLevelMain12); }
-
-/// @func	level13ButtonClicked();
-level13ButtonClicked = function(){ selectLevel(rLevelMain13); }
-
-/// @func	level14ButtonClicked();
-level14ButtonClicked = function(){ selectLevel(rLevelMain14); }
-
-/// @func	level15ButtonClicked();
-level15ButtonClicked = function(){ selectLevel(rLevelMain15); }
-
-/// @func	level16ButtonClicked();
-level16ButtonClicked = function(){ selectLevel(rLevelMain16); }
-
-#endregion
+/// @func	levelSelectButtonClicked();
+levelSelectButtonClicked = function()
+{
+	// Loop through buttons
+	for (var _i = 0; _i < array_length(levelSelectButtons); _i++)
+	{
+		// If button has focus
+		var _button = levelSelectButtons[_i];
+		if (_button.hasFocus())
+		{
+			// Select the level and break
+			selectLevel(levels[_i]);
+			break;
+		}
+	}
+}
 
 #endregion
 
@@ -207,96 +215,3 @@ _y -= 40;
 entitySpeedButton = new GuiButton(guiController, "speed: normal", _x, _y, entitySpeedButtonClicked);
 _y -= 40;
 modeButton = new GuiButton(guiController, "mode: escape", _x, _y, modeButtonClicked);
-
-#region Init Level Buttons
-
-var _xSpacing = 34;
-
-// Row 1
-_y = 36;
-_x = levelSelectButtonStartX;
-level1Button = new GuiButton(guiController, "01", _x, _y, level1ButtonClicked);
-level1Button.width = 32;
-_x += _xSpacing;
-level2Button = new GuiButton(guiController, "02", _x, _y, level2ButtonClicked);
-level2Button.width = 32;
-level2Button.locked = true;
-level2Button.lockedHoverText = "escape level 1 to unlock!";
-_x += _xSpacing;
-level3Button = new GuiButton(guiController, "03", _x, _y, level3ButtonClicked);
-level3Button.width = 32;
-level3Button.locked = true;
-level3Button.lockedHoverText = "escape level 2 to unlock!";
-_x += _xSpacing;
-level4Button = new GuiButton(guiController, "04", _x, _y, level4ButtonClicked);
-level4Button.width = 32;
-level4Button.locked = true;
-level4Button.lockedHoverText = "escape level 3 to unlock!";
-_x += _xSpacing;
-level5Button = new GuiButton(guiController, "05", _x, _y, level5ButtonClicked);
-level5Button.width = 32;
-level5Button.locked = true;
-level5Button.lockedHoverText = "escape level 4 to unlock!";
-_x += _xSpacing;
-level6Button = new GuiButton(guiController, "06", _x, _y, level6ButtonClicked);
-level6Button.width = 32;
-level6Button.locked = true;
-level6Button.lockedHoverText = "escape level 5 to unlock!";
-_x += _xSpacing;
-level7Button = new GuiButton(guiController, "07", _x, _y, level7ButtonClicked);
-level7Button.width = 32;
-level7Button.locked = true;
-level7Button.lockedHoverText = "escape level 6 to unlock!";
-_x += _xSpacing;
-level8Button = new GuiButton(guiController, "08", _x, _y, level8ButtonClicked);
-level8Button.width = 32;
-level8Button.locked = true;
-level8Button.lockedHoverText = "escape level 7 to unlock!";
-
-// Row 3
-_y += 34;
-_x = levelSelectButtonStartX;
-level9Button = new GuiButton(guiController, "09", _x, _y, level9ButtonClicked);
-level9Button.width = 32;
-level9Button.locked = true;
-level9Button.lockedHoverText = "coming soon!";
-_x += _xSpacing;
-level10Button = new GuiButton(guiController, "10", _x, _y, level10ButtonClicked);
-level10Button.width = 32;
-level10Button.locked = true;
-level10Button.lockedHoverText = "coming soon!";
-_x += _xSpacing;
-level11Button = new GuiButton(guiController, "11", _x, _y, level11ButtonClicked);
-level11Button.width = 32;
-level11Button.locked = true;
-level11Button.lockedHoverText = "coming soon!";
-_x += _xSpacing;
-level12Button = new GuiButton(guiController, "12", _x, _y, level12ButtonClicked);
-level12Button.width = 32;
-level12Button.locked = true;
-level12Button.lockedHoverText = "coming soon!";
-_x += _xSpacing;
-level13Button = new GuiButton(guiController, "13", _x, _y, level13ButtonClicked);
-level13Button.width = 32;
-level13Button.locked = true;
-level13Button.lockedHoverText = "coming soon!";
-_x += _xSpacing;
-level14Button = new GuiButton(guiController, "14", _x, _y, level14ButtonClicked);
-level14Button.width = 32;
-level14Button.locked = true;
-level14Button.lockedHoverText = "coming soon!";
-_x += _xSpacing;
-level15Button = new GuiButton(guiController, "15", _x, _y, level15ButtonClicked);
-level15Button.width = 32;
-level15Button.locked = true;
-level15Button.lockedHoverText = "coming soon!";
-_x += _xSpacing;
-level16Button = new GuiButton(guiController, "16", _x, _y, level16ButtonClicked);
-level16Button.width = 32;
-level16Button.locked = true;
-level16Button.lockedHoverText = "coming soon!";
-
-#endregion
-
-// Init map data
-getMapData(rLevelMain01);
