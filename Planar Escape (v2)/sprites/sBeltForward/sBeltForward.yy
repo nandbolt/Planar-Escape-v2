@@ -74,7 +74,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Sprites/Blocks.yy",
+    "name": "Contraptions",
+    "path": "folders/Sprites/Contraptions.yy",
   },
 }

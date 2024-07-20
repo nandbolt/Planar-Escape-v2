@@ -33,3 +33,7 @@ else
 // Move level editor
 x = clamp(x + moveInput.x * TILE_SIZE, TILE_SIZE + HALF_TILE_SIZE, room_width - TILE_SIZE - HALF_TILE_SIZE);
 y = clamp(y + moveInput.y * TILE_SIZE, TILE_SIZE + HALF_TILE_SIZE, room_height - TILE_SIZE - HALF_TILE_SIZE);
+
+// Update cursor
+if (keyboard_check_pressed(ord("Q"))) updateCursor(cursorIdx-1);
+else if (keyboard_check_pressed(ord("E"))) updateCursor(cursorIdx+1);
