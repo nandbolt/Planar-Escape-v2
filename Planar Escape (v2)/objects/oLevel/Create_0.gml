@@ -1,3 +1,12 @@
+// If editing level
+if (global.editingLevel)
+{
+	// Create level editor and destroy self
+	instance_create_layer(oSpawnPortal.x, oSpawnPortal.y, "Instances", oLevelEditor);
+	instance_destroy();
+	exit;
+}
+
 // State
 levelComplete = false;
 levelFailed = false;

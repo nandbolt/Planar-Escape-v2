@@ -6,6 +6,7 @@ halfCamHeight = camHeight * 0.5;
 
 // Follow
 target = oPlayer;
+if (global.editingLevel) target = oLevelEditor;
 targetPosition = new BEVector2();
 followAcceleration = 0.25;
 

@@ -80,6 +80,7 @@ function roomIsLevel(_room)
 		case rLevelMain14:
 		case rLevelMain15:
 		case rLevelMain16:
+		case rLevelEmpty:
 			return true;
 		default:
 			return false;

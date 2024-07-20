@@ -144,6 +144,7 @@ backButtonClicked = function()
 playButtonClicked = function()
 {
 	// Go to first level in campaign
+	global.editingLevel = false;
 	room_goto(selectedLevel);
 }
 

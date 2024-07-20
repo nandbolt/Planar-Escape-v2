@@ -8,6 +8,9 @@ global.mode = Mode.ESCAPE;
 global.entitySpeed = EntitySpeed.NORMAL;
 global.skin = sPlayerDebug;
 
+// Level editor
+global.editingLevel = false;
+
 #endregion
 
 #region Macros

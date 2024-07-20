@@ -2,8 +2,8 @@
 /// @desc   Updates the music for the current room.
 function updateMusic()
 {
-	// Creation song
-	if (room == rLevelMain01 || room == rLevelMain02 || room == rLevelMain03 || room == rLevelMain04) playSong(mCreation);
+	if (global.editingLevel) audio_stop_all();
+	else if (room == rLevelMain01 || room == rLevelMain02 || room == rLevelMain03 || room == rLevelMain04) playSong(mCreation);
 	else if (room == rLevelMain05 || room == rLevelMain06 || room == rLevelMain07 || room == rLevelMain08) playSong(mRadiation);
 	else if (room == rLevelMain09 || room == rLevelMain10 || room == rLevelMain11 || room == rLevelMain12) playSong(mPopulation);
 	else if (room == rLevelMain13 || room == rLevelMain14 || room == rLevelMain15 || room == rLevelMain16) playSong(mSalvation);
