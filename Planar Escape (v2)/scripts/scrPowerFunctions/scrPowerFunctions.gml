@@ -403,3 +403,61 @@ function transformTarget(_target, _newObject, _color)
 	// Return object
 	return _actor;
 }
+
+/// @func	updateWireAutotile({tilemap} wireMap, {real} x, {real} y);
+function updateWireAutotile(_wireMap, _x, _y)
+{
+	// Return if empty tile
+	if (tilemap_get_at_pixel(_wireMap, _x, _y) == 0) return;
+	
+	// Get neighbors
+	var _left = tilemap_get_at_pixel(_wireMap, _x - TILE_SIZE, _y), _right = tilemap_get_at_pixel(_wireMap, _x + TILE_SIZE, _y);
+	var _up = tilemap_get_at_pixel(_wireMap, _x, _y - TILE_SIZE), _down = tilemap_get_at_pixel(_wireMap, _x, _y + TILE_SIZE);
+	
+	// Solo
+	if (_left == 0 && _right == 0 && _up == 0 && _down == 0) tilemap_set_at_pixel(_wireMap, 12, _x, _y);
+	// Left neighbor
+	else if (_right == 0 && _up == 0 && _down == 0) tilemap_set_at_pixel(_wireMap, 8, _x, _y);
+	// Right neighbor
+	else if (_left == 0 && _up == 0 && _down == 0) tilemap_set_at_pixel(_wireMap, 6, _x, _y);
+	// Top neighbor
+	else if (_left == 0 && _right == 0 && _down == 0) tilemap_set_at_pixel(_wireMap, 13, _x, _y);
+	// Bottom neighbor
+	else if (_left == 0 && _right == 0 && _up == 0) tilemap_set_at_pixel(_wireMap, 1, _x, _y);
+	// Horizontal neighbors
+	else if (_up == 0 && _down == 0) tilemap_set_at_pixel(_wireMap, 2, _x, _y);
+	// Vertical neighbors
+	else if (_left == 0 && _right == 0) tilemap_set_at_pixel(_wireMap, 16, _x, _y);
+	// Quadrant I neighbors
+	else if (_left == 0 && _down == 0) tilemap_set_at_pixel(_wireMap, 9, _x, _y);
+	// Quadrant II neighbors
+	else if (_right == 0 && _down == 0) tilemap_set_at_pixel(_wireMap, 11, _x, _y);
+	// Quadrant III neighbors
+	else if (_right == 0 && _up == 0) tilemap_set_at_pixel(_wireMap, 5, _x, _y);
+	// Quadrant IV neighbors
+	else if (_left == 0 && _up == 0) tilemap_set_at_pixel(_wireMap, 3, _x, _y);
+	// T right neighbors
+	else if (_left == 0) tilemap_set_at_pixel(_wireMap, 14, _x, _y);
+	// T left neighbors
+	else if (_right == 0) tilemap_set_at_pixel(_wireMap, 15, _x, _y);
+	// T up neighbors
+	else if (_down == 0) tilemap_set_at_pixel(_wireMap, 10, _x, _y);
+	// T down neighbors
+	else if (_up == 0) tilemap_set_at_pixel(_wireMap, 4, _x, _y);
+	// Cross neighbors
+	else tilemap_set_at_pixel(_wireMap, 7, _x, _y);
+}
+
+/// @func	setWireAutotile({tilemap} wireMap, {real} x, {real} y, {bool} on);
+function setWireAutotile(_wireMap, _x, _y, _on)
+{
+	// Set current tile
+	tilemap_set_at_pixel(_wireMap, _on, _x, _y);
+	
+	// Update cross autotile
+	updateWireAutotile(_wireMap, _x, _y);
+	updateWireAutotile(_wireMap, _x - TILE_SIZE, _y);
+	updateWireAutotile(_wireMap, _x + TILE_SIZE, _y);
+	updateWireAutotile(_wireMap, _x, _y - TILE_SIZE);
+	updateWireAutotile(_wireMap, _x, _y + TILE_SIZE);
+}

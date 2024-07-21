@@ -3,6 +3,11 @@ gridWidth = floor(room_width / TILE_SIZE) - 2;
 gridHeight = floor(room_height / TILE_SIZE) - 2;
 levelGrid = array_create(gridWidth * gridHeight, 0);
 
+// Grid position
+gridX = floor(x / TILE_SIZE) - 1;
+gridY = floor(y / TILE_SIZE) - 1;
+gridValue = levelGrid[gridWidth * gridY + gridX];
+
 // Movement
 moveInput = new BEVector2();
 moveHoldDelay = 20;
@@ -11,11 +16,17 @@ moveHoldDelay = 20;
 cursorIdx = 0;
 cursorSprite = sprite_index;
 cursorText = "";
+cursorColor = c_white;
+
+// Tilemaps
+//collisionMap = layer_tilemap_get_id("CollisionTiles");
+worldMap = layer_tilemap_get_id("WorldTiles");
+wireMap = layer_tilemap_get_id("WireTiles");
 
 #region Functions
 
-///	@func	updateCursor({enum.LevelObject} idx);
-updateCursor = function(_idx)
+///	@func	changeCursor({enum.LevelObject} idx);
+changeCursor = function(_idx)
 {
 	// Clamp index
 	if (_idx > LevelObject.ROBOT) cursorIdx = LevelObject.WIRE;
@@ -242,10 +253,62 @@ updateCursor = function(_idx)
 	}
 }
 
+/// @func	moveCursor({real} dx, {real} dy);
+moveCursor = function(_dx, _dy)
+{
+	// Update position
+	x = clamp(x + _dx, TILE_SIZE + HALF_TILE_SIZE, room_width - TILE_SIZE - HALF_TILE_SIZE);
+	y = clamp(y + _dy, TILE_SIZE + HALF_TILE_SIZE, room_height - TILE_SIZE - HALF_TILE_SIZE);
+	gridX = floor(x / TILE_SIZE) - 1;
+	gridY = floor(y / TILE_SIZE) - 1;
+	gridValue = levelGrid[gridWidth * gridY + gridX];
+	
+	// Update color
+	if (gridValue == 0) cursorColor = c_white;
+	else cursorColor = c_red;
+}
+
+/// @func	placeCursorObject();
+placeCursorObject = function()
+{
+	// If not placing a wire
+	if (cursorIdx != -1)
+	{
+		// Fill grid space
+		levelGrid[gridWidth * gridY + gridX] = cursorIdx;
+		gridValue = cursorIdx;
+		cursorColor = c_red;
+	
+		// Update world tile placement
+		if (cursorIdx == LevelObject.SOLID_WALL) tilemap_set_at_pixel(worldMap, 1, x, y);
+		else if (cursorIdx == LevelObject.GLASS_WALL) tilemap_set_at_pixel(worldMap, 2, x, y);
+		else if (cursorIdx == LevelObject.RUBBLE_FLOOR) tilemap_set_at_pixel(worldMap, 3, x, y);
+		else tilemap_set_at_pixel(worldMap, 0, x, y);
+	
+		// Up
+	}
+	// Else toggle wire
+	else setWireAutotile(wireMap, x, y, tilemap_get_at_pixel(wireMap, x, y) == 0);
+}
+
 #endregion
 
 // Camera
 instance_create_layer(0, 0, "Instances", oCamera);
+
+// Fill level grid
+for (var _i = 0; _i < array_length(levelGrid); _i++)
+{
+	// Get position
+	var _x = (_i mod gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+	var _y = floor(_i / gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+	
+	// Check tile
+	var _tile = tilemap_get_at_pixel(worldMap, _x, _y);
+	if (_tile == 1) levelGrid[_i] = LevelObject.SOLID_WALL;
+	else if (_tile == 2) levelGrid[_i] = LevelObject.GLASS_WALL;
+	else if (_tile == 3) levelGrid[_i] = LevelObject.RUBBLE_FLOOR;
+}
 
 // Destroy all solids
 instance_destroy(oSolid);
