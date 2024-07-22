@@ -225,6 +225,7 @@
     {"id":{"name":"sSolidWall","path":"sprites/sSolidWall/sSolidWall.yy",},"order":1,},
     {"id":{"name":"sSightline","path":"sprites/sSightline/sSightline.yy",},"order":0,},
     {"id":{"name":"scrPowerFunctions","path":"scripts/scrPowerFunctions/scrPowerFunctions.yy",},"order":8,},
+    {"id":{"name":"oLevelParamMenu","path":"objects/oLevelParamMenu/oLevelParamMenu.yy",},"order":7,},
     {"id":{"name":"sGrappleHand","path":"sprites/sGrappleHand/sGrappleHand.yy",},"order":1,},
     {"id":{"name":"oIceBlock","path":"objects/oIceBlock/oIceBlock.yy",},"order":1,},
     {"id":{"name":"oExplosiveBlock","path":"objects/oExplosiveBlock/oExplosiveBlock.yy",},"order":4,},

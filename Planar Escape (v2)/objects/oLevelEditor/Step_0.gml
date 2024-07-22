@@ -1,5 +1,15 @@
 // Pause
-if (keyboard_check_pressed(vk_escape)) paused = !paused;
+if (keyboard_check_pressed(vk_escape))
+{
+	// Destroy any previous level parameter menus if they exist
+	if (instance_exists(oLevelParamMenu)) instance_destroy(oLevelParamMenu);
+	
+	// Toggle pause
+	paused = !paused;
+	
+	// Create a new level param menu if paused
+	if (paused) instance_create_layer(0, 0, "Instances", oLevelParamMenu);
+}
 
 // Exit if paused
 if (paused) exit;
