@@ -32,6 +32,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Grapple",
-    "path": "folders/Objects/Gadgets/Grapple.yy",
+    "path": "folders/Objects/Contraptions/Gadgets/Grapple.yy",
   },
 }

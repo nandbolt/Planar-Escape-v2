@@ -6,8 +6,26 @@ event_inherited();
 /// @func	saveLevelButtonClicked();
 saveLevelButtonClicked = function()
 {
+	// Create room level data
+	var _levelData = 
+	{
+		version : global.version,
+		name : oLevelEditor.levelName,
+		levelGrid : oLevelEditor.levelGrid,
+		wireGrid : oLevelEditor.wireGrid,
+	}
+	var _jsonString = json_stringify(_levelData);
+	
+	// Save level to file
+	var _fileName = "custom-levels/" + oLevelEditor.levelName + ".txt";
+	var _file = file_text_open_write(_fileName);
+	file_text_write_string(_file, _jsonString);
+	file_text_close(_file);
+	
+	// Create level room
+	
 	// Save level
-	show_debug_message("Level saved!");
+	alarm[0] = 120;
 }
 
 /// @func	mainMenuButtonClicked();

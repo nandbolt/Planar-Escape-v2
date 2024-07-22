@@ -34,6 +34,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Blaster",
-    "path": "folders/Objects/Gadgets/Blaster.yy",
+    "path": "folders/Objects/Contraptions/Gadgets/Blaster.yy",
   },
 }

@@ -1,17 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oLaserPulse",
+  "name": "oRedLaserGadgetMachine",
   "spriteId": {
-    "name": "sLaserPulse",
-    "path": "sprites/sLaserPulse/sLaserPulse.yy",
+    "name": "sGadgetMachine",
+    "path": "sprites/sGadgetMachine/sGadgetMachine.yy",
   },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oGadgetMachine",
+    "path": "objects/oGadgetMachine/oGadgetMachine.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -26,12 +29,11 @@
   "physicsShapePoints": [],
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Blaster",
-    "path": "folders/Objects/Contraptions/Gadgets/Blaster.yy",
+    "name": "GadgetMachines",
+    "path": "folders/Objects/Contraptions/GadgetMachines.yy",
   },
 }

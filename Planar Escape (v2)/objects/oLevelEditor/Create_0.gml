@@ -1,3 +1,6 @@
+// Data
+levelName = "test level";
+
 // Modes
 paused = false;
 
@@ -5,6 +8,7 @@ paused = false;
 gridWidth = floor(room_width / TILE_SIZE) - 2;
 gridHeight = floor(room_height / TILE_SIZE) - 2;
 levelGrid = array_create(gridWidth * gridHeight, 0);
+wireGrid = array_create(gridWidth * gridHeight, 0);
 levelParentObjects = [oSolid, oPortal, oSpawnPortal, oCollectable, oContraption];
 
 // Grid position
@@ -275,6 +279,9 @@ moveCursor = function(_dx, _dy)
 /// @func	placeCursorObject();
 placeCursorObject = function()
 {
+	// Get grid index
+	var _gridIdx = gridWidth * gridY + gridX;
+	
 	// If not placing a wire
 	if (cursorIdx != -1)
 	{
@@ -283,7 +290,7 @@ placeCursorObject = function()
 		if (instance_exists(_sprite)) instance_destroy(_sprite);
 		
 		// Fill grid space
-		levelGrid[gridWidth * gridY + gridX] = cursorIdx;
+		levelGrid[_gridIdx] = cursorIdx;
 		gridValue = cursorIdx;
 		cursorColor = c_red;
 	
@@ -303,7 +310,16 @@ placeCursorObject = function()
 		}
 	}
 	// Else toggle wire
-	else setWireAutotile(wireMap, x, y, tilemap_get_at_pixel(wireMap, x, y) == 0);
+	else
+	{
+		// Fill grid space
+		var _on = tilemap_get_at_pixel(wireMap, x, y) == 0;
+		if (_on) wireGrid[_gridIdx] = 1;
+		else wireGrid[_gridIdx] = 0;
+		
+		// Set wire
+		setWireAutotile(wireMap, x, y, _on);
+	}
 }
 
 #endregion
@@ -318,11 +334,14 @@ for (var _i = 0; _i < array_length(levelGrid); _i++)
 	var _x = (_i mod gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
 	var _y = floor(_i / gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
 	
-	// Check tile
+	// Check world tile
 	var _tile = tilemap_get_at_pixel(worldMap, _x, _y);
 	if (_tile == 1) levelGrid[_i] = LevelObject.SOLID_WALL;
 	else if (_tile == 2) levelGrid[_i] = LevelObject.GLASS_WALL;
 	else if (_tile == 3) levelGrid[_i] = LevelObject.RUBBLE_FLOOR;
+	
+	// Check wire tile
+	if (tilemap_get_at_pixel(wireMap, _x, _y) != 0) wireGrid[_i] = 1;
 }
 
 // Update music
