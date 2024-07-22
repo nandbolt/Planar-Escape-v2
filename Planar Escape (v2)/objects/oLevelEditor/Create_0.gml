@@ -1,7 +1,11 @@
+// Modes
+paused = false;
+
 // Level Grids
 gridWidth = floor(room_width / TILE_SIZE) - 2;
 gridHeight = floor(room_height / TILE_SIZE) - 2;
 levelGrid = array_create(gridWidth * gridHeight, 0);
+levelParentObjects = [oSolid, oPortal, oSpawnPortal, oCollectable, oContraption];
 
 // Grid position
 gridX = floor(x / TILE_SIZE) - 1;
@@ -274,6 +278,10 @@ placeCursorObject = function()
 	// If not placing a wire
 	if (cursorIdx != -1)
 	{
+		// If on a sprite
+		var _sprite = instance_place(x, y, oSprite);
+		if (instance_exists(_sprite)) instance_destroy(_sprite);
+		
 		// Fill grid space
 		levelGrid[gridWidth * gridY + gridX] = cursorIdx;
 		gridValue = cursorIdx;
@@ -284,8 +292,15 @@ placeCursorObject = function()
 		else if (cursorIdx == LevelObject.GLASS_WALL) tilemap_set_at_pixel(worldMap, 2, x, y);
 		else if (cursorIdx == LevelObject.RUBBLE_FLOOR) tilemap_set_at_pixel(worldMap, 3, x, y);
 		else tilemap_set_at_pixel(worldMap, 0, x, y);
-	
-		// Up
+		
+		// If need to place a sprite
+		if (cursorIdx > 0 && cursorIdx != LevelObject.SOLID_WALL && cursorIdx != LevelObject.GLASS_WALL && cursorIdx != LevelObject.RUBBLE_FLOOR)
+		{
+			with (instance_create_layer(x, y, "Instances", oSprite))
+			{
+				sprite_index = other.cursorSprite;
+			}
+		}
 	}
 	// Else toggle wire
 	else setWireAutotile(wireMap, x, y, tilemap_get_at_pixel(wireMap, x, y) == 0);
@@ -309,13 +324,6 @@ for (var _i = 0; _i < array_length(levelGrid); _i++)
 	else if (_tile == 2) levelGrid[_i] = LevelObject.GLASS_WALL;
 	else if (_tile == 3) levelGrid[_i] = LevelObject.RUBBLE_FLOOR;
 }
-
-// Destroy all solids
-instance_destroy(oSolid);
-
-// Destroy portals
-instance_destroy(oPortal);
-instance_destroy(oSpawnPortal);
 
 // Update music
 updateMusic();

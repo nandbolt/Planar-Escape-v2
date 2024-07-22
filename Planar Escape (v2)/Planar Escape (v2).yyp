@@ -147,6 +147,7 @@
     {"id":{"name":"be_scrContactGenStruct","path":"scripts/be_scrContactGenStruct/be_scrContactGenStruct.yy",},"order":4,},
     {"id":{"name":"mCreation","path":"sounds/mCreation/mCreation.yy",},"order":0,},
     {"id":{"name":"oLevel","path":"objects/oLevel/oLevel.yy",},"order":2,},
+    {"id":{"name":"oSprite","path":"objects/oSprite/oSprite.yy",},"order":1,},
     {"id":{"name":"mEscape","path":"sounds/mEscape/mEscape.yy",},"order":4,},
     {"id":{"name":"sfxExplosion","path":"sounds/sfxExplosion/sfxExplosion.yy",},"order":0,},
     {"id":{"name":"scrLevelFunctions","path":"scripts/scrLevelFunctions/scrLevelFunctions.yy",},"order":12,},

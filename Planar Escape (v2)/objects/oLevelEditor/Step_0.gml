@@ -1,3 +1,9 @@
+// Pause
+if (keyboard_check_pressed(vk_escape)) paused = !paused;
+
+// Exit if paused
+if (paused) exit;
+
 // Update move input
 if (keyboard_check_pressed(ord("D")))
 {
