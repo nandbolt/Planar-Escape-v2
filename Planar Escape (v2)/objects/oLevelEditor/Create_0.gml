@@ -1,5 +1,12 @@
+// Music
+musicIdx = 0;
+music = [mEscape, mCreation, mRadiation, mPopulation, mSalvation];
+musicNames = ["planar escape", "egress start", "journey's call", "passing through", "is there an end?"];
+
 // Data
-levelName = "test level";
+levelName = "";
+levelCreator = "";
+levelMusic = music[musicIdx];
 
 // Modes
 paused = false;
@@ -9,6 +16,7 @@ gridWidth = floor(room_width / TILE_SIZE) - 2;
 gridHeight = floor(room_height / TILE_SIZE) - 2;
 levelGrid = array_create(gridWidth * gridHeight, 0);
 wireGrid = array_create(gridWidth * gridHeight, 0);
+rotationGrid = array_create(gridWidth * gridHeight, 0);
 levelParentObjects = [oSolid, oPortal, oSpawnPortal, oCollectable, oContraption];
 
 // Grid position

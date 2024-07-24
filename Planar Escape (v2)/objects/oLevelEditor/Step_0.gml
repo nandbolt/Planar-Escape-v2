@@ -2,7 +2,11 @@
 if (keyboard_check_pressed(vk_escape))
 {
 	// Destroy any previous level parameter menus if they exist
-	if (instance_exists(oLevelParamMenu)) instance_destroy(oLevelParamMenu);
+	if (instance_exists(oLevelParamMenu))
+	{
+		instance_destroy(oLevelParamMenu);
+		updateMusic();
+	}
 	
 	// Toggle pause
 	paused = !paused;
