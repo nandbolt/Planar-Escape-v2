@@ -22,3 +22,6 @@ if (instance_exists(target))
 var _newCamX = lerp(_camX, targetPosition.x, followAcceleration);
 var _newCamY = lerp(_camY, targetPosition.y, followAcceleration);
 camera_set_view_pos(view_camera[0], _newCamX, _newCamY);
+
+// DEBUG
+//camera_get_active();

@@ -62,3 +62,7 @@ setFacing = function(_imageIdx=0)
 }
 
 #endregion
+
+// Loop through instances
+var _layerId = layer_get_id("ActorInstances");
+layer_add_instance(_layerId, self);

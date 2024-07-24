@@ -6,7 +6,7 @@ global.version = "1.9";
 // Run
 global.mode = Mode.ESCAPE;
 global.entitySpeed = EntitySpeed.NORMAL;
-global.skin = sPlayerDebug;
+global.skin = sPlayer;
 
 // Level editor
 global.editingLevel = false;

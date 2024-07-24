@@ -3,6 +3,13 @@ event_inherited();
 
 #region Button Functions
 
+/// @func	levelNameTextfieldEntered();
+levelNameTextfieldEntered = function()
+{
+	// Set level name
+	oLevelEditor.levelName = levelNameTextfield.value;
+}
+
 /// @func	saveLevelButtonClicked();
 saveLevelButtonClicked = function()
 {
@@ -37,6 +44,7 @@ mainMenuButtonClicked = function()
 
 // Init gui buttons
 var _x = display_get_gui_width() * 0.25 - 75, _y = guiCenterY - 16;
+levelNameTextfield = new GuiTextfield(guiController, "level name", _x, _y - 48 * 2, oLevelEditor.levelName, "level name", levelNameTextfieldEntered);
 saveLevelButton = new GuiButton(guiController, "save level", _x, _y - 48, saveLevelButtonClicked);
 mainMenuButton = new GuiButton(guiController, "main menu", _x, _y, mainMenuButtonClicked);
 

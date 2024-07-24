@@ -17,3 +17,7 @@ updatePower = function(_type){}
 
 // Start alarms
 alarm[11] = 1;
+
+// Loop through instances
+var _layerId = layer_get_id("ContraptionInstances");
+layer_add_instance(_layerId, self);

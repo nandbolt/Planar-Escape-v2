@@ -80,6 +80,7 @@ function roomIsLevel(_room)
 		case rLevelMain14:
 		case rLevelMain15:
 		case rLevelMain16:
+		case rLevelCustom01:
 		case rLevelEmpty:
 			return true;
 		default:
@@ -245,4 +246,155 @@ function getLevelObjectIdx(_obj)
 		default:
 			return -4;
 	}
+}
+
+/// @func   getLevelObject({enum.LevelObject} idx);
+/// @desc   Returns the level object from the index.
+function getLevelObject(_idx)
+{
+	switch (_idx)
+	{
+		case LevelObject.SPAWN_PORTAL:
+			return oSpawnPortal;
+		case LevelObject.END_PORTAL:
+			return oEndPortal;
+		case LevelObject.STAR:
+			return oStar;
+		case LevelObject.STAR_DISK:
+			return oStarDisk;
+		case LevelObject.WHITE_BLOCK:
+			return oMoveableBlock;
+		case LevelObject.BIG_WHITE_BLOCK:
+			return oBigMoveableBlock;
+		case LevelObject.GLASS_BLOCK:
+			return oGlassBlock;
+		case LevelObject.ICE_BLOCK:
+			return oIceBlock;
+		case LevelObject.BIG_ICE_BLOCK:
+			return oBigIceBlock;
+		case LevelObject.DRY_ICE_BLOCK:
+			return oDryIceBlock;
+		case LevelObject.BROWN_EXPLOSIVE_BLOCK:
+			return oExplosiveBlock;
+		case LevelObject.RED_EXPLOSIVE_BLOCK:
+			return oRedExplosiveBlock;
+		case LevelObject.POWER_BLOCK:
+			return oPowerBlock;
+		case LevelObject.RED_LASER_BLOCK:
+			return oLaserBlock;
+		case LevelObject.YELLOW_LASER_BLOCK:
+			return oCitizenLaserBlock;
+		case LevelObject.GREEN_LASER_BLOCK:
+			return oZombieLaserBlock;
+		case LevelObject.BLUE_LASER_BLOCK:
+			return oCopLaserBlock;
+		case LevelObject.BLACK_LASER_BLOCK:
+			return oEntityLaserBlock;
+		case LevelObject.BEAM_SPLITTER_BLOCK:
+			return oBeamSplitterBlock;
+		case LevelObject.RED_CRYSTAL_BLOCK:
+			return oCrystalBlock;
+		case LevelObject.YELLOW_CRYSTAL_BLOCK:
+			return oYellowCrystalBlock;
+		case LevelObject.GREEN_CRYSTAL_BLOCK:
+			return oGreenCrystalBlock;
+		case LevelObject.BLUE_CRYSTAL_BLOCK:
+			return oBlueCrystalBlock;
+		case LevelObject.BLACK_CRYSTAL_BLOCK:
+			return oBlackCrystalBlock;
+		case LevelObject.CHECK_POINT:
+			return oCheckpoint;
+		case LevelObject.BUTTON:
+			return oButton;
+		case LevelObject.WHITE_DOOR:
+			return oDoor;
+		case LevelObject.RED_DOOR:
+			return oRedDoor;
+		case LevelObject.YELLOW_DOOR:
+			return oYellowDoor;
+		case LevelObject.GREEN_DOOR:
+			return oGreenDoor;
+		case LevelObject.BLUE_DOOR:
+			return oBlueDoor;
+		case LevelObject.BLACK_DOOR:
+			return oBlackDoor;
+		case LevelObject.POWER_ROD:
+			return oPowerRod;
+		case LevelObject.BELT:
+			return oBelt;
+		case LevelObject.GADGET_MACHINE_NONE:
+			return oNoneGadgetMachine;
+		case LevelObject.GADGET_MACHINE_GRAPPLE:
+			return oGrappleGadgetMachine;
+		case LevelObject.GADGET_MACHINE_RED_LASER:
+			return oRedLaserGadgetMachine;
+		case LevelObject.GADGET_MACHINE_YELLOW_LASER:
+			return oYellowLaserGadgetMachine;
+		case LevelObject.GADGET_MACHINE_GREEN_LASER:
+			return oGreenLaserGadgetMachine;
+		case LevelObject.GADGET_MACHINE_BLUE_LASER:
+			return oBlueLaserGadgetMachine;
+		case LevelObject.GADGET_MACHINE_BLACK_LASER:
+			return oBlackLaserGadgetMachine;
+		case LevelObject.RED_PORTAL:
+			return oRedPortal;
+		case LevelObject.YELLOW_PORTAL:
+			return oYellowPortal;
+		case LevelObject.GREEN_PORTAL:
+			return oGreenPortal;
+		case LevelObject.BLUE_PORTAL:
+			return oBluePortal;
+		case LevelObject.CITIZEN:
+			return oCitizen;
+		case LevelObject.ZOMBIE:
+			return oZombie;
+		case LevelObject.COP:
+			return oCop;
+		case LevelObject.ROBOT:
+			return oRobot;
+		default:
+			return -4;
+	}
+}
+
+/// @func   levelObjectIdxIsActor({enum.LevelObject} idx);
+/// @desc   Returns whether the level object index is an actor.
+function levelObjectIdxIsActor(_idx)
+{
+	return (_idx > LevelObject.CITIZEN-1 && _idx < LevelObject.ROBOT+1);
+}
+
+/// @func   levelObjectIdxIsBlock({enum.LevelObject} idx);
+/// @desc   Returns whether the level object index is a block.
+function levelObjectIdxIsBlock(_idx)
+{
+	return (_idx > LevelObject.WHITE_BLOCK-1 && _idx < LevelObject.BLACK_CRYSTAL_BLOCK+1);
+}
+
+/// @func   levelObjectIdxIsCollectable({enum.LevelObject} idx);
+/// @desc   Returns whether the level object index is a collectable.
+function levelObjectIdxIsCollectable(_idx)
+{
+	return (_idx > LevelObject.STAR-1 && _idx < LevelObject.STAR_DISK+1);
+}
+
+/// @func   levelObjectIdxIsPortal({enum.LevelObject} idx);
+/// @desc   Returns whether the level object index is a portal.
+function levelObjectIdxIsPortal(_idx)
+{
+	return ((_idx > LevelObject.RED_PORTAL-1 && _idx < LevelObject.BLUE_PORTAL+1) || _idx == LevelObject.SPAWN_PORTAL || _idx == LevelObject.END_PORTAL);
+}
+
+/// @func   levelObjectIdxIsContraption({enum.LevelObject} idx);
+/// @desc   Returns whether the level object index is a contraption.
+function levelObjectIdxIsContraption(_idx)
+{
+	return (_idx > LevelObject.CHECK_POINT-1 && _idx < LevelObject.GADGET_MACHINE_BLACK_LASER+1);
+}
+
+/// @func   levelObjectIdxIsObject({enum.LevelObject} idx);
+/// @desc   Returns whether the level object index is an object.
+function levelObjectIdxIsObject(_idx)
+{
+	return (_idx > LevelObject.WHITE_BLOCK-1 || (_idx > LevelObject.SPAWN_PORTAL-1 && _idx < LevelObject.STAR_DISK+1));
 }

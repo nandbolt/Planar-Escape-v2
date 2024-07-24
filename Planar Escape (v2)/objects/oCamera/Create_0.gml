@@ -13,7 +13,8 @@ followAcceleration = 0.25;
 // Init camera
 view_enabled = true;
 view_visible[0] = true;
-camera_set_view_size(view_camera[0], camWidth, camHeight);
+if (view_camera[0] == -1) view_camera[0] = camera_create_view(0, 0, camWidth, camHeight);
+else camera_set_view_size(view_camera[0], camWidth, camHeight);
 if (instance_exists(target))
 {
 	targetPosition.x = clamp(target.x - halfCamWidth, 0, room_width - camWidth);

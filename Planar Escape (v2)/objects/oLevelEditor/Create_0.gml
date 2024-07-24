@@ -26,6 +26,10 @@ cursorSprite = sprite_index;
 cursorText = "";
 cursorColor = c_white;
 
+// Layers
+collisionLayer = layer_get_id("CollisionTiles");
+gridLayer = layer_get_id("GridBackground");
+
 // Tilemaps
 //collisionMap = layer_tilemap_get_id("CollisionTiles");
 worldMap = layer_tilemap_get_id("WorldTiles");
@@ -327,7 +331,7 @@ placeCursorObject = function()
 // Camera
 instance_create_layer(0, 0, "Instances", oCamera);
 
-// Fill level grid
+// Fill grid
 for (var _i = 0; _i < array_length(levelGrid); _i++)
 {
 	// Get position
@@ -343,6 +347,10 @@ for (var _i = 0; _i < array_length(levelGrid); _i++)
 	// Check wire tile
 	if (tilemap_get_at_pixel(wireMap, _x, _y) != 0) wireGrid[_i] = 1;
 }
+
+// Hide debug layer
+layer_set_visible(collisionLayer, false);
+//layer_set_visible(gridLayer, false);
 
 // Update music
 updateMusic();

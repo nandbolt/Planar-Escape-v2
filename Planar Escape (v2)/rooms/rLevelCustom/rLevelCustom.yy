@@ -1,7 +1,7 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "rLevelCustom04",
+  "name": "rLevelCustom",
   "isDnd": false,
   "volume": 1.0,
   "parentRoom": null,
@@ -18,9 +18,7 @@
   "layers": [
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"CollisionTiles","tilesetId":{"name":"tsCollision","path":"tilesets/tsCollision/tsCollision.yy",},"x":0,"y":0,"tiles":{"TileDataFormat":1,"SerialiseWidth":29,"SerialiseHeight":90,"TileCompressedData":[
 -2610,0,],},"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_44A6DF60_5_1_1_1","properties":[],"isDnd":false,"objectId":{"name":"oLevel","path":"objects/oLevel/oLevel.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,},
-      ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","instances":[],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"ActorInstances","instances":[],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"BlockInstances","instances":[],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"CollectableInstances","instances":[],"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
@@ -38,10 +36,7 @@
 -27,0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,
 0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,0,-2,1,-27,0,
 -2,1,-27,0,-30,1,],},"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"PortalInstances","instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2E951DE_5_1_1_1","properties":[],"isDnd":false,"objectId":{"name":"oSpawnPortal","path":"objects/oSpawnPortal/oSpawnPortal.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":174.0,"y":1050.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_371B9FCA_5_1_1_1","properties":[],"isDnd":false,"objectId":{"name":"oEndPortal","path":"objects/oEndPortal/oEndPortal.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":174.0,"y":30.0,},
-      ],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"PortalInstances","instances":[],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"ContraptionInstances","instances":[],"visible":true,"depth":700,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":6,"gridY":6,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"WireTiles","tilesetId":{"name":"tsWires","path":"tilesets/tsWires/tsWires.yy",},"x":0,"y":0,"tiles":{"TileDataFormat":1,"SerialiseWidth":29,"SerialiseHeight":90,"TileCompressedData":[
 -1986,-2147483648,-12,0,-17,-2147483648,-7,0,-4,-2147483648,1,0,-8,-2147483648,-2,0,-2,-2147483648,1,0,-4,-2147483648,-3,0,2,-2147483648,0,-3,-2147483648,
@@ -60,11 +55,7 @@
   "inheritLayers": false,
   "creationCodeFile": "",
   "inheritCode": false,
-  "instanceCreationOrder": [
-    {"name":"inst_2E951DE_5_1_1_1","path":"rooms/rLevelCustom04/rLevelCustom04.yy",},
-    {"name":"inst_371B9FCA_5_1_1_1","path":"rooms/rLevelCustom04/rLevelCustom04.yy",},
-    {"name":"inst_44A6DF60_5_1_1_1","path":"rooms/rLevelCustom04/rLevelCustom04.yy",},
-  ],
+  "instanceCreationOrder": [],
   "inheritCreationOrder": false,
   "sequenceId": null,
   "roomSettings": {
@@ -87,7 +78,7 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Custom",
-    "path": "folders/Rooms/Levels/Custom.yy",
+    "name": "Levels",
+    "path": "folders/Rooms/Levels.yy",
   },
 }

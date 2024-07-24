@@ -5,13 +5,6 @@ event_inherited();
 levelSelectName = "custom";
 customLevelRooms = [
 	rLevelCustom01,
-	rLevelCustom02,
-	rLevelCustom03,
-	rLevelCustom04,
-	rLevelCustom05,
-	rLevelCustom06,
-	rLevelCustom07,
-	rLevelCustom08,
 ];
 
 #region Button Functions
@@ -40,7 +33,8 @@ while (_fileName != "")
 file_find_close();
 
 // Loop through each level file
-for (var _i = 0; _i < array_length(_levelFiles); _i++)
+var _fileCount = array_length(_levelFiles)
+for (var _i = 0; _i < _fileCount; _i++)
 {
 	// Open level file
 	var _file = file_text_open_read(working_directory + "/custom-levels/" + _levelFiles[_i]);
@@ -52,42 +46,70 @@ for (var _i = 0; _i < array_length(_levelFiles); _i++)
 	// Set room level grid
 	var _room = customLevelRooms[_i];
 	
-	// Clear target room
-	room_assign(_room, rLevelEmpty);
+	// Clear room instances
+	room_assign(_room, rLevelCustom);
+	
+	// Add level objects
+	room_instance_add(_room, 0, 0, oLevel);
+	for (var _j = 0; _j < array_length(_levelData.levelGrid); _j++)
+	{
+		// Get value
+		var _gridValue = _levelData.levelGrid[_j];
+		
+		// If index is an object
+		if (levelObjectIdxIsObject(_gridValue))
+		{
+			// Get position
+			var _gridWidth = mapWidth - 2;
+			var _x = (_j mod _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE, _y = floor(_j / _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+			
+			// Add instance to room
+			room_instance_add(_room, _x, _y, getLevelObject(_gridValue));
+		}
+	}
 	
 	// Set target room for layers to level
 	layer_set_target_room(_room);
 	
 	// Get layers
 	var _collisionLayer = layer_get_id("WorldTiles");
+	var _wireLayer = layer_get_id("WireTiles");
 	var _collisionMap = layer_tilemap_get_id(_collisionLayer);
+	var _wireMap = layer_tilemap_get_id(_wireLayer);
 	
-	// Level data
-	//var _levelData = 
-	//{
-	//	version : global.version,
-	//	name : oLevelEditor.levelName,
-	//	levelGrid : oLevelEditor.levelGrid,
-	//	wireGrid : oLevelEditor.wireGrid,
-	//}
+	// Clear tiles
+	for (var _j = 0; _j < array_length(_levelData.levelGrid); _j++)
+	{
+		// Get position
+		var _gridWidth = mapWidth - 2;
+		var _x = (_j mod _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE, _y = floor(_j / _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+		
+		// Clear tile
+		tilemap_set_at_pixel(_collisionMap, 0, _x, _y);
+		tilemap_set_at_pixel(_wireMap, 0, _x, _y);
+	}
 	
 	// Loop through level grid
-	for (var _i = 0; _i < array_length(_levelData.levelGrid); _i++)
+	for (var _j = 0; _j < array_length(_levelData.levelGrid); _j++)
 	{
 		// Get value
-		var _gridValue = _levelData.levelGrid[_i];
+		var _gridValue = _levelData.levelGrid[_j];
+		var _wireValue = _levelData.wireGrid[_j];
 		
 		// Continue if empty
-		if (_gridValue == 0) continue;
+		if (_gridValue == 0 && _wireValue == 0) continue;
 		
 		// Get position
 		var _gridWidth = mapWidth - 2;
-		var _x = (_i mod _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE, _y = floor(_i / _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+		var _x = (_j mod _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE, _y = floor(_j / _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
 		
-		// If world tile
+		// Set grid value in room
 		if (_gridValue == LevelObject.SOLID_WALL) tilemap_set_at_pixel(_collisionMap, 1, _x, _y);
 		else if (_gridValue == LevelObject.GLASS_WALL) tilemap_set_at_pixel(_collisionMap, 2, _x, _y);
 		else if (_gridValue == LevelObject.RUBBLE_FLOOR) tilemap_set_at_pixel(_collisionMap, 3, _x, _y);
+		
+		// Set grid value in room
+		if (_wireValue == 1) setWireAutotile(_wireMap, _x, _y, true);
 	}
 	
 	// Reset target room
