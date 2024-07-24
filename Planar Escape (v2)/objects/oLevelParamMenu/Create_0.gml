@@ -22,8 +22,6 @@ saveLevelButtonClicked = function()
 	file_text_write_string(_file, _jsonString);
 	file_text_close(_file);
 	
-	// Create level room
-	
 	// Save level
 	alarm[0] = 120;
 }
