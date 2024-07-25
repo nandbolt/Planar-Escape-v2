@@ -55,6 +55,7 @@ changeCursor = function(_idx)
 	if (_idx > LevelObject.ROBOT) cursorIdx = LevelObject.WIRE;
 	else if (_idx < LevelObject.WIRE) cursorIdx = LevelObject.ROBOT;
 	else cursorIdx = _idx;
+	cursorScale = 1;
 	switch (cursorIdx)
 	{
 		case LevelObject.WIRE:
@@ -100,6 +101,7 @@ changeCursor = function(_idx)
 		case LevelObject.BIG_WHITE_BLOCK:
 			cursorSprite = sWhiteBlock;
 			cursorText = "big white block";
+			cursorScale = 2;
 			break;
 		case LevelObject.GLASS_BLOCK:
 			cursorSprite = sGlassBlock;
@@ -112,6 +114,7 @@ changeCursor = function(_idx)
 		case LevelObject.BIG_ICE_BLOCK:
 			cursorSprite = sIceBlock;
 			cursorText = "big ice block";
+			cursorScale = 2;
 			break;
 		case LevelObject.DRY_ICE_BLOCK:
 			cursorSprite = sDryIceBlock;
@@ -284,11 +287,23 @@ moveCursor = function(_dx, _dy)
 	y = clamp(y + _dy, TILE_SIZE + HALF_TILE_SIZE, room_height - TILE_SIZE - HALF_TILE_SIZE);
 	gridX = floor(x / TILE_SIZE) - 1;
 	gridY = floor(y / TILE_SIZE) - 1;
-	gridValue = levelGrid[gridWidth * gridY + gridX];
+	var _gridIdx = gridWidth * gridY + gridX;
+	gridValue = levelGrid[_gridIdx];
 	
 	// Update color
 	if (gridValue == 0) cursorColor = c_white;
 	else cursorColor = c_red;
+	
+	// If placing a big object
+	if (cursorScale == 2)
+	{
+		if (!(gridX < gridWidth-1 && gridY < gridHeight-1 && levelGrid[_gridIdx+1] == 0 &&
+			levelGrid[_gridIdx+gridWidth] == 0 && levelGrid[_gridIdx+gridWidth+1] == 0))
+		{
+			cursorColor = c_red;
+		}
+		
+	}
 }
 
 /// @func	placeCursorObject();
@@ -300,21 +315,79 @@ placeCursorObject = function()
 	// If not placing a wire
 	if (cursorIdx != -1)
 	{
+		// If placing a big object
+		if (cursorScale == 2 && (gridX == gridWidth-1 || gridY == gridHeight-1)) return;
+		
+		// Set sprite for collision check
+		sprite_index = cursorSprite;
+		image_xscale = cursorScale;
+		image_yscale = cursorScale;
+		
 		// If on a sprite
-		var _sprite = instance_place(x, y, oSprite);
-		if (instance_exists(_sprite)) instance_destroy(_sprite);
+		var _sprites = ds_list_create();
+		var _cx = x, _cy = y;
+		if (cursorScale == 2)
+		{
+			_cx += HALF_TILE_SIZE;
+			_cy += HALF_TILE_SIZE;
+		}
+		var _spriteCount = instance_place_list(_cx, _cy, oSprite, _sprites, false);
+		for (var _i = 0; _i < _spriteCount; _i++)
+		{
+			// Get sprite
+			var _sprite = _sprites[| _i];
+			if (instance_exists(_sprite))
+			{
+				// If sprite is big
+				if (_sprite.image_xscale == 2)
+				{
+					// Get sprite grid info
+					var _spriteGridX = floor((_sprite.x - HALF_TILE_SIZE) / TILE_SIZE) - 1;
+					var _spriteGridY = floor((_sprite.y - HALF_TILE_SIZE) / TILE_SIZE) - 1;
+					var _spriteGridIdx = gridWidth * _spriteGridY + _spriteGridX;
+					
+					// Clear surrounding grid points
+					levelGrid[_spriteGridIdx] = 0;
+					levelGrid[_spriteGridIdx+1] = 0;
+					levelGrid[_spriteGridIdx+gridWidth] = 0;
+					levelGrid[_spriteGridIdx+gridWidth+1] = 0;
+				}
+				instance_destroy(_sprite);
+			}
+		}
+		ds_list_destroy(_sprites);
+		
+		// Reset sprite
+		sprite_index = sSquareCenter;
+		image_xscale = 1;
+		image_yscale = 1;
 		
 		// Fill grid space
 		levelGrid[_gridIdx] = cursorIdx;
 		rotationGrid[_gridIdx] = cursorRotation;
 		gridValue = cursorIdx;
+		if (cursorScale == 2)
+		{
+			levelGrid[_gridIdx+1] = cursorIdx;
+			levelGrid[_gridIdx+gridWidth] = cursorIdx;
+			levelGrid[_gridIdx+gridWidth+1] = cursorIdx;
+		}
 		cursorColor = c_red;
 	
 		// Update world tile placement
 		if (cursorIdx == LevelObject.SOLID_WALL) tilemap_set_at_pixel(worldMap, 1, x, y);
 		else if (cursorIdx == LevelObject.GLASS_WALL) tilemap_set_at_pixel(worldMap, 2, x, y);
 		else if (cursorIdx == LevelObject.RUBBLE_FLOOR) tilemap_set_at_pixel(worldMap, 3, x, y);
-		else tilemap_set_at_pixel(worldMap, 0, x, y);
+		else
+		{
+			tilemap_set_at_pixel(worldMap, 0, x, y);
+			if (cursorScale == 2)
+			{
+				tilemap_set_at_pixel(worldMap, 0, x + TILE_SIZE, y);
+				tilemap_set_at_pixel(worldMap, 0, x, y + TILE_SIZE);
+				tilemap_set_at_pixel(worldMap, 0, x + TILE_SIZE, y + TILE_SIZE);
+			}
+		}
 		
 		// If need to place a sprite
 		if (cursorIdx > 0 && cursorIdx != LevelObject.SOLID_WALL && cursorIdx != LevelObject.GLASS_WALL && cursorIdx != LevelObject.RUBBLE_FLOOR)
@@ -323,7 +396,13 @@ placeCursorObject = function()
 			{
 				sprite_index = other.cursorSprite;
 				image_angle = other.cursorRotation;
-				image_xscale = other.cursorScale;
+				if (other.cursorScale == 2)
+				{
+					x += HALF_TILE_SIZE;
+					y += HALF_TILE_SIZE;
+					image_xscale = other.cursorScale;
+					image_yscale = other.cursorScale;
+				}
 			}
 		}
 	}

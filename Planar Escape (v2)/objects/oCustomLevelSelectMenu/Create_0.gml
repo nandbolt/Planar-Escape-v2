@@ -70,6 +70,19 @@ for (var _i = 0; _i < _fileCount; _i++)
 			var _gridWidth = mapWidth - 2;
 			var _x = (_j mod _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE, _y = floor(_j / _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
 			
+			// If a big block
+			if (_gridValue == LevelObject.BIG_WHITE_BLOCK || _gridValue == LevelObject.BIG_ICE_BLOCK)
+			{
+				// Move position
+				_x += HALF_TILE_SIZE;
+				_y += HALF_TILE_SIZE;
+				
+				// Clear other 3 grid points
+				_levelData.levelGrid[_j+1] = 0;
+				_levelData.levelGrid[_j+_gridWidth] = 0;
+				_levelData.levelGrid[_j+_gridWidth+1] = 0;
+			}
+			
 			// Add instance to room
 			room_instance_add(_room, _x, _y, getLevelObject(_gridValue));
 		}
