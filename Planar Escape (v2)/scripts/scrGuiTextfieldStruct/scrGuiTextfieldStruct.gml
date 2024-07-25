@@ -46,11 +46,16 @@ function GuiTextfield(_controller, _name, _x, _y, _value, _placeholder, _onEnter
 		// Set value to whatever is typed
 		set(keyboard_string);
 		
-		// Remove focus on enter
+		// Remove focus on enter or mouse clicked outside of element
 		if (keyboard_check_pressed(vk_enter))
 		{
 			onEnter();
 			audio_play_sound(sfxGuiButtonPressed, 10, false);
+			removeFocus();
+		}
+		else if (mouse_check_button_pressed(mb_left) && !point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), x, y, x + width, y + height))
+		{
+			onEnter();
 			removeFocus();
 		}
 	}

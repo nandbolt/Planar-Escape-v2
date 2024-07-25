@@ -43,6 +43,11 @@ for (var _i = 0; _i < _fileCount; _i++)
 	var _jsonString = file_text_read_string(_file);
 	var _levelData = json_parse(_jsonString);
 	
+	// Set level name + music
+	global.customLevelNames[_i] = _levelData.name;
+	global.customLevelCreators[_i] = _levelData.creator;
+	global.customLevelMusic[_i] = _levelData.music;
+	
 	// Set room level grid
 	var _room = customLevelRooms[_i];
 	

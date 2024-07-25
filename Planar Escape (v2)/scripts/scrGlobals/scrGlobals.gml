@@ -11,6 +11,12 @@ global.skin = sPlayer;
 // Level editor
 global.editingLevel = false;
 
+// Custom level names
+global.customLevelIdx = 0;
+global.customLevelNames = array_create(64, "???");
+global.customLevelCreators = array_create(64, "???");
+global.customLevelMusic = array_create(64, mCreation);
+
 #endregion
 
 #region Macros

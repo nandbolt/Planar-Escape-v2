@@ -7,6 +7,7 @@ function updateMusic()
 	else if (room == rLevelMain05 || room == rLevelMain06 || room == rLevelMain07 || room == rLevelMain08) playSong(mRadiation);
 	else if (room == rLevelMain09 || room == rLevelMain10 || room == rLevelMain11 || room == rLevelMain12) playSong(mPopulation);
 	else if (room == rLevelMain13 || room == rLevelMain14 || room == rLevelMain15 || room == rLevelMain16) playSong(mSalvation);
+	else if (room == rLevelCustom01) playSong(global.customLevelMusic[0]);
 }
 
 /// @func	playSong({sound} song);

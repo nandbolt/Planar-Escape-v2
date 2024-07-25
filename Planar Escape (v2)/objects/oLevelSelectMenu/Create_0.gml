@@ -3,6 +3,7 @@ event_inherited();
 
 // Level select
 levelSelectName = "???";
+global.customLevelIdx = 0;
 
 // Map
 mapWidth = 29;
@@ -17,6 +18,7 @@ levelSelectButtons = [];
 selectedLevelIdx = 0;
 selectedLevel = rLevelMain01;
 selectedLevelName = getLevelName(selectedLevel);
+selectedLevelCreator = "";
 
 #region Functions
 
@@ -26,9 +28,13 @@ selectLevel = function(_room)
 	// Exit if room doesn't exist
 	if (!room_exists(_room)) return;
 	
+	// Custom level index
+	global.customLevelIdx = selectedLevelIdx;
+	
 	// Set room
 	selectedLevel = _room;
 	selectedLevelName = getLevelName(_room);
+	selectedLevelCreator = getLevelCreator(_room);
 	getMapData(_room);
 }
 

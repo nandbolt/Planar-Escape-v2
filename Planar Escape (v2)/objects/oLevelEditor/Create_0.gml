@@ -4,9 +4,9 @@ music = [mEscape, mCreation, mRadiation, mPopulation, mSalvation];
 musicNames = ["planar escape", "egress start", "journey's call", "passing through", "is there an end?"];
 
 // Data
-levelName = "";
-levelCreator = "";
-levelMusic = music[musicIdx];
+levelName = global.customLevelNames[global.customLevelIdx];
+levelCreator = global.customLevelCreators[global.customLevelIdx];
+levelMusic = global.customLevelMusic[global.customLevelIdx];
 
 // Modes
 paused = false;
