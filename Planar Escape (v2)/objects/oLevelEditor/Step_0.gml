@@ -56,6 +56,7 @@ moveCursor(moveInput.x * TILE_SIZE, moveInput.y * TILE_SIZE);
 // Update cursor
 if (keyboard_check_pressed(ord("Q"))) changeCursor(cursorIdx-1);
 else if (keyboard_check_pressed(ord("E"))) changeCursor(cursorIdx+1);
+else if (keyboard_check_pressed(ord("R"))) cursorRotation = (cursorRotation + 45) mod 360;
 
 // Place object
 if (keyboard_check_pressed(vk_space)) placeCursorObject();

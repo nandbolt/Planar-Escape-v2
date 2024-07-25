@@ -47,6 +47,8 @@ for (var _i = 0; _i < _fileCount; _i++)
 	global.customLevelNames[_i] = _levelData.name;
 	global.customLevelCreators[_i] = _levelData.creator;
 	global.customLevelMusic[_i] = _levelData.music;
+	global.customRotationGrid = [];
+	array_copy(global.customRotationGrid, 0, _levelData.rotationGrid, 0, array_length(_levelData.rotationGrid));
 	
 	// Set room level grid
 	var _room = customLevelRooms[_i];

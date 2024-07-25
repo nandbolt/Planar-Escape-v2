@@ -130,6 +130,9 @@ initLevelSelection = function()
 		
 		// Add button to list
 		array_push(levelSelectButtons, _button);
+		
+		// Break if at max
+		if (_i >= 63) break;
 	}
 	
 	// Select first level

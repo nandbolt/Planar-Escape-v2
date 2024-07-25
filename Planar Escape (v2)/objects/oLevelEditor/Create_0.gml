@@ -16,7 +16,8 @@ gridWidth = floor(room_width / TILE_SIZE) - 2;
 gridHeight = floor(room_height / TILE_SIZE) - 2;
 levelGrid = array_create(gridWidth * gridHeight, 0);
 wireGrid = array_create(gridWidth * gridHeight, 0);
-rotationGrid = array_create(gridWidth * gridHeight, 0);
+rotationGrid = [];
+array_copy(rotationGrid, 0, global.customRotationGrid, 0, array_length(global.customRotationGrid));
 levelParentObjects = [oSolid, oPortal, oSpawnPortal, oCollectable, oContraption];
 
 // Grid position
@@ -33,6 +34,8 @@ cursorIdx = 0;
 cursorSprite = sprite_index;
 cursorText = "";
 cursorColor = c_white;
+cursorRotation = 0;
+cursorScale = 1;
 
 // Layers
 collisionLayer = layer_get_id("CollisionTiles");
@@ -303,6 +306,7 @@ placeCursorObject = function()
 		
 		// Fill grid space
 		levelGrid[_gridIdx] = cursorIdx;
+		rotationGrid[_gridIdx] = cursorRotation;
 		gridValue = cursorIdx;
 		cursorColor = c_red;
 	
@@ -318,6 +322,8 @@ placeCursorObject = function()
 			with (instance_create_layer(x, y, "Instances", oSprite))
 			{
 				sprite_index = other.cursorSprite;
+				image_angle = other.cursorRotation;
+				image_xscale = other.cursorScale;
 			}
 		}
 	}

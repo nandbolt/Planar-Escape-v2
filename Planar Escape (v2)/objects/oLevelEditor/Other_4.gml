@@ -14,11 +14,13 @@ for (var _i = 0; _i < array_length(levelParentObjects); _i++)
 			var _gridX = floor(x / TILE_SIZE) - 1, _gridY = floor(y / TILE_SIZE) - 1;
 			var _gridIdx = other.gridWidth * _gridY + _gridX;
 			other.levelGrid[_gridIdx] = getLevelObjectIdx(object_index);
+			var _rotation = other.rotationGrid[_gridIdx];
 			
 			// Create sprite
 			with (instance_create_layer(x, y, "Instances", oSprite))
 			{
 				sprite_index = other.sprite_index;
+				image_angle = _rotation;
 			}
 		}
 		

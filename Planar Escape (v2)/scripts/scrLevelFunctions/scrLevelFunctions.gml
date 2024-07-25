@@ -37,7 +37,70 @@ function getLevelName(_room)
 		case rLevelMain16:
 			return "final bout";
 		case rLevelCustom01:
-			return global.customLevelNames[0];
+		case rLevelCustom02:
+		case rLevelCustom03:
+		case rLevelCustom04:
+		case rLevelCustom05:
+		case rLevelCustom06:
+		case rLevelCustom07:
+		case rLevelCustom08:
+		case rLevelCustom09:
+		case rLevelCustom10:
+		case rLevelCustom11:
+		case rLevelCustom12:
+		case rLevelCustom13:
+		case rLevelCustom14:
+		case rLevelCustom15:
+		case rLevelCustom16:
+		case rLevelCustom17:
+		case rLevelCustom18:
+		case rLevelCustom19:
+		case rLevelCustom20:
+		case rLevelCustom21:
+		case rLevelCustom22:
+		case rLevelCustom23:
+		case rLevelCustom24:
+		case rLevelCustom25:
+		case rLevelCustom26:
+		case rLevelCustom27:
+		case rLevelCustom28:
+		case rLevelCustom29:
+		case rLevelCustom30:
+		case rLevelCustom31:
+		case rLevelCustom32:
+		case rLevelCustom33:
+		case rLevelCustom34:
+		case rLevelCustom35:
+		case rLevelCustom36:
+		case rLevelCustom37:
+		case rLevelCustom38:
+		case rLevelCustom39:
+		case rLevelCustom40:
+		case rLevelCustom41:
+		case rLevelCustom42:
+		case rLevelCustom43:
+		case rLevelCustom44:
+		case rLevelCustom45:
+		case rLevelCustom46:
+		case rLevelCustom47:
+		case rLevelCustom48:
+		case rLevelCustom49:
+		case rLevelCustom50:
+		case rLevelCustom51:
+		case rLevelCustom52:
+		case rLevelCustom53:
+		case rLevelCustom54:
+		case rLevelCustom55:
+		case rLevelCustom56:
+		case rLevelCustom57:
+		case rLevelCustom58:
+		case rLevelCustom59:
+		case rLevelCustom60:
+		case rLevelCustom61:
+		case rLevelCustom62:
+		case rLevelCustom63:
+		case rLevelCustom64:
+			return global.customLevelNames[global.customLevelIdx];
 		case rLevelEmpty:
 			return "new level";
 	}
@@ -69,6 +132,69 @@ function getLevelCreator(_room)
 		case rLevelEmpty:
 			return "";
 		case rLevelCustom01:
+		case rLevelCustom02:
+		case rLevelCustom03:
+		case rLevelCustom04:
+		case rLevelCustom05:
+		case rLevelCustom06:
+		case rLevelCustom07:
+		case rLevelCustom08:
+		case rLevelCustom09:
+		case rLevelCustom10:
+		case rLevelCustom11:
+		case rLevelCustom12:
+		case rLevelCustom13:
+		case rLevelCustom14:
+		case rLevelCustom15:
+		case rLevelCustom16:
+		case rLevelCustom17:
+		case rLevelCustom18:
+		case rLevelCustom19:
+		case rLevelCustom20:
+		case rLevelCustom21:
+		case rLevelCustom22:
+		case rLevelCustom23:
+		case rLevelCustom24:
+		case rLevelCustom25:
+		case rLevelCustom26:
+		case rLevelCustom27:
+		case rLevelCustom28:
+		case rLevelCustom29:
+		case rLevelCustom30:
+		case rLevelCustom31:
+		case rLevelCustom32:
+		case rLevelCustom33:
+		case rLevelCustom34:
+		case rLevelCustom35:
+		case rLevelCustom36:
+		case rLevelCustom37:
+		case rLevelCustom38:
+		case rLevelCustom39:
+		case rLevelCustom40:
+		case rLevelCustom41:
+		case rLevelCustom42:
+		case rLevelCustom43:
+		case rLevelCustom44:
+		case rLevelCustom45:
+		case rLevelCustom46:
+		case rLevelCustom47:
+		case rLevelCustom48:
+		case rLevelCustom49:
+		case rLevelCustom50:
+		case rLevelCustom51:
+		case rLevelCustom52:
+		case rLevelCustom53:
+		case rLevelCustom54:
+		case rLevelCustom55:
+		case rLevelCustom56:
+		case rLevelCustom57:
+		case rLevelCustom58:
+		case rLevelCustom59:
+		case rLevelCustom60:
+		case rLevelCustom61:
+		case rLevelCustom62:
+		case rLevelCustom63:
+		case rLevelCustom64:
 			return global.customLevelCreators[global.customLevelIdx];
 	}
 	return "???";
@@ -96,7 +222,145 @@ function roomIsLevel(_room)
 		case rLevelMain15:
 		case rLevelMain16:
 		case rLevelCustom01:
+		case rLevelCustom02:
+		case rLevelCustom03:
+		case rLevelCustom04:
+		case rLevelCustom05:
+		case rLevelCustom06:
+		case rLevelCustom07:
+		case rLevelCustom08:
+		case rLevelCustom09:
+		case rLevelCustom10:
+		case rLevelCustom11:
+		case rLevelCustom12:
+		case rLevelCustom13:
+		case rLevelCustom14:
+		case rLevelCustom15:
+		case rLevelCustom16:
+		case rLevelCustom17:
+		case rLevelCustom18:
+		case rLevelCustom19:
+		case rLevelCustom20:
+		case rLevelCustom21:
+		case rLevelCustom22:
+		case rLevelCustom23:
+		case rLevelCustom24:
+		case rLevelCustom25:
+		case rLevelCustom26:
+		case rLevelCustom27:
+		case rLevelCustom28:
+		case rLevelCustom29:
+		case rLevelCustom30:
+		case rLevelCustom31:
+		case rLevelCustom32:
+		case rLevelCustom33:
+		case rLevelCustom34:
+		case rLevelCustom35:
+		case rLevelCustom36:
+		case rLevelCustom37:
+		case rLevelCustom38:
+		case rLevelCustom39:
+		case rLevelCustom40:
+		case rLevelCustom41:
+		case rLevelCustom42:
+		case rLevelCustom43:
+		case rLevelCustom44:
+		case rLevelCustom45:
+		case rLevelCustom46:
+		case rLevelCustom47:
+		case rLevelCustom48:
+		case rLevelCustom49:
+		case rLevelCustom50:
+		case rLevelCustom51:
+		case rLevelCustom52:
+		case rLevelCustom53:
+		case rLevelCustom54:
+		case rLevelCustom55:
+		case rLevelCustom56:
+		case rLevelCustom57:
+		case rLevelCustom58:
+		case rLevelCustom59:
+		case rLevelCustom60:
+		case rLevelCustom61:
+		case rLevelCustom62:
+		case rLevelCustom63:
+		case rLevelCustom64:
 		case rLevelEmpty:
+			return true;
+		default:
+			return false;
+	}
+}
+
+/// @func	roomIsCustomLevel({room} room);
+function roomIsCustomLevel(_room)
+{
+	switch (_room)
+	{
+		case rLevelCustom01:
+		case rLevelCustom02:
+		case rLevelCustom03:
+		case rLevelCustom04:
+		case rLevelCustom05:
+		case rLevelCustom06:
+		case rLevelCustom07:
+		case rLevelCustom08:
+		case rLevelCustom09:
+		case rLevelCustom10:
+		case rLevelCustom11:
+		case rLevelCustom12:
+		case rLevelCustom13:
+		case rLevelCustom14:
+		case rLevelCustom15:
+		case rLevelCustom16:
+		case rLevelCustom17:
+		case rLevelCustom18:
+		case rLevelCustom19:
+		case rLevelCustom20:
+		case rLevelCustom21:
+		case rLevelCustom22:
+		case rLevelCustom23:
+		case rLevelCustom24:
+		case rLevelCustom25:
+		case rLevelCustom26:
+		case rLevelCustom27:
+		case rLevelCustom28:
+		case rLevelCustom29:
+		case rLevelCustom30:
+		case rLevelCustom31:
+		case rLevelCustom32:
+		case rLevelCustom33:
+		case rLevelCustom34:
+		case rLevelCustom35:
+		case rLevelCustom36:
+		case rLevelCustom37:
+		case rLevelCustom38:
+		case rLevelCustom39:
+		case rLevelCustom40:
+		case rLevelCustom41:
+		case rLevelCustom42:
+		case rLevelCustom43:
+		case rLevelCustom44:
+		case rLevelCustom45:
+		case rLevelCustom46:
+		case rLevelCustom47:
+		case rLevelCustom48:
+		case rLevelCustom49:
+		case rLevelCustom50:
+		case rLevelCustom51:
+		case rLevelCustom52:
+		case rLevelCustom53:
+		case rLevelCustom54:
+		case rLevelCustom55:
+		case rLevelCustom56:
+		case rLevelCustom57:
+		case rLevelCustom58:
+		case rLevelCustom59:
+		case rLevelCustom60:
+		case rLevelCustom61:
+		case rLevelCustom62:
+		case rLevelCustom63:
+		case rLevelCustom64:
 			return true;
 		default:
 			return false;

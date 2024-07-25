@@ -7,6 +7,28 @@ if (global.editingLevel)
 	exit;
 }
 
+// If custom level
+if (roomIsCustomLevel(room))
+{
+	// Get rotation grid
+	var _rotationGrid = [];
+	array_copy(_rotationGrid, 0, global.customRotationGrid, 0, array_length(global.customRotationGrid));
+	
+	// Loop through instances
+	var _gridWidth = floor(room_width / TILE_SIZE) - 2;
+	with (all)
+	{
+		if (x != 0 || y != 0)
+		{
+			// Grid position
+			var _gridX = floor(x / TILE_SIZE) - 1, _gridY = floor(y / TILE_SIZE) - 1;
+			var _rotationValue = _rotationGrid[_gridWidth * _gridY + _gridX];
+			if (object_is_ancestor(object_index, oActor)) image_index = floor(_rotationValue / 45);
+			else image_angle = _rotationValue;
+		}
+	}
+}
+
 // State
 levelComplete = false;
 levelFailed = false;
