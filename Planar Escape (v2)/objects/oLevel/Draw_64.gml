@@ -15,11 +15,11 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 if (levelComplete)
 {
-	var _x = display_get_gui_width() * 0.5, _y = display_get_gui_height() * 0.5;
+	var _x = display_get_gui_width() * 0.5, _y = 12;
 	draw_text(_x, _y, "level complete");
 	if (levelEndMenus > 0)
 	{
-		_y += 32;
+		_y = display_get_gui_height() * 0.5 - 16 * 3;
 		if (fastestTime <= 0 || levelTime < fastestTime) draw_set_color(c_yellow);
 		draw_text(_x, _y, "time: " + string(levelTime));
 		draw_set_color(c_white);
@@ -43,11 +43,6 @@ if (levelComplete)
 			{
 				draw_text(_x, _y, "traces: " + string(tilesTraced));
 			}
-			if (levelEndMenus > 2)
-			{
-				_y += 32;
-				draw_text(_x, _y, "next level (space), retry (r)");
-			}
 		}
 	}
 }
@@ -55,11 +50,6 @@ else if (levelFailed)
 {
 	var _x = display_get_gui_width() * 0.5, _y = display_get_gui_height() * 0.5;
 	draw_text(_x, _y, "level failed");
-	if (levelEndMenus > 0)
-	{
-		_y += 32;
-		draw_text(_x, _y, "retry (r)");
-	}
 }
 else
 {

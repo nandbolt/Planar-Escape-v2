@@ -8,6 +8,12 @@ if (levelComplete)
 	{
 		levelEndMenus++;
 		alarm[0] = levelEndMenuDelay;
+		
+		// If last menu
+		if (levelEndMenus >= maxCompleteLevelMenu && !instance_exists(oLevelCompleteMenu))
+		{
+			instance_create_layer(0, 0, "Instances", oLevelCompleteMenu);
+		}
 	}
 }
 // If level failed
@@ -18,6 +24,12 @@ else if (levelFailed)
 	{
 		levelEndMenus++;
 		alarm[0] = levelEndMenuDelay;
+		
+		// If last menu
+		if (levelEndMenus >= maxFailedLevelMenu && !instance_exists(oLevelFailedMenu))
+		{
+			instance_create_layer(0, 0, "Instances", oLevelFailedMenu);
+		}
 	}
 }
 // If a checkpoint exists
