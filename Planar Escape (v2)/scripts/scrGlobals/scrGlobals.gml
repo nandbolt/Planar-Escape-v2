@@ -18,12 +18,25 @@ global.customLevelCreators = array_create(64, "???");
 global.customLevelMusic = array_create(64, mCreation);
 global.customRotationGrid = -1;
 
+// Current level scores
+global.currentLevelStarsCollected = 0;
+global.currentLevelStardisksCollected = 0;
+global.currentLevelFastestTimes = [-1, -1, -1];
+global.currentLevelEscapeScores = [0, 0, 0];
+global.currentLevelMarkScores = [0, 0, 0];
+global.currentLevelTraceScores = [0, 0, 0];
+global.currentLevelMarks = array_create(GRID_WIDTH * GRID_HEIGHT);
+global.currentLevelTraces = array_create(GRID_WIDTH * GRID_HEIGHT);
+
 #endregion
 
 #region Macros
 
 #macro TILE_SIZE 12
 #macro HALF_TILE_SIZE 6
+
+#macro GRID_WIDTH 27
+#macro GRID_HEIGHT 88
 
 #endregion
 

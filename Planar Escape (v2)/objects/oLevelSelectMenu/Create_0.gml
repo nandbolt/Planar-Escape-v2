@@ -225,6 +225,13 @@ scoreButtonClicked = function()
 	scoreButton.name = highscoreText;
 	
 	// Change scores
+	loadLevelScores(selectedLevel);
+	if (highscoreTextIdx == 0) highscores = global.currentLevelFastestTimes;
+	else if (highscoreTextIdx == 1) highscores = global.currentLevelEscapeScores;
+	else if (highscoreTextIdx == 2) highscores = global.currentLevelMarkScores;
+	else if (highscoreTextIdx == 3) highscores = global.currentLevelTraceScores;
+	stars = global.currentLevelStarsCollected;
+	stardisks = global.currentLevelStardisksCollected;
 }
 
 #endregion
@@ -247,3 +254,9 @@ playButton.hoverText = "ready?";
 _x = 16;
 backButton = new GuiButton(guiController, "back", _x, _y, backButtonClicked);
 backButton.hoverText = "to main menu";
+
+// Change scores
+loadLevelScores(selectedLevel);
+highscores = global.currentLevelFastestTimes;
+stars = global.currentLevelStarsCollected;
+stardisks = global.currentLevelStardisksCollected;
