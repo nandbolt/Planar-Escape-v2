@@ -25,6 +25,11 @@ highscoreTextIdx = 0;
 highscoreTexts = ["fastest times", "escape scores", "mark scores", "trace scores"];
 highscoreText = highscoreTexts[highscoreTextIdx];
 highscores = array_create(3, -1);
+highscores = [30, 31, 32];
+stars = 0;
+stardisks = 0;
+maxStars = 0;
+maxStardisks = 0;
 
 #region Functions
 
@@ -230,11 +235,11 @@ scoreButtonClicked = function()
 var _x = guiCenterX + 16 + mapDrawWidth + 8, _y = 28 + mapDrawHeight - 16 - 8 - 32 * 6;
 scoreButton = new GuiButton(guiController, highscoreText, _x, _y, scoreButtonClicked);
 scoreButton.hoverText = "scores";
-_y = 28 + mapDrawHeight - 16 - 8 - 32 * 2;
-modeButton = new GuiButton(guiController, "mode: escape", _x, _y, modeButtonClicked);
+_y = 28 + mapDrawHeight - 16 - 32 * 2;
+modeButton = new GuiButton(guiController, "mode:escape", _x, _y, modeButtonClicked);
 modeButton.hoverText = getModeDescription(Mode.ESCAPE);
 _y += 32;
-entitySpeedButton = new GuiButton(guiController, "speed: normal", _x, _y, entitySpeedButtonClicked);
+entitySpeedButton = new GuiButton(guiController, "speed:normal", _x, _y, entitySpeedButtonClicked);
 entitySpeedButton.hoverText = getEntitySpeedDescription(EntitySpeed.NORMAL);
 _y += 32;
 playButton = new GuiButton(guiController, "play", _x, _y, playButtonClicked);

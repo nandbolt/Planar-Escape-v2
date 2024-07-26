@@ -23,13 +23,20 @@ if (selectedLevelCreator != "") draw_text(_x, _y, "by " + selectedLevelCreator);
 _y += 60;
 draw_set_color(c_yellow);
 if (highscores[0] != -1) draw_text(_x, _y, "1st " + string(highscores[0]));
+else draw_text(_x, _y, "...");
 _y += 20;
-draw_set_color(c_orange);
+draw_set_color(c_ltgray);
 if (highscores[1] != -1) draw_text(_x, _y, "2nd " + string(highscores[1]));
+else draw_text(_x, _y, "...");
 _y += 20;
-draw_set_color(c_red);
+draw_set_color(#CD7F32);
 if (highscores[0] != -1) draw_text(_x, _y, "3rd " + string(highscores[2]));
+else draw_text(_x, _y, "...");
 draw_set_color(c_white);
+_y += 20;
+draw_text(_x, _y, "stars:" + string(stars) + "/" + string(maxStars));
+_y += 20;
+draw_text(_x, _y, "stardisks:" + string(stardisks) + "/" + string(maxStardisks));
 
 // Draw left area
 _x = 8;
