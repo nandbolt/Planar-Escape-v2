@@ -16,11 +16,20 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 _x += 87 + 8;
 draw_text(_x, _y, selectedLevelName);
-if (selectedLevelCreator != "")
-{
-	_y += 20;
-	draw_text(_x, _y, "by " + selectedLevelCreator);
-}
+_y += 20;
+if (selectedLevelCreator != "") draw_text(_x, _y, "by " + selectedLevelCreator);
+
+// High scores
+_y += 60;
+draw_set_color(c_yellow);
+if (highscores[0] != -1) draw_text(_x, _y, "1st " + string(highscores[0]));
+_y += 20;
+draw_set_color(c_orange);
+if (highscores[1] != -1) draw_text(_x, _y, "2nd " + string(highscores[1]));
+_y += 20;
+draw_set_color(c_red);
+if (highscores[0] != -1) draw_text(_x, _y, "3rd " + string(highscores[2]));
+draw_set_color(c_white);
 
 // Draw left area
 _x = 8;

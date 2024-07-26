@@ -59,4 +59,4 @@ else if (keyboard_check_pressed(ord("E"))) changeCursor(cursorIdx+1);
 else if (keyboard_check_pressed(ord("R"))) cursorRotation = (cursorRotation + 45) mod 360;
 
 // Place object
-if (keyboard_check_pressed(vk_space)) placeCursorObject();
+if (keyboard_check(vk_space) && cursorColor != c_red) placeCursorObject();

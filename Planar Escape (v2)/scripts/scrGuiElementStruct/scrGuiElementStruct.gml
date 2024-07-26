@@ -11,7 +11,7 @@ function GuiElement(_controller) constructor
 	
 	// Dimensions
 	static width = 150;
-	static height = 32;
+	static height = 24;
 	static padding = 16;
 	
 	// Hover

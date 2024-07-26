@@ -5,21 +5,18 @@ text = "";
 switch (room)
 {
 	case rCutsceneMain01:
-		text = "So begins the escape...";
+		text = "Another has awoken. The begins the escape...";
 		break;
 	case rCutsceneMain02:
-		text = "Something's burning...";
+		text = "Something shines in the distance...";
 		break;
 	case rCutsceneMain03:
 		text = "You're not alone...";
 		break;
 	case rCutsceneMain04:
-		text = "Into the expanse...";
+		text = "Is there an end?";
 		break;
 	case rCutsceneMain05:
-		text = "The machine beckons...";
-		break;
-	case rCutsceneMain06:
-		text = "So long...";
+		text = "So long... but so many...";
 		break;
 }

@@ -20,6 +20,12 @@ selectedLevel = rLevelMain01;
 selectedLevelName = getLevelName(selectedLevel);
 selectedLevelCreator = "";
 
+// High scores
+highscoreTextIdx = 0;
+highscoreTexts = ["fastest times", "escape scores", "mark scores", "trace scores"];
+highscoreText = highscoreTexts[highscoreTextIdx];
+highscores = array_create(3, -1);
+
 #region Functions
 
 /// @func	selectLevel({room} room);
@@ -29,7 +35,15 @@ selectLevel = function(_room)
 	if (!room_exists(_room)) return;
 	
 	// Custom level index
-	global.customLevelIdx = selectedLevelIdx;
+	for (var _i = 0; _i < array_length(levels); _i++)
+	{
+		if (levels[_i] == _room)
+		{
+			selectedLevelIdx = _i;
+			global.customLevelIdx = selectedLevelIdx;
+			break;
+		}
+	}
 	
 	// Set room
 	selectedLevel = _room;
@@ -111,7 +125,7 @@ initLevelSelection = function()
 		var _level = levels[_i], _buttonName = string(_i + 1);
 		if (_level == rLevelEmpty) _buttonName = "++";
 		var _button = new GuiButton(guiController, _buttonName, _x, _y, levelSelectButtonClicked)
-		_button.width = 32;
+		_button.width = 24;
 		
 		// Set locks
 		if (room == rMainLevelSelectMenu)
@@ -123,8 +137,8 @@ initLevelSelection = function()
 				_button.locked = true;
 				
 				// Set lock text
-				if (_i < 8) _button.lockedHoverText = "escape level " + string(_i) + " to unlock!";
-				else _button.lockedHoverText = "coming soon!";
+				if (_i < 8) _button.hoverText = "escape level " + string(_i) + " to unlock!";
+				else _button.hoverText = "coming soon!";
 			}
 		}
 		
@@ -161,37 +175,22 @@ playButtonClicked = function()
 modeButtonClicked = function()
 {
 	// Change mode
-	if (global.mode == Mode.ESCAPE)
-	{
-		global.mode = Mode.TRACE;
-		modeButton.name = "mode: trace";
-	}
-	else if (global.mode == Mode.TRACE)
-	{
-		global.mode = Mode.ESCAPE;
-		modeButton.name = "mode: escape";
-	}
+	if (global.mode == Mode.ESCAPE) global.mode = Mode.MARK;
+	else if (global.mode == Mode.MARK) global.mode = Mode.TRACE;
+	else if (global.mode == Mode.TRACE) global.mode = Mode.ESCAPE;
+	modeButton.name = "mode:" + getModeName(global.mode);
+	modeButton.hoverText = getModeDescription(global.mode);
 }
 
 /// @func	entitySpeedButtonClicked();
 entitySpeedButtonClicked = function()
 {
 	// Change mode
-	if (global.entitySpeed == EntitySpeed.NORMAL)
-	{
-		global.entitySpeed = EntitySpeed.HYPER;
-		entitySpeedButton.name = "speed: hyper";
-	}
-	else if (global.entitySpeed == EntitySpeed.HYPER)
-	{
-		global.entitySpeed = EntitySpeed.STASIS;
-		entitySpeedButton.name = "speed: stasis";
-	}
-	else if (global.entitySpeed == EntitySpeed.STASIS)
-	{
-		global.entitySpeed = EntitySpeed.NORMAL;
-		entitySpeedButton.name = "speed: normal";
-	}
+	if (global.entitySpeed == EntitySpeed.NORMAL) global.entitySpeed = EntitySpeed.HYPER;
+	else if (global.entitySpeed == EntitySpeed.HYPER) global.entitySpeed = EntitySpeed.STASIS;
+	else if (global.entitySpeed == EntitySpeed.STASIS) global.entitySpeed = EntitySpeed.NORMAL;
+	entitySpeedButton.name = "speed:" + getEntitySpeedName(global.entitySpeed);
+	entitySpeedButton.hoverText = getEntitySpeedDescription(global.entitySpeed);
 }
 
 /// @func	levelSelectButtonClicked();
@@ -211,17 +210,35 @@ levelSelectButtonClicked = function()
 	}
 }
 
+/// @func	scoreButtonClicked();
+scoreButtonClicked = function()
+{
+	// Change mode
+	if (highscoreTextIdx >= array_length(highscoreTexts)-1) highscoreTextIdx = 0;
+	else highscoreTextIdx++;
+	highscoreText = highscoreTexts[highscoreTextIdx];
+	scoreButton.name = highscoreText;
+	
+	// Change scores
+}
+
 #endregion
 
 #endregion
 
 // Init gui buttons
-var _x = 16, _y = 28 + mapDrawHeight - 16 - 8;
-backButton = new GuiButton(guiController, "back", _x, _y, backButtonClicked);
-_x = guiCenterX + 16 + mapDrawWidth + 8;
-playButton = new GuiButton(guiController, "play", _x, _y, playButtonClicked);
-_x = guiCenterX + 16 + mapDrawWidth + 8;
-_y -= 40;
-entitySpeedButton = new GuiButton(guiController, "speed: normal", _x, _y, entitySpeedButtonClicked);
-_y -= 40;
+var _x = guiCenterX + 16 + mapDrawWidth + 8, _y = 28 + mapDrawHeight - 16 - 8 - 32 * 6;
+scoreButton = new GuiButton(guiController, highscoreText, _x, _y, scoreButtonClicked);
+scoreButton.hoverText = "scores";
+_y = 28 + mapDrawHeight - 16 - 8 - 32 * 2;
 modeButton = new GuiButton(guiController, "mode: escape", _x, _y, modeButtonClicked);
+modeButton.hoverText = getModeDescription(Mode.ESCAPE);
+_y += 32;
+entitySpeedButton = new GuiButton(guiController, "speed: normal", _x, _y, entitySpeedButtonClicked);
+entitySpeedButton.hoverText = getEntitySpeedDescription(EntitySpeed.NORMAL);
+_y += 32;
+playButton = new GuiButton(guiController, "play", _x, _y, playButtonClicked);
+playButton.hoverText = "ready?";
+_x = 16;
+backButton = new GuiButton(guiController, "back", _x, _y, backButtonClicked);
+backButton.hoverText = "to main menu";

@@ -11,7 +11,7 @@ function GuiButton(_controller, _name, _x, _y, _onClick=function(){}) : GuiEleme
 	textColor = c_black;
 	textHoverColor = c_white;
 	textScale = 1;
-	lockedHoverText = "";
+	hoverText = "";
 	
 	/// @func	click();
 	static click = function()
@@ -45,14 +45,15 @@ function GuiButton(_controller, _name, _x, _y, _onClick=function(){}) : GuiEleme
 		// Text
 		draw_set_color(_textColor);
 		draw_text_transformed(x + width * 0.5 - string_width(name) * 0.5, y + height * 0.5, name, _scale, _scale, 0);
-		if (locked && hovering)
+		if (hovering && hoverText != "")
 		{
-			// Locked hover background + text
+			// Hover background + text
 			draw_set_alpha(1);
-			draw_set_color(c_lime);
+			if (locked) draw_set_color(c_lime);
+			else draw_set_color(c_yellow);
 			_scale *= 0.5;
-			draw_sprite_stretched(backHoverSprite, 0, x, y + 40, string_width(lockedHoverText) * _scale + 8, height * _scale);
-			draw_text_transformed(x + 4, y + height * 0.5 + 32, lockedHoverText, _scale, _scale, 0);
+			draw_sprite_stretched(backHoverSprite, 0, x, y + 28, string_width(hoverText) * _scale + 8, height * _scale);
+			draw_text_transformed(x + 4, y + height * 0.5 + 24, hoverText, _scale, _scale, 0);
 		}
 		draw_set_color(c_white);
 		draw_set_alpha(1);

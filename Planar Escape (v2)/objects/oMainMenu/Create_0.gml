@@ -41,18 +41,24 @@ quitButtonClicked = function()
 #endregion
 
 // Init gui buttons
-var _x = display_get_gui_width() * 0.25 - 75, _y = display_get_gui_height() / 6 - 16;
+var _x = display_get_gui_width() * 0.25 - 75, _y = display_get_gui_height() * 0.5 - 32 * 3;
 startButton = new GuiButton(guiController, "begin escape", _x, _y, startButtonClicked);
-_y = display_get_gui_height() / 6 * 1.8 - 16;
+startButton.hoverText = "wake up and find a way to escape the pursuing entity.";
+_y += 32;
 levelSelectButton = new GuiButton(guiController, "level select", _x, _y, levelSelectButtonClicked);
-_y = display_get_gui_height() / 6 * 2.6 - 16;
+levelSelectButton.hoverText = "play levels that have been unlocked.";
+_y += 32;
 levelEditorButton = new GuiButton(guiController, "level editor", _x, _y, levelEditorButtonClicked);
-_y = display_get_gui_height() / 6 * 3.4 - 16;
+levelEditorButton.hoverText = "make/play levels designed by those engrossed in the simulation.";
+_y += 32;
 logbookSelectButton = new GuiButton(guiController, "logbook", _x, _y, levelSelectButtonClicked);
-_y = display_get_gui_height() / 6 * 4.2 - 16;
+logbookSelectButton.hoverText = "notes from the awoken that may prove useful.";
+_y += 32;
 optionsSelectButton = new GuiButton(guiController, "options", _x, _y, levelSelectButtonClicked);
-_y = display_get_gui_height() / 6 * 5 - 16;
+optionsSelectButton.hoverText = "change game parameters for a more pleasant escape.";
+_y += 32;
 quitButton = new GuiButton(guiController, "quit", _x, _y, quitButtonClicked);
+quitButton.hoverText = "so long...";
 
 // Show cursor
 window_set_cursor(cr_arrow);

@@ -3,9 +3,74 @@ event_inherited();
 
 // Level select
 levelSelectName = "custom";
+#region Custom Rooms
 customLevelRooms = [
 	rLevelCustom01,
+	rLevelCustom02,
+	rLevelCustom03,
+	rLevelCustom04,
+	rLevelCustom05,
+	rLevelCustom06,
+	rLevelCustom07,
+	rLevelCustom08,
+	rLevelCustom09,
+	rLevelCustom10,
+	rLevelCustom11,
+	rLevelCustom12,
+	rLevelCustom13,
+	rLevelCustom14,
+	rLevelCustom15,
+	rLevelCustom16,
+	rLevelCustom17,
+	rLevelCustom18,
+	rLevelCustom19,
+	rLevelCustom20,
+	rLevelCustom21,
+	rLevelCustom22,
+	rLevelCustom23,
+	rLevelCustom24,
+	rLevelCustom25,
+	rLevelCustom26,
+	rLevelCustom27,
+	rLevelCustom28,
+	rLevelCustom29,
+	rLevelCustom30,
+	rLevelCustom31,
+	rLevelCustom32,
+	rLevelCustom33,
+	rLevelCustom34,
+	rLevelCustom35,
+	rLevelCustom36,
+	rLevelCustom37,
+	rLevelCustom38,
+	rLevelCustom39,
+	rLevelCustom40,
+	rLevelCustom41,
+	rLevelCustom42,
+	rLevelCustom43,
+	rLevelCustom44,
+	rLevelCustom45,
+	rLevelCustom46,
+	rLevelCustom47,
+	rLevelCustom48,
+	rLevelCustom49,
+	rLevelCustom50,
+	rLevelCustom51,
+	rLevelCustom52,
+	rLevelCustom53,
+	rLevelCustom54,
+	rLevelCustom55,
+	rLevelCustom56,
+	rLevelCustom57,
+	rLevelCustom58,
+	rLevelCustom59,
+	rLevelCustom60,
+	rLevelCustom61,
+	rLevelCustom62,
+	rLevelCustom63,
+	rLevelCustom64,
 ];
+#endregion
 
 #region Button Functions
 
@@ -49,6 +114,9 @@ for (var _i = 0; _i < _fileCount; _i++)
 	global.customLevelMusic[_i] = _levelData.music;
 	global.customRotationGrid = [];
 	array_copy(global.customRotationGrid, 0, _levelData.rotationGrid, 0, array_length(_levelData.rotationGrid));
+	
+	// If no more custom rooms
+	if (_i >= array_length(customLevelRooms)) break;
 	
 	// Set room level grid
 	var _room = customLevelRooms[_i];
@@ -143,7 +211,7 @@ for (var _i = 0; _i < _fileCount; _i++)
 }
 
 // Add last level (empty)
-array_push(levels, rLevelEmpty);
+if (array_length(levels) < array_length(customLevelRooms)) array_push(levels, rLevelEmpty);
 
 // Init play + edit buttons
 playButton.width *= 0.5;

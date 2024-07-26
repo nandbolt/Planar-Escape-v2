@@ -70,6 +70,7 @@ enum CitizenState
 enum Mode
 {
 	ESCAPE,
+	MARK,
 	TRACE,
 }
 

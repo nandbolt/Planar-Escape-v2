@@ -376,8 +376,30 @@ function getModeName(_mode)
 		case Mode.ESCAPE:
 			return "escape";
 			break;
+		case Mode.MARK:
+			return "mark";
+			break;
 		case Mode.TRACE:
 			return "trace";
+			break;
+	}
+	return "???";
+}
+
+/// @func   getModeDescription({enum.Mode} mode);
+/// @desc   Returns the description of the mode.
+function getModeDescription(_mode)
+{
+	switch (_mode)
+	{
+		case Mode.ESCAPE:
+			return "exit quickly while collecting stars.";
+			break;
+		case Mode.MARK:
+			return "mark as much ground as possible.";
+			break;
+		case Mode.TRACE:
+			return "trace the shortest path to the exit.";
 			break;
 	}
 	return "???";
@@ -402,17 +424,20 @@ function getEntitySpeedName(_speed)
 	return "???";
 }
 
-/// @func   getModeDescription({enum.Mode} mode);
-/// @desc   Returns the description of the mode.
-function getModeDescription(_mode)
+/// @func   getEntitySpeedDescription({enum.EntitySpeed} speed);
+/// @desc   Returns the description of the entity's speed.
+function getEntitySpeedDescription(_speed)
 {
-	switch (_mode)
+	switch (_speed)
 	{
-		case Mode.ESCAPE:
-			return "exit quickly while collecting stars.";
+		case EntitySpeed.STASIS:
+			return "no entity (score x1)";
 			break;
-		case Mode.TRACE:
-			return "cover as much ground as possible.";
+		case EntitySpeed.NORMAL:
+			return "slow entity (score x2)";
+			break;
+		case EntitySpeed.HYPER:
+			return "fast entity (score x4)";
 			break;
 	}
 	return "???";
