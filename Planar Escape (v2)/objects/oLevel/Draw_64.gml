@@ -16,12 +16,12 @@ draw_set_valign(fa_middle);
 if (levelComplete)
 {
 	var _x = display_get_gui_width() * 0.5, _y = 12;
-	draw_text(_x, _y, "level complete");
+	drawTextWithBorder(_x, _y, "level complete", sBorder3);
 	if (levelEndMenus > 0)
 	{
 		_y = display_get_gui_height() * 0.5 - 16 * 3;
 		if (fastestTime <= 0 || levelTime < fastestTime) draw_set_color(c_yellow);
-		draw_text(_x, _y, "time: " + string(levelTime));
+		drawTextWithBorder(_x, _y, "time: " + string(levelTime), sBorder3);
 		draw_set_color(c_white);
 		if (levelEndMenus > 1)
 		{
@@ -30,18 +30,18 @@ if (levelComplete)
 			{
 				// Stars
 				if (starsCollected == totalStars) draw_set_color(c_yellow);
-				draw_text(_x, _y, "stars: " + string(starsCollected) + "/" + string(totalStars));
+				drawTextWithBorder(_x, _y, "stars: " + string(starsCollected) + "/" + string(totalStars), sBorder3);
 				draw_set_color(c_white);
 				
 				// Stardisks
 				_y += 16;
 				if (stardisksCollected == totalStardisks) draw_set_color(c_yellow);
-				draw_text(_x, _y, "stardisks: " + string(stardisksCollected) + "/" + string(totalStardisks));
+				drawTextWithBorder(_x, _y, "stardisks: " + string(stardisksCollected) + "/" + string(totalStardisks), sBorder3);
 				draw_set_color(c_white);
 			}
 			else if (mode == Mode.TRACE)
 			{
-				draw_text(_x, _y, "traces: " + string(tilesTraced));
+				drawTextWithBorder(_x, _y, "traces: " + string(tilesTraced), sBorder3);
 			}
 		}
 	}
@@ -49,7 +49,7 @@ if (levelComplete)
 else if (levelFailed)
 {
 	var _x = display_get_gui_width() * 0.5, _y = display_get_gui_height() * 0.5;
-	draw_text(_x, _y, "level failed");
+	drawTextWithBorder(_x, _y, "level failed", sBorder3);
 }
 else
 {

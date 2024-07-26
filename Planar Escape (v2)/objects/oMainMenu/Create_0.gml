@@ -63,3 +63,6 @@ if (!audio_is_playing(mEscape))
 	audio_stop_all();
 	audio_play_sound(mEscape, 20, true);
 }
+
+// Reset edit
+global.editingLevel = false;

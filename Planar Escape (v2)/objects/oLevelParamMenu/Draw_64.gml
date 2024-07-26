@@ -5,7 +5,7 @@ event_inherited();
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 var _x = display_get_gui_width() * 0.75, _y = display_get_gui_height() * 0.5;
-draw_text(_x, _y, "Level Parameters");
+drawTextWithBorder(_x, _y, "level parameters", sBorder3);
 
 // Level saved
 if (alarm[0] != -1)

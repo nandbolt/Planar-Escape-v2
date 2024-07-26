@@ -7,6 +7,12 @@ musicNames = ["planar escape", "egress start", "journey's call", "passing throug
 levelName = global.customLevelNames[global.customLevelIdx];
 levelCreator = global.customLevelCreators[global.customLevelIdx];
 levelMusic = global.customLevelMusic[global.customLevelIdx];
+for (var _i = 0; _i < array_length(music); _i++)
+{
+	var _song = music[_i];
+	musicIdx = _i;
+	if (_song == levelMusic) break;
+}
 
 // Modes
 paused = false;
