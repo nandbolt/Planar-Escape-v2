@@ -443,6 +443,20 @@ function getEntitySpeedDescription(_speed)
 	return "???";
 }
 
+/// @func   getEntitySpeedScoreMultiplier({enum.EntitySpeed} speed);
+/// @desc   Returns the score multiplier of the entity's speed.
+function getEntitySpeedScoreMultiplier(_speed)
+{
+	switch (_speed)
+	{
+		case EntitySpeed.NORMAL:
+			return 10;
+		case EntitySpeed.HYPER:
+			return 100;
+	}
+	return 1;
+}
+
 /// @func   getLevelObjectIdx({object} obj);
 /// @desc   Returns the level object index.
 function getLevelObjectIdx(_obj)
@@ -701,6 +715,189 @@ function levelObjectIdxIsContraption(_idx)
 function levelObjectIdxIsObject(_idx)
 {
 	return (_idx > LevelObject.WHITE_BLOCK-1 || (_idx > LevelObject.SPAWN_PORTAL-1 && _idx < LevelObject.STAR_DISK+1));
+}
+
+/// @func	saveLevelScore({room} roomLevel);
+function saveLevelScore(_roomLevel)
+{
+	// If not a custom level
+	if (!roomIsCustomLevel(_roomLevel))
+	{
+		// Open save
+		var _file = file_text_open_write("save-data.txt");
+	
+		// Parse save file
+		var _jsonString = file_text_read_string(_file);
+		var _saveData = json_parse(_jsonString);
+	
+		// Update level scores
+		switch (_roomLevel)
+		{
+			case rLevelMain01:
+				global.currentLevelStarsCollected = _saveData.levelMain01Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain01Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain01FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain01EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain01MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain01TraceScores;
+				global.currentLevelMarks = _saveData.levelMain01Marks;
+				global.currentLevelTraces = _saveData.levelMain01Traces;
+				break;
+			case rLevelMain02:
+				global.currentLevelStarsCollected = _saveData.levelMain02Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain02Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain02FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain02EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain02MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain02TraceScores;
+				global.currentLevelMarks = _saveData.levelMain02Marks;
+				global.currentLevelTraces = _saveData.levelMain02Traces;
+				break;
+			case rLevelMain03:
+				global.currentLevelStarsCollected = _saveData.levelMain03Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain03Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain03FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain03EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain03MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain03TraceScores;
+				global.currentLevelMarks = _saveData.levelMain03Marks;
+				global.currentLevelTraces = _saveData.levelMain03Traces;
+				break;
+			case rLevelMain04:
+				global.currentLevelStarsCollected = _saveData.levelMain04Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain04Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain04FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain04EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain04MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain04TraceScores;
+				global.currentLevelMarks = _saveData.levelMain04Marks;
+				global.currentLevelTraces = _saveData.levelMain04Traces;
+				break;
+			case rLevelMain05:
+				global.currentLevelStarsCollected = _saveData.levelMain05Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain05Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain05FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain05EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain05MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain05TraceScores;
+				global.currentLevelMarks = _saveData.levelMain05Marks;
+				global.currentLevelTraces = _saveData.levelMain05Traces;
+				break;
+			case rLevelMain06:
+				global.currentLevelStarsCollected = _saveData.levelMain06Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain06Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain06FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain06EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain06MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain06TraceScores;
+				global.currentLevelMarks = _saveData.levelMain06Marks;
+				global.currentLevelTraces = _saveData.levelMain06Traces;
+				break;
+			case rLevelMain07:
+				global.currentLevelStarsCollected = _saveData.levelMain07Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain07Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain07FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain07EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain07MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain07TraceScores;
+				global.currentLevelMarks = _saveData.levelMain07Marks;
+				global.currentLevelTraces = _saveData.levelMain07Traces;
+				break;
+			case rLevelMain08:
+				global.currentLevelStarsCollected = _saveData.levelMain08Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain08Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain08FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain08EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain08MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain08TraceScores;
+				global.currentLevelMarks = _saveData.levelMain08Marks;
+				global.currentLevelTraces = _saveData.levelMain08Traces;
+				break;
+			case rLevelMain09:
+				global.currentLevelStarsCollected = _saveData.levelMain09Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain09Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain09FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain09EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain09MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain09TraceScores;
+				global.currentLevelMarks = _saveData.levelMain09Marks;
+				global.currentLevelTraces = _saveData.levelMain09Traces;
+				break;
+			case rLevelMain10:
+				global.currentLevelStarsCollected = _saveData.levelMain10Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain10Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain10FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain10EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain10MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain10TraceScores;
+				global.currentLevelMarks = _saveData.levelMain10Marks;
+				global.currentLevelTraces = _saveData.levelMain10Traces;
+				break;
+			case rLevelMain11:
+				global.currentLevelStarsCollected = _saveData.levelMain11Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain11Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain11FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain11EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain11MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain11TraceScores;
+				global.currentLevelMarks = _saveData.levelMain11Marks;
+				global.currentLevelTraces = _saveData.levelMain11Traces;
+				break;
+			case rLevelMain12:
+				global.currentLevelStarsCollected = _saveData.levelMain12Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain12Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain12FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain12EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain12MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain12TraceScores;
+				global.currentLevelMarks = _saveData.levelMain12Marks;
+				global.currentLevelTraces = _saveData.levelMain12Traces;
+				break;
+			case rLevelMain13:
+				global.currentLevelStarsCollected = _saveData.levelMain13Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain13Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain13FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain13EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain13MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain13TraceScores;
+				global.currentLevelMarks = _saveData.levelMain13Marks;
+				global.currentLevelTraces = _saveData.levelMain13Traces;
+				break;
+			case rLevelMain14:
+				global.currentLevelStarsCollected = _saveData.levelMain14Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain14Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain14FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain14EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain14MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain14TraceScores;
+				global.currentLevelMarks = _saveData.levelMain14Marks;
+				global.currentLevelTraces = _saveData.levelMain14Traces;
+				break;
+			case rLevelMain15:
+				global.currentLevelStarsCollected = _saveData.levelMain15Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain15Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain15FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain15EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain15MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain15TraceScores;
+				global.currentLevelMarks = _saveData.levelMain15Marks;
+				global.currentLevelTraces = _saveData.levelMain15Traces;
+				break;
+			case rLevelMain16:
+				global.currentLevelStarsCollected = _saveData.levelMain16Stars;
+				global.currentLevelStardisksCollected = _saveData.levelMain16Stardisks;
+				global.currentLevelFastestTimes = _saveData.levelMain16FastestTimes;
+				global.currentLevelEscapeScores = _saveData.levelMain16EscapeScores;
+				global.currentLevelMarkScores = _saveData.levelMain16MarkScores;
+				global.currentLevelTraceScores = _saveData.levelMain16TraceScores;
+				global.currentLevelMarks = _saveData.levelMain16Marks;
+				global.currentLevelTraces = _saveData.levelMain16Traces;
+				break;
+		}
+	
+		// Close save
+		file_text_close(_file);
+	}
 }
 
 /// @func	loadLevelScores({room} roomLevel);

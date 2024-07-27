@@ -46,4 +46,5 @@ else afterimageCounter++;
 #endregion
 
 // Trace
-if (traceActive) trace();
+if (markActive) mark();
+else if (traceActive) trace();

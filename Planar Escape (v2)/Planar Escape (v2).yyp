@@ -214,6 +214,7 @@
     {"id":{"name":"rLevelCustom09","path":"rooms/rLevelCustom09/rLevelCustom09.yy",},"order":9,},
     {"id":{"name":"oBlueCrystalBlock","path":"objects/oBlueCrystalBlock/oBlueCrystalBlock.yy",},"order":2,},
     {"id":{"name":"sfxButtonReleased","path":"sounds/sfxButtonReleased/sfxButtonReleased.yy",},"order":4,},
+    {"id":{"name":"sMark","path":"sprites/sMark/sMark.yy",},"order":4,},
     {"id":{"name":"scrGuiFunctions","path":"scripts/scrGuiFunctions/scrGuiFunctions.yy",},"order":3,},
     {"id":{"name":"sButton","path":"sprites/sButton/sButton.yy",},"order":4,},
     {"id":{"name":"sExplosiveBlock","path":"sprites/sExplosiveBlock/sExplosiveBlock.yy",},"order":3,},

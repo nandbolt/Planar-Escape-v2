@@ -11,7 +11,7 @@ if (mode == Mode.ESCAPE)
 	totalStars = instance_number(oStar);
 	totalStardisks = instance_number(oStarDisk);
 }
-else if (mode == Mode.TRACE)
+else if (mode == Mode.MARK || mode == Mode.TRACE)
 {
 	// Destroy all stars
 	instance_destroy(oStar);

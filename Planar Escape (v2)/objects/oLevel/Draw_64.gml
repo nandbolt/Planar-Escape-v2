@@ -21,7 +21,9 @@ if (levelComplete)
 	{
 		_y = display_get_gui_height() * 0.5 - 16 * 3;
 		if (fastestTime <= 0 || levelTime < fastestTime) draw_set_color(c_yellow);
-		drawTextWithBorder(_x, _y, "time: " + string(levelTime), sBorder3);
+		else if (levelTime < secondFastestTime) draw_set_color(c_ltgray);
+		else if (levelTime < thirdFastestTime) draw_set_color(#CD7F32);
+		drawTextWithBorder(_x, _y, "time:" + string(levelTime), sBorder3);
 		draw_set_color(c_white);
 		if (levelEndMenus > 1)
 		{
@@ -30,19 +32,33 @@ if (levelComplete)
 			{
 				// Stars
 				if (starsCollected == totalStars) draw_set_color(c_yellow);
-				drawTextWithBorder(_x, _y, "stars: " + string(starsCollected) + "/" + string(totalStars), sBorder3);
+				drawTextWithBorder(_x, _y, "stars:" + string(starsCollected) + "/" + string(totalStars), sBorder3);
 				draw_set_color(c_white);
 				
 				// Stardisks
 				_y += 16;
 				if (stardisksCollected == totalStardisks) draw_set_color(c_yellow);
-				drawTextWithBorder(_x, _y, "stardisks: " + string(stardisksCollected) + "/" + string(totalStardisks), sBorder3);
+				drawTextWithBorder(_x, _y, "stardisks:" + string(stardisksCollected) + "/" + string(totalStardisks), sBorder3);
 				draw_set_color(c_white);
+			}
+			else if (mode == Mode.MARK)
+			{
+				// Marks
+				drawTextWithBorder(_x, _y, "marks:" + string(tilesTraced), sBorder3);
 			}
 			else if (mode == Mode.TRACE)
 			{
-				drawTextWithBorder(_x, _y, "traces: " + string(tilesTraced), sBorder3);
+				// Traces
+				drawTextWithBorder(_x, _y, "traces:" + string(tilesTraced), sBorder3);
 			}
+			
+			// Score
+			_y += 16;
+			if (runScore > highestScore) draw_set_color(c_yellow);
+			else if (runScore > secondHighestScore) draw_set_color(c_ltgray);
+			else if (runScore > thirdHighestScore) draw_set_color(#CD7F32);
+			drawTextWithBorder(_x, _y, "score:" + string(runScore), sBorder3);
+			draw_set_color(c_white);
 		}
 	}
 }
@@ -64,7 +80,11 @@ else
 	starAnimCounter += starAnimSpeed;
 	var _imageIdx = floor(starAnimCounter) mod 5;
 	draw_sprite_stretched(sClock, _imageIdx, _x, _y, 14, 14);
+	if (fastestTime <= 0 || levelTime < fastestTime) draw_set_color(c_yellow);
+	else if (levelTime < secondFastestTime) draw_set_color(c_ltgray);
+	else if (levelTime < thirdFastestTime) draw_set_color(#CD7F32);
 	draw_text(_x + 16, _y, "" + string(levelTime));
+	draw_set_color(c_white);
 	_y += 16;
 	if (mode == Mode.ESCAPE)
 	{
@@ -73,9 +93,9 @@ else
 		draw_text(_x + 16, _y, string(starsCollected));
 		draw_set_color(c_white);
 	}
-	else if (mode == Mode.TRACE)
+	else if (mode == Mode.MARK || mode == Mode.TRACE)
 	{
-		draw_sprite_stretched(sTrace, _imageIdx, _x, _y, 14, 14);
+		draw_sprite_stretched(sprTrace, _imageIdx, _x, _y, 14, 14);
 		draw_text(_x + 16, _y, string(tilesTraced));
 	}
 	

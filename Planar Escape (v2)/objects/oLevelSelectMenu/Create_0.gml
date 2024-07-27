@@ -30,6 +30,8 @@ stars = 0;
 stardisks = 0;
 maxStars = 0;
 maxStardisks = 0;
+highscoreHoverSpeed = 0.005;
+highscoreHoverRange = 2;
 
 #region Functions
 
@@ -119,6 +121,16 @@ drawMap = function(_startX, _startY)
 /// @func initLevelSelection();
 initLevelSelection = function()
 {
+	// Open save
+	var _file = file_text_open_read("save-data.txt");
+	
+	// Parse save file
+	var _jsonString = file_text_read_string(_file);
+	var _saveData = json_parse(_jsonString);
+	
+	// Close save
+	file_text_close(_file);
+	
 	// Create level select buttons
 	for (var _i = 0; _i < array_length(levels); _i++)
 	{
@@ -134,16 +146,77 @@ initLevelSelection = function()
 		
 		// Set locks
 		if (room == rMainLevelSelectMenu)
-		{
-			// If not first level
-			if (_i > 0)
+		{	
+			// Check unlocks
+			switch (_i)
 			{
-				// Lock levels
-				_button.locked = true;
-				
-				// Set lock text
-				if (_i < 8) _button.hoverText = "escape level " + string(_i) + " to unlock!";
-				else _button.hoverText = "coming soon!";
+				case 1:
+					// If no score
+					if (_saveData.levelMain01EscapeScores[0] == 0)
+					{
+						_button.locked = true;
+						_button.hoverText = "escape level 1 to unlock!";
+					}
+					break;
+				case 2:
+					// If no score
+					if (_saveData.levelMain02EscapeScores[0] == 0)
+					{
+						_button.locked = true;
+						_button.hoverText = "escape level 2 to unlock!";
+					}
+					break;
+				case 3:
+					// If no score
+					if (_saveData.levelMain03EscapeScores[0] == 0)
+					{
+						_button.locked = true;
+						_button.hoverText = "escape level 3 to unlock!";
+					}
+					break;
+				case 4:
+					// If no score
+					if (_saveData.levelMain04EscapeScores[0] == 0)
+					{
+						_button.locked = true;
+						_button.hoverText = "escape level 4 to unlock!";
+					}
+					break;
+				case 5:
+					// If no score
+					if (_saveData.levelMain05EscapeScores[0] == 0)
+					{
+						_button.locked = true;
+						_button.hoverText = "escape level 5 to unlock!";
+					}
+					break;
+				case 6:
+					// If no score
+					if (_saveData.levelMain06EscapeScores[0] == 0)
+					{
+						_button.locked = true;
+						_button.hoverText = "escape level 6 to unlock!";
+					}
+					break;
+				case 7:
+					// If no score
+					if (_saveData.levelMain07EscapeScores[0] == 0)
+					{
+						_button.locked = true;
+						_button.hoverText = "escape level 7 to unlock!";
+					}
+					break;
+				case 8:
+				case 9:
+				case 10:
+				case 11:
+				case 12:
+				case 13:
+				case 14:
+				case 15:
+					_button.locked = true;
+					_button.hoverText = "coming soon!";
+					break;
 			}
 		}
 		
@@ -157,6 +230,18 @@ initLevelSelection = function()
 	// Select first level
 	selectedLevel = levels[selectedLevelIdx];
 	selectLevel(selectedLevel);
+}
+
+/// @func	changeScores();
+changeScores = function()
+{
+	loadLevelScores(selectedLevel);
+	if (highscoreTextIdx == 0) highscores = global.currentLevelFastestTimes;
+	else if (highscoreTextIdx == 1) highscores = global.currentLevelEscapeScores;
+	else if (highscoreTextIdx == 2) highscores = global.currentLevelMarkScores;
+	else if (highscoreTextIdx == 3) highscores = global.currentLevelTraceScores;
+	stars = global.currentLevelStarsCollected;
+	stardisks = global.currentLevelStardisksCollected;
 }
 
 #region Button Functions
@@ -213,6 +298,9 @@ levelSelectButtonClicked = function()
 			break;
 		}
 	}
+	
+	// Change scores
+	changeScores();
 }
 
 /// @func	scoreButtonClicked();
@@ -225,13 +313,7 @@ scoreButtonClicked = function()
 	scoreButton.name = highscoreText;
 	
 	// Change scores
-	loadLevelScores(selectedLevel);
-	if (highscoreTextIdx == 0) highscores = global.currentLevelFastestTimes;
-	else if (highscoreTextIdx == 1) highscores = global.currentLevelEscapeScores;
-	else if (highscoreTextIdx == 2) highscores = global.currentLevelMarkScores;
-	else if (highscoreTextIdx == 3) highscores = global.currentLevelTraceScores;
-	stars = global.currentLevelStarsCollected;
-	stardisks = global.currentLevelStardisksCollected;
+	changeScores();
 }
 
 #endregion
@@ -256,7 +338,4 @@ backButton = new GuiButton(guiController, "back", _x, _y, backButtonClicked);
 backButton.hoverText = "to main menu";
 
 // Change scores
-loadLevelScores(selectedLevel);
-highscores = global.currentLevelFastestTimes;
-stars = global.currentLevelStarsCollected;
-stardisks = global.currentLevelStardisksCollected;
+changeScores();

@@ -2,6 +2,7 @@
 event_inherited();
 
 // State
+markActive = false;
 traceActive = false;
 
 // Movement
@@ -57,11 +58,11 @@ dash = function()
 	alarm[0] = dashCooldown;
 }
 
-/// @func	trace();
-trace = function()
+/// @func	mark();
+mark = function()
 {
-	// Init trace
-	var _traced = false;
+	// Init mark
+	var _marked = false;
 	
 	// Loop around bbox
 	for (var _j = 0; _j < 2; _j++)
@@ -74,22 +75,36 @@ trace = function()
 			// If tile is not already traced
 			if (tilemap_get_at_pixel(groundTiles, _x, _y) == 0)
 			{
-				// Trace tile
+				// Mark tile
 				tilemap_set_at_pixel(groundTiles, 1, _x, _y);
-				_traced = true;
+				_marked = true;
 				oLevel.tilesTraced++;
 			}
 		}
 	}
 	
 	// Trace sound
-	if (_traced) audio_play_sound(sfxTrace, 5, false);
+	if (_marked) audio_play_sound(sfxTrace, 5, false);
+}
+
+/// @func	trace();
+trace = function()
+{
+	// If tile is not already traced
+	if (tilemap_get_at_pixel(groundTiles, x, y) == 0)
+	{
+		// Trace tile
+		tilemap_set_at_pixel(groundTiles, 2, x, y);
+		oLevel.tilesTraced++;
+		audio_play_sound(sfxTrace, 5, false);
+	}
 }
 
 #endregion
 
 // If grafitti mode
-if (global.mode == Mode.TRACE) traceActive = true;
+if (global.mode == Mode.MARK) markActive = true;
+else if (global.mode == Mode.TRACE) traceActive = true;
 
 // Set player sprite
 sprite_index = global.skin;
