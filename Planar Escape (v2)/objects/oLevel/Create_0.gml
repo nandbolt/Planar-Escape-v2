@@ -117,14 +117,14 @@ completeLevel = function()
 			global.currentLevelFastestTimes[0] = levelTime;
 			_newHighscore = true;
 		}
-		else if (levelTime < secondFastestTime)
+		else if (secondFastestTime <= 0 || levelTime < secondFastestTime)
 		{
 			// New silver
 			global.currentLevelFastestTimes[2] = global.currentLevelFastestTimes[1];
 			global.currentLevelFastestTimes[1] = levelTime;
 			_newHighscore = true;
 		}
-		else if (levelTime < thirdFastestTime)
+		else if (thirdFastestTime <= 0 || levelTime < thirdFastestTime)
 		{
 			// New bronze
 			global.currentLevelFastestTimes[2] = levelTime;
@@ -183,15 +183,16 @@ completeLevel = function()
 					global.currentLevelMarkScores[0] = runScore;
 					_newHighscore = true;
 					
-					// Loop through marks
-					for (var _i = 0; _i < array_length(global.currentLevelMarks); _i++)
+					// Set ground tiles
+					for (var _y = TILE_SIZE; _y < room_height - TILE_SIZE; _y += TILE_SIZE)
 					{
-						// Set mark tile
-						var _x = (_i mod GRID_WIDTH) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
-						var _y = floor(_i / GRID_HEIGHT) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
-						var _tile = tilemap_get_at_pixel(groundMap, _x, _y);
-						if (_tile > 0) global.currentLevelMarks[_i] = 1;
-						else global.currentLevelMarks[_i] = 0;
+						for (var _x = TILE_SIZE; _x < room_width - TILE_SIZE; _x += TILE_SIZE)
+						{
+							// Set collision tile
+							var _gridX = floor(_x / TILE_SIZE) - 1, _gridY = floor(_y / TILE_SIZE) - 1;
+							var _gridIdx = GRID_WIDTH * _gridY + _gridX;
+							global.currentLevelMarks[_gridIdx] = tilemap_get_at_pixel(groundMap, _x, _y);
+						}
 					}
 				}
 				else if (runScore > secondHighestScore)
@@ -224,15 +225,16 @@ completeLevel = function()
 					global.currentLevelTraceScores[0] = runScore;
 					_newHighscore = true;
 					
-					// Loop through traces
-					for (var _i = 0; _i < array_length(global.currentLevelTraces); _i++)
+					// Set ground tiles
+					for (var _y = TILE_SIZE; _y < room_height - TILE_SIZE; _y += TILE_SIZE)
 					{
-						// Set mark tile
-						var _x = (_i mod GRID_WIDTH) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
-						var _y = floor(_i / GRID_HEIGHT) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
-						var _tile = tilemap_get_at_pixel(groundMap, _x, _y);
-						if (_tile > 0) global.currentLevelTraces[_i] = 1;
-						else global.currentLevelTraces[_i] = 0;
+						for (var _x = TILE_SIZE; _x < room_width - TILE_SIZE; _x += TILE_SIZE)
+						{
+							// Set collision tile
+							var _gridX = floor(_x / TILE_SIZE) - 1, _gridY = floor(_y / TILE_SIZE) - 1;
+							var _gridIdx = GRID_WIDTH * _gridY + _gridX;
+							global.currentLevelTraces[_gridIdx] = tilemap_get_at_pixel(groundMap, _x, _y);
+						}
 					}
 				}
 				else if (runScore > secondHighestScore)
@@ -508,19 +510,22 @@ for (var _y = HALF_TILE_SIZE; _y < room_height; _y += TILE_SIZE)
 	}
 }
 
-// If escape mode
-if (global.mode == Mode.ESCAPE)
+// Set ground tiles
+if (mode == Mode.ESCAPE)
 {
-	// Loop through marks + traces
-	for (var _i = 0; _i < array_length(global.currentLevelMarks); _i++)
+	for (var _y = TILE_SIZE; _y < room_height - TILE_SIZE; _y += TILE_SIZE)
 	{
-		// Set mark tile
-		var _x = (_i mod GRID_WIDTH) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
-		var _y = floor(_i / GRID_HEIGHT) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
-		var _mark = global.currentLevelMarks[_i], _trace = global.currentLevelTraces[_i];
-		if (_trace > 0) tilemap_set_at_pixel(groundMap, 2, _x, _y);
-		else if (_mark > 0) tilemap_set_at_pixel(groundMap, 1, _x, _y);
+		for (var _x = TILE_SIZE; _x < room_width - TILE_SIZE; _x += TILE_SIZE)
+		{
+			// Set collision tile
+			var _gridX = floor(_x / TILE_SIZE) - 1, _gridY = floor(_y / TILE_SIZE) - 1;
+			var _gridIdx = GRID_WIDTH * _gridY + _gridX;
+			var _mark = global.currentLevelMarks[_gridIdx], _trace = global.currentLevelTraces[_gridIdx];
+			if (_trace > 0) tilemap_set_at_pixel(groundMap, 2, _x, _y);
+			else if (_mark > 0) tilemap_set_at_pixel(groundMap, 1, _x, _y);
+		}
 	}
+	layer_set_visible(layer_get_id("GroundTiles"), global.showTrace);
 }
 
 // Update music

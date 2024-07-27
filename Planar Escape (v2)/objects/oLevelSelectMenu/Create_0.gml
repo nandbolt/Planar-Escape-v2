@@ -152,7 +152,7 @@ initLevelSelection = function()
 			{
 				case 1:
 					// If no score
-					if (_saveData.levelMain01EscapeScores[0] == 0)
+					if (_saveData.levelMain01FastestTimes[0] <= 0)
 					{
 						_button.locked = true;
 						_button.hoverText = "escape level 1 to unlock!";
@@ -160,7 +160,7 @@ initLevelSelection = function()
 					break;
 				case 2:
 					// If no score
-					if (_saveData.levelMain02EscapeScores[0] == 0)
+					if (_saveData.levelMain02FastestTimes[0] <= 0)
 					{
 						_button.locked = true;
 						_button.hoverText = "escape level 2 to unlock!";
@@ -168,7 +168,7 @@ initLevelSelection = function()
 					break;
 				case 3:
 					// If no score
-					if (_saveData.levelMain03EscapeScores[0] == 0)
+					if (_saveData.levelMain03FastestTimes[0] <= 0)
 					{
 						_button.locked = true;
 						_button.hoverText = "escape level 3 to unlock!";
@@ -176,7 +176,7 @@ initLevelSelection = function()
 					break;
 				case 4:
 					// If no score
-					if (_saveData.levelMain04EscapeScores[0] == 0)
+					if (_saveData.levelMain04FastestTimes[0] <= 0)
 					{
 						_button.locked = true;
 						_button.hoverText = "escape level 4 to unlock!";
@@ -184,7 +184,7 @@ initLevelSelection = function()
 					break;
 				case 5:
 					// If no score
-					if (_saveData.levelMain05EscapeScores[0] == 0)
+					if (_saveData.levelMain05FastestTimes[0] <= 0)
 					{
 						_button.locked = true;
 						_button.hoverText = "escape level 5 to unlock!";
@@ -192,7 +192,7 @@ initLevelSelection = function()
 					break;
 				case 6:
 					// If no score
-					if (_saveData.levelMain06EscapeScores[0] == 0)
+					if (_saveData.levelMain06FastestTimes[0] <= 0)
 					{
 						_button.locked = true;
 						_button.hoverText = "escape level 6 to unlock!";
@@ -200,7 +200,7 @@ initLevelSelection = function()
 					break;
 				case 7:
 					// If no score
-					if (_saveData.levelMain07EscapeScores[0] == 0)
+					if (_saveData.levelMain07FastestTimes[0] <= 0)
 					{
 						_button.locked = true;
 						_button.hoverText = "escape level 7 to unlock!";

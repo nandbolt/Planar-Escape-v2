@@ -7,6 +7,7 @@ global.version = "1.9";
 global.mode = Mode.ESCAPE;
 global.entitySpeed = EntitySpeed.NORMAL;
 global.skin = sPlayer;
+global.showTrace = true;
 
 // Level editor
 global.editingLevel = false;

@@ -22,6 +22,7 @@ if (!file_exists("save-data.txt"))
 		musicVolume : 0.2,
 		sfxsVolume : 1,
 		fullscreen : true,
+		showTrace : true,
 		levelMain01Stars : 0,
 		levelMain01Stardisks : 0,
 		levelMain01FastestTimes : [-1, -1, -1],

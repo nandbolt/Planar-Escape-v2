@@ -8,11 +8,16 @@ function Grapple() : Gadget() constructor
 	pullStrength = 0.01;
 	grabPullStrength = 1000;
 	launchSpeed = 5;
+	blasterPosition = new BEVector2();
 	
 	/// @func	update();
 	static update = function()
 	{
 		updateActions();
+		
+		// Update position
+		blasterPosition.x = owner.x + lengthdir_x(8, owner.facingAngle-30);
+		blasterPosition.y = owner.y + lengthdir_y(8, owner.facingAngle-30);
 		
 		// If the hand exists
 		if (instance_exists(hand))
@@ -32,6 +37,7 @@ function Grapple() : Gadget() constructor
 	/// @func	draw();
 	static draw = function()
 	{
+		// Hand
 		if (instance_exists(hand))
 		{
 			//draw_line(owner.x, owner.y, hand.x, hand.y);
@@ -39,6 +45,9 @@ function Grapple() : Gadget() constructor
 			draw_sprite_ext(sGrappleArm, 0, owner.x, owner.y, _dist, 1, _dir, c_white, 1);
 			draw_sprite(sGrappleHand, 0, hand.x, hand.y);
 		}
+		
+		// Gun
+		draw_sprite_ext(sGrapple, 0, blasterPosition.x, blasterPosition.y, 1, 1, owner.facingAngle, c_white, 1);
 	}
 	
 	/// @func	usePressed();

@@ -74,3 +74,5 @@ if (!audio_is_playing(mEscape))
 
 // Reset edit
 global.editingLevel = false;
+global.mode = Mode.ESCAPE;
+global.entitySpeed = EntitySpeed.NORMAL;

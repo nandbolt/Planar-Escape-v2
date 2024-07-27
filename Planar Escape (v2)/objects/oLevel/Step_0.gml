@@ -1,3 +1,10 @@
+// Trace
+if (keyboard_check_pressed(ord("T")))
+{
+	global.showTrace = !global.showTrace;
+	layer_set_visible(layer_get_id("GroundTiles"), global.showTrace);
+}
+
 // Update time
 if (!levelComplete && !levelFailed)
 {

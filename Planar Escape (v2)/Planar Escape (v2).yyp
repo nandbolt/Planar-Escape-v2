@@ -63,6 +63,7 @@
     {"id":{"name":"oBigIceBlock","path":"objects/oBigIceBlock/oBigIceBlock.yy",},"order":7,},
     {"id":{"name":"sGreenDoor","path":"sprites/sGreenDoor/sGreenDoor.yy",},"order":2,},
     {"id":{"name":"sfxRodZap","path":"sounds/sfxRodZap/sfxRodZap.yy",},"order":8,},
+    {"id":{"name":"sGrapple","path":"sprites/sGrapple/sGrapple.yy",},"order":6,},
     {"id":{"name":"sfxEntity","path":"sounds/sfxEntity/sfxEntity.yy",},"order":0,},
     {"id":{"name":"rLevelMain03","path":"rooms/rLevelMain03/rLevelMain03.yy",},"order":7,},
     {"id":{"name":"sGlassBlock","path":"sprites/sGlassBlock/sGlassBlock.yy",},"order":4,},
