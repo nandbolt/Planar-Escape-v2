@@ -139,7 +139,7 @@ for (var _i = 0; _i < _fileCount; _i++)
 			var _x = (_j mod _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE, _y = floor(_j / _gridWidth) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
 			
 			// If a big block
-			if (_gridValue == LevelObject.BIG_WHITE_BLOCK || _gridValue == LevelObject.BIG_ICE_BLOCK)
+			if (_gridValue == LevelObject.BIG_WHITE_BLOCK || _gridValue == LevelObject.BIG_ICE_BLOCK || _gridValue == LevelObject.STAR_DISK)
 			{
 				// Move position
 				_x += HALF_TILE_SIZE;

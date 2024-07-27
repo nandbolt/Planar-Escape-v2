@@ -104,6 +104,7 @@ changeCursor = function(_idx)
 		case LevelObject.STAR_DISK:
 			cursorSprite = sStarDisk;
 			cursorText = "star disk";
+			cursorScale = 2;
 			break;
 		case LevelObject.SOLID_WALL:
 			cursorSprite = sSolidWall;
@@ -348,6 +349,8 @@ placeCursorObject = function()
 {
 	// Get grid index
 	var _gridIdx = gridWidth * gridY + gridX;
+	var _cursorScale = cursorScale;
+	if (cursorIdx == LevelObject.STAR_DISK) _cursorScale = 1;
 	
 	// If not placing a wire
 	if (cursorIdx != -1)
@@ -357,8 +360,8 @@ placeCursorObject = function()
 		
 		// Set sprite for collision check
 		sprite_index = cursorSprite;
-		image_xscale = cursorScale;
-		image_yscale = cursorScale;
+		image_xscale = _cursorScale;
+		image_yscale = _cursorScale;
 		
 		// If on a sprite
 		var _sprites = ds_list_create();
@@ -376,7 +379,7 @@ placeCursorObject = function()
 			if (instance_exists(_sprite))
 			{
 				// If sprite is big
-				if (_sprite.image_xscale == 2)
+				if (_sprite.image_xscale == 2 || _sprite.sprite_index == sStarDisk)
 				{
 					// Get sprite grid info
 					var _spriteGridX = floor((_sprite.x - HALF_TILE_SIZE) / TILE_SIZE) - 1;
@@ -395,7 +398,7 @@ placeCursorObject = function()
 		ds_list_destroy(_sprites);
 		
 		// Reset sprite
-		sprite_index = sSquareCenter;
+		sprite_index = sLevelEditorCursor;
 		image_xscale = 1;
 		image_yscale = 1;
 		
@@ -437,8 +440,8 @@ placeCursorObject = function()
 				{
 					x += HALF_TILE_SIZE;
 					y += HALF_TILE_SIZE;
-					image_xscale = other.cursorScale;
-					image_yscale = other.cursorScale;
+					image_xscale = _cursorScale;
+					image_yscale = _cursorScale;
 				}
 			}
 		}

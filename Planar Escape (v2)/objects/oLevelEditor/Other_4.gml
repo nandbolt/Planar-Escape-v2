@@ -15,7 +15,7 @@ for (var _i = 0; _i < array_length(levelParentObjects); _i++)
 			var _gridIdx = other.gridWidth * _gridY + _gridX;
 			var _gridValue = getLevelObjectIdx(object_index);
 			other.levelGrid[_gridIdx] = _gridValue;
-			if (_gridValue == LevelObject.BIG_WHITE_BLOCK || _gridValue == LevelObject.BIG_ICE_BLOCK)
+			if (_gridValue == LevelObject.BIG_WHITE_BLOCK || _gridValue == LevelObject.BIG_ICE_BLOCK || _gridValue == LevelObject.STAR_DISK)
 			{
 				other.levelGrid[_gridIdx-1] = _gridValue;
 				other.levelGrid[_gridIdx-other.gridWidth] = _gridValue;
