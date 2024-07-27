@@ -81,6 +81,7 @@ gridLayer = layer_get_id("GridBackground");
 // Tilemaps
 collisionMap = layer_tilemap_get_id("CollisionTiles");
 worldMap = layer_tilemap_get_id("WorldTiles"); 
+groundMap = layer_tilemap_get_id("GroundTiles");
 
 // Checkpoint
 checkpoint = noone;
@@ -138,7 +139,7 @@ completeLevel = function()
 				#region Escape Scores
 				
 				// Calculate escape score
-				runScore = (starsCollected / totalStars * 500 + stardisksCollected / totalStardisks * 500 + 30 / levelTime * 1000) * entitySpeedScoreMultiplier;
+				runScore = floor((starsCollected / totalStars * 500 + stardisksCollected / totalStardisks * 500 + 30 / levelTime * 1000) * entitySpeedScoreMultiplier);
 				
 				if (runScore > highestScore)
 				{
@@ -172,7 +173,7 @@ completeLevel = function()
 				#region Mark Scores
 				
 				// Calculate mark score
-				runScore = tilesTraced * entitySpeedScoreMultiplier;
+				runScore = floor(tilesTraced * entitySpeedScoreMultiplier);
 				
 				if (runScore > highestScore)
 				{
@@ -181,6 +182,17 @@ completeLevel = function()
 					global.currentLevelMarkScores[1] = global.currentLevelMarkScores[0];
 					global.currentLevelMarkScores[0] = runScore;
 					_newHighscore = true;
+					
+					// Loop through marks
+					for (var _i = 0; _i < array_length(global.currentLevelMarks); _i++)
+					{
+						// Set mark tile
+						var _x = (_i mod GRID_WIDTH) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+						var _y = floor(_i / GRID_HEIGHT) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+						var _tile = tilemap_get_at_pixel(groundMap, _x, _y);
+						if (_tile > 0) global.currentLevelMarks[_i] = 1;
+						else global.currentLevelMarks[_i] = 0;
+					}
 				}
 				else if (runScore > secondHighestScore)
 				{
@@ -202,7 +214,7 @@ completeLevel = function()
 				#region Trace Scores
 				
 				// Calculate trace score
-				runScore = ((GRID_WIDTH * GRID_HEIGHT) / tilesTraced) * entitySpeedScoreMultiplier;
+				runScore = floor(((GRID_WIDTH * GRID_HEIGHT) / tilesTraced) * entitySpeedScoreMultiplier);
 				
 				if (runScore > highestScore)
 				{
@@ -211,6 +223,17 @@ completeLevel = function()
 					global.currentLevelTraceScores[1] = global.currentLevelTraceScores[0];
 					global.currentLevelTraceScores[0] = runScore;
 					_newHighscore = true;
+					
+					// Loop through traces
+					for (var _i = 0; _i < array_length(global.currentLevelTraces); _i++)
+					{
+						// Set mark tile
+						var _x = (_i mod GRID_WIDTH) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+						var _y = floor(_i / GRID_HEIGHT) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+						var _tile = tilemap_get_at_pixel(groundMap, _x, _y);
+						if (_tile > 0) global.currentLevelTraces[_i] = 1;
+						else global.currentLevelTraces[_i] = 0;
+					}
 				}
 				else if (runScore > secondHighestScore)
 				{
@@ -482,6 +505,21 @@ for (var _y = HALF_TILE_SIZE; _y < room_height; _y += TILE_SIZE)
 	{
 		// Set collision tile
 		tilemap_set_at_pixel(collisionMap, tilemap_get_at_pixel(worldMap, _x, _y), _x, _y);
+	}
+}
+
+// If escape mode
+if (global.mode == Mode.ESCAPE)
+{
+	// Loop through marks + traces
+	for (var _i = 0; _i < array_length(global.currentLevelMarks); _i++)
+	{
+		// Set mark tile
+		var _x = (_i mod GRID_WIDTH) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+		var _y = floor(_i / GRID_HEIGHT) * TILE_SIZE + TILE_SIZE + HALF_TILE_SIZE;
+		var _mark = global.currentLevelMarks[_i], _trace = global.currentLevelTraces[_i];
+		if (_trace > 0) tilemap_set_at_pixel(groundMap, 2, _x, _y);
+		else if (_mark > 0) tilemap_set_at_pixel(groundMap, 1, _x, _y);
 	}
 }
 
