@@ -1,11 +1,11 @@
 // Move input direction
-moveInput.x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
-moveInput.y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
+moveInput.x = (keyboard_check(ord("D")) || gamepad_button_check(0, gp_padr)) - (keyboard_check(ord("A")) || gamepad_button_check(0, gp_padl));
+moveInput.y = (keyboard_check(ord("S")) || gamepad_button_check(0, gp_padd)) - (keyboard_check(ord("W")) || gamepad_button_check(0, gp_padu));
 moveInput.normalize();
 moveInput.scale(moveSpeed);
 
 // Dash
-if (keyboard_check_pressed(vk_space) && alarm[0] == -1) dash();
+if ((keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_face1)) && alarm[0] == -1) dash();
 
 // Apply move input
 box.addForceVector(moveInput);

@@ -72,6 +72,7 @@ levelEndMenus = 0;
 levelEndMenuDelay = 60;
 maxCompleteLevelMenu = 3;
 maxFailedLevelMenu = 1;
+nextRoom = room;
 
 // Layers
 collisionLayer = layer_get_id("CollisionTiles");

@@ -17,7 +17,7 @@ function Gadget() constructor
 	static useReleased = function(){}
 	
 	/// @func	actionUse();
-	static actionUse = function(){ return keyboard_check(ord("J")); }
+	static actionUse = function(){ return keyboard_check(ord("J")) || gamepad_button_check(0, gp_face2); }
 	
 	/// @func	updateActions();
 	static updateActions = function()
