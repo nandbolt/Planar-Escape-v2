@@ -25,6 +25,8 @@ wireGrid = array_create(gridWidth * gridHeight, 0);
 rotationGrid = [];
 if (global.customRotationGrid == -1) global.customRotationGrid = array_create(gridWidth * gridHeight, 0);
 array_copy(rotationGrid, 0, global.customRotationGrid, 0, array_length(global.customRotationGrid));
+markGrid = global.currentLevelMarks;
+traceGrid = global.currentLevelTraces;
 levelParentObjects = [oSolid, oPortal, oSpawnPortal, oCollectable, oContraption];
 
 // Grid position

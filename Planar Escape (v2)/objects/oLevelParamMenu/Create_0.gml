@@ -57,6 +57,11 @@ saveLevelButtonClicked = function()
 	}
 	
 	// Create room level data
+	with (oLevelEditor)
+	{
+		markGrid = array_create(gridWidth * gridHeight, 0);
+		traceGrid = array_create(gridWidth * gridHeight, 0);
+	}
 	var _levelData = 
 	{
 		version : global.version,
@@ -66,6 +71,14 @@ saveLevelButtonClicked = function()
 		levelGrid : oLevelEditor.levelGrid,
 		wireGrid : oLevelEditor.wireGrid,
 		rotationGrid : oLevelEditor.rotationGrid,
+		stars : 0,
+		stardisks : 0,
+		fastestTimes : [-1, -1, -1],
+		escapeScores : [0, 0, 0],
+		markScores : [0, 0, 0],
+		traceScores : [0, 0, 0],
+		marks : oLevelEditor.markGrid,
+		traces : oLevelEditor.traceGrid,
 	}
 	var _jsonString = json_stringify(_levelData);
 	

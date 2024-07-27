@@ -20,24 +20,27 @@ _y += 20;
 if (selectedLevelCreator != "") draw_text(_x, _y, "by " + selectedLevelCreator);
 
 // High scores
-_y += 60;
-draw_set_color(c_yellow);
-var _yOff = sin(current_time * highscoreHoverSpeed) * highscoreHoverRange;
-if (highscores[0] > 0) draw_text(_x, _y + _yOff, "1st " + string(highscores[0]));
-else draw_text(_x, _y, "...");
-_y += 20;
-draw_set_color(c_ltgray);
-if (highscores[1] > 0) draw_text(_x, _y + _yOff, "2nd " + string(highscores[1]));
-else draw_text(_x, _y, "...");
-_y += 20;
-draw_set_color(#CD7F32);
-if (highscores[2] > 0) draw_text(_x, _y + _yOff, "3rd " + string(highscores[2]));
-else draw_text(_x, _y, "...");
-draw_set_color(c_white);
-_y += 20;
-draw_text(_x, _y, "stars:" + string(stars) + "/" + string(maxStars));
-_y += 20;
-draw_text(_x, _y, "stardisks:" + string(stardisks) + "/" + string(maxStardisks));
+if (selectedLevel != rLevelEmpty)
+{
+	_y += 60;
+	draw_set_color(c_yellow);
+	var _yOff = sin(current_time * highscoreHoverSpeed) * highscoreHoverRange;
+	if (highscores[0] > 0) draw_text(_x, _y + _yOff, "1st " + string(highscores[0]));
+	else draw_text(_x, _y, "...");
+	_y += 20;
+	draw_set_color(c_ltgray);
+	if (highscores[1] > 0) draw_text(_x, _y + _yOff, "2nd " + string(highscores[1]));
+	else draw_text(_x, _y, "...");
+	_y += 20;
+	draw_set_color(#CD7F32);
+	if (highscores[2] > 0) draw_text(_x, _y + _yOff, "3rd " + string(highscores[2]));
+	else draw_text(_x, _y, "...");
+	draw_set_color(c_white);
+	_y += 20;
+	draw_text(_x, _y, "stars:" + string(stars) + "/" + string(maxStars));
+	_y += 20;
+	draw_text(_x, _y, "stardisks:" + string(stardisks) + "/" + string(maxStardisks));
+}
 
 // Draw left area
 _x = 8;

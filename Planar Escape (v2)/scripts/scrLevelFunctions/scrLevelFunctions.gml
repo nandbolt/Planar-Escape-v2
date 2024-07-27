@@ -1081,4 +1081,36 @@ function loadLevelScores(_roomLevel)
 		// Close save
 		file_text_close(_file);
 	}
+	else
+	{
+		// Open save
+		var _levelName = global.customLevelNames[global.customLevelIdx];
+		var _fileName = working_directory + "/custom-levels/" + _levelName + ".txt";
+		var _file = file_text_open_read(_fileName);
+	
+		// Parse save file
+		var _jsonString = file_text_read_string(_file);
+		var _saveData = json_parse(_jsonString);
+		
+		// Set globals
+		global.currentLevelStarsCollected = _saveData.stars;
+		global.currentLevelStardisksCollected = _saveData.stardisks;
+		global.currentLevelFastestTimes = _saveData.fastestTimes;
+		global.currentLevelEscapeScores = _saveData.escapeScores;
+		global.currentLevelMarkScores = _saveData.markScores;
+		global.currentLevelTraceScores = _saveData.traceScores;
+		global.currentLevelMarks = _saveData.marks;
+		global.currentLevelTraces = _saveData.traces;
+		//global.currentLevelStarsCollected = 0;
+		//global.currentLevelStardisksCollected = 0;
+		//global.currentLevelFastestTimes = [-1, -1, -1];
+		//global.currentLevelEscapeScores = [0, 0, 0];
+		//global.currentLevelMarkScores = [0, 0, 0];
+		//global.currentLevelTraceScores = [0, 0, 0];
+		//global.currentLevelMarks = array_create(GRID_WIDTH * GRID_HEIGHT, 0);
+		//global.currentLevelTraces = array_create(GRID_WIDTH * GRID_HEIGHT, 0);
+		
+		// Close save
+		file_text_close(_file);
+	}
 }

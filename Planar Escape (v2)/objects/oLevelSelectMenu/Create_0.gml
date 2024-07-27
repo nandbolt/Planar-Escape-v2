@@ -41,6 +41,22 @@ selectLevel = function(_room)
 	// Exit if room doesn't exist
 	if (!room_exists(_room)) return;
 	
+	// If room is empty
+	if (_room == rLevelEmpty)
+	{
+		scoreButton.locked = true;
+		playButton.locked = true;
+		modeButton.locked = true;
+		entitySpeedButton.locked = true;
+	}
+	else
+	{
+		scoreButton.locked = false;
+		playButton.locked = false;
+		modeButton.locked = false;
+		entitySpeedButton.locked = false;
+	}
+	
 	// Custom level index
 	for (var _i = 0; _i < array_length(levels); _i++)
 	{
@@ -230,6 +246,9 @@ initLevelSelection = function()
 	// Select first level
 	selectedLevel = levels[selectedLevelIdx];
 	selectLevel(selectedLevel);
+	
+	// Change scores
+	changeScores();
 }
 
 /// @func	changeScores();
@@ -336,6 +355,3 @@ playButton.hoverText = "ready?";
 _x = 16;
 backButton = new GuiButton(guiController, "back", _x, _y, backButtonClicked);
 backButton.hoverText = "to main menu";
-
-// Change scores
-changeScores();
