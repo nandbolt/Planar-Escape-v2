@@ -36,10 +36,8 @@ if (selectedLevel != rLevelEmpty)
 	if (highscores[2] > 0) draw_text(_x, _y + _yOff, "3rd " + string(highscores[2]));
 	else draw_text(_x, _y, "...");
 	draw_set_color(c_white);
-	_y += 20;
-	draw_text(_x, _y, "stars:" + string(stars) + "/" + string(maxStars));
-	_y += 20;
-	draw_text(_x, _y, "stardisks:" + string(stardisks) + "/" + string(maxStardisks));
+	_y += 40;
+	if (showStarCount) draw_text(_x, _y, "stars:" + string(stars) + "/" + string(maxStars));
 }
 
 // Draw left area

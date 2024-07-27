@@ -32,6 +32,7 @@ maxStars = 0;
 maxStardisks = 0;
 highscoreHoverSpeed = 0.005;
 highscoreHoverRange = 2;
+showStarCount = true;
 
 #region Functions
 
@@ -104,6 +105,25 @@ getMapData = function(_room)
 			mapArray[_j * mapWidth + _i] = _tile;
 		}
 	}
+	
+	// Count stars
+	var _stars = 0;
+	var _layers = layer_get_all();
+	for (var _i = 0; _i < array_length(_layers); _i++)
+	{
+		var _layer = _layers[_i];
+		var _layerElements = layer_get_all_elements(_layer);
+		for (var _j = 0; _j < array_length(_layerElements); _j++)
+		{
+			var _layerElement = _layerElements[_j];
+			var _layerElementType = layer_get_element_type(_layerElement);
+			if (_layerElementType == layerelementtype_instance)
+			{
+				if (_layer == layer_get_id("CollectableInstances")) _stars++;
+			}
+		}
+	}
+	maxStars = _stars;
 	
 	// Reset target room
 	layer_reset_target_room();

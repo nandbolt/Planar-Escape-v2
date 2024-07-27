@@ -220,3 +220,6 @@ editButton.width = playButton.width;
 
 // Init
 initLevelSelection();
+
+// Hide star count
+showStarCount = false;
