@@ -58,10 +58,10 @@ if (keyboard_check_pressed(ord("Q")) || gamepad_button_check_pressed(0, gp_shoul
 else if (keyboard_check_pressed(ord("E")) || gamepad_button_check_pressed(0, gp_shoulderr)) changeCursor(cursorIdx+1);
 else if (keyboard_check_pressed(ord("R")) || gamepad_button_check_pressed(0, gp_face4)) cursorRotation = (cursorRotation + 45) mod 360;
 else if (keyboard_check_pressed(ord("1"))) changeCursor(LevelObject.NONE);
-else if (keyboard_check_pressed(ord("2"))) changeCursor(LevelObject.SOLID_WALL);
-else if (keyboard_check_pressed(ord("3"))) changeCursor(LevelObject.WHITE_BLOCK);
-else if (keyboard_check_pressed(ord("4"))) changeCursor(LevelObject.STAR);
-else if (keyboard_check_pressed(ord("5"))) changeCursor(LevelObject.WIRE);
+else if (keyboard_check_pressed(ord("2"))) changeCursor(LevelObject.WIRE);
+else if (keyboard_check_pressed(ord("3"))) changeCursor(LevelObject.SOLID_WALL);
+else if (keyboard_check_pressed(ord("4"))) changeCursor(LevelObject.WHITE_BLOCK);
+else if (keyboard_check_pressed(ord("5"))) changeCursor(LevelObject.STAR);
 else if (keyboard_check_pressed(ord("6"))) changeCursor(LevelObject.POWER_BLOCK);
 else if (keyboard_check_pressed(ord("7"))) changeCursor(LevelObject.RED_LASER_BLOCK);
 else if (keyboard_check_pressed(ord("8"))) changeCursor(LevelObject.WHITE_DOOR);
@@ -69,4 +69,11 @@ else if (keyboard_check_pressed(ord("9"))) changeCursor(LevelObject.GADGET_MACHI
 else if (keyboard_check_pressed(ord("0"))) changeCursor(LevelObject.ROBOT);
 
 // Place object
-if ((keyboard_check(vk_space) || gamepad_button_check_pressed(0, gp_face1)) && cursorColor != c_red) placeCursorObject();
+if (cursorIdx != LevelObject.WIRE)
+{
+	if (keyboard_check(vk_space) || gamepad_button_check(0, gp_face1)) placeCursorObject();
+}
+else if (keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_face1)) placeCursorObject();
+
+// Hide tiles
+if (keyboard_check_pressed(ord("L"))) layer_set_visible(worldLayer, !layer_get_visible(worldLayer));

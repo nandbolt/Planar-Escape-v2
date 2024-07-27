@@ -229,6 +229,7 @@
     {"id":{"name":"rLevelMain16","path":"rooms/rLevelMain16/rLevelMain16.yy",},"order":20,},
     {"id":{"name":"sBorder1","path":"sprites/sBorder1/sBorder1.yy",},"order":0,},
     {"id":{"name":"oEntity","path":"objects/oEntity/oEntity.yy",},"order":0,},
+    {"id":{"name":"sLevelEditorCursor","path":"sprites/sLevelEditorCursor/sLevelEditorCursor.yy",},"order":5,},
     {"id":{"name":"oRedPortal","path":"objects/oRedPortal/oRedPortal.yy",},"order":0,},
     {"id":{"name":"oPauseManager","path":"objects/oPauseManager/oPauseManager.yy",},"order":3,},
     {"id":{"name":"oGreenCrystalBlock","path":"objects/oGreenCrystalBlock/oGreenCrystalBlock.yy",},"order":1,},

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oLevelEditor",
   "spriteId": {
-    "name": "sSquareCenter",
-    "path": "sprites/sSquareCenter/sSquareCenter.yy",
+    "name": "sLevelEditorCursor",
+    "path": "sprites/sLevelEditorCursor/sLevelEditorCursor.yy",
   },
   "solid": false,
   "visible": true,

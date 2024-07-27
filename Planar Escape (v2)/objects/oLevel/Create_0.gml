@@ -272,6 +272,20 @@ completeLevel = function()
 				// Close save
 				file_text_close(_file);
 			}
+			else
+			{
+				// Open save
+				var _levelName = global.customLevelNames[global.customLevelIdx];
+				var _fileName = working_directory + "/custom-levels/" + _levelName + ".txt";
+				var _file = file_text_open_read(_fileName);
+	
+				// Parse save file
+				var _jsonString = file_text_read_string(_file);
+				_saveData = json_parse(_jsonString);
+	
+				// Close save
+				file_text_close(_file);
+			}
 			
 			// Edit scores
 			if (!_customLevel)
@@ -440,6 +454,17 @@ completeLevel = function()
 						break;
 				}
 			}
+			else
+			{
+				_saveData.stars = global.currentLevelStarsCollected;
+				_saveData.stardisks = global.currentLevelStardisksCollected;
+				_saveData.fastestTimes = global.currentLevelFastestTimes;
+				_saveData.escapeScores = global.currentLevelEscapeScores;
+				_saveData.markScores = global.currentLevelMarkScores;
+				_saveData.traceScores = global.currentLevelTraceScores;
+				_saveData.marks = global.currentLevelMarks;
+				_saveData.traces = global.currentLevelTraces;
+			}
 			
 			// Save new scores to file
 			if (!_customLevel)
@@ -447,6 +472,20 @@ completeLevel = function()
 				// Open save
 				var _file = file_text_open_write("save-data.txt");
 	
+				// Save string to file
+				var _jsonString = json_stringify(_saveData);
+				file_text_write_string(_file, _jsonString);
+	
+				// Close save
+				file_text_close(_file);
+			}
+			else
+			{
+				// Open save
+				var _levelName = global.customLevelNames[global.customLevelIdx];
+				var _fileName = working_directory + "/custom-levels/" + _levelName + ".txt";
+				var _file = file_text_open_read(_fileName);
+				
 				// Save string to file
 				var _jsonString = json_stringify(_saveData);
 				file_text_write_string(_file, _jsonString);

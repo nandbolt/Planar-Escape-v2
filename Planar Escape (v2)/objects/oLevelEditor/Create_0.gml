@@ -41,14 +41,15 @@ moveHoldDelay = 20;
 // Cursor
 cursorIdx = 0;
 cursorSprite = sprite_index;
-cursorText = "";
-cursorColor = c_white;
+cursorText = "empty";
+cursorColor = c_red;
 cursorRotation = 0;
 cursorScale = 1;
 
 // Layers
 collisionLayer = layer_get_id("CollisionTiles");
 gridLayer = layer_get_id("GridBackground");
+worldLayer = layer_get_id("WorldTiles");
 
 // Tilemaps
 //collisionMap = layer_tilemap_get_id("CollisionTiles");
@@ -65,15 +66,28 @@ changeCursor = function(_idx)
 	else if (_idx < LevelObject.WIRE) cursorIdx = LevelObject.ROBOT;
 	else cursorIdx = _idx;
 	cursorScale = 1;
+	
+	// Reset alpha
+	with (oSprite)
+	{
+		image_alpha = 1;
+	}
+	
+	// Cursor idx
 	switch (cursorIdx)
 	{
 		case LevelObject.WIRE:
 			cursorSprite = sWirePoint;
-			cursorText = "wire";
+			cursorText = "power grid";
+			with (oSprite)
+			{
+				image_alpha = 0.5;
+			}
+			image_blend = c_yellow;
 			break;
 		case LevelObject.NONE:
 			cursorSprite = sprite_index;
-			cursorText = "";
+			cursorText = "empty";
 			break;
 		case LevelObject.SPAWN_PORTAL:
 			cursorSprite = sStartPortal;
@@ -300,8 +314,21 @@ moveCursor = function(_dx, _dy)
 	gridValue = levelGrid[_gridIdx];
 	
 	// Update color
-	if (gridValue == 0) cursorColor = c_white;
-	else cursorColor = c_red;
+	if (cursorIdx == LevelObject.WIRE)
+	{
+		cursorColor = c_white;
+		image_blend = c_yellow;
+	}
+	else if (gridValue == 0)
+	{
+		cursorColor = c_white;
+		image_blend = c_white;
+	}
+	else
+	{
+		cursorColor = c_red;
+		image_blend = c_red;
+	}
 	
 	// If placing a big object
 	if (cursorScale == 2)
@@ -310,6 +337,7 @@ moveCursor = function(_dx, _dy)
 			levelGrid[_gridIdx+gridWidth] == 0 && levelGrid[_gridIdx+gridWidth+1] == 0))
 		{
 			cursorColor = c_red;
+			image_blend = c_red;
 		}
 		
 	}
