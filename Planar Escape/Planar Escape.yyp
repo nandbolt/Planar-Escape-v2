@@ -1,7 +1,7 @@
 {
   "resourceType": "GMProject",
   "resourceVersion": "1.6",
-  "name": "Planar Escape (v2)",
+  "name": "Planar Escape",
   "resources": [
     {"id":{"name":"sBeltBackward","path":"sprites/sBeltBackward/sBeltBackward.yy",},"order":6,},
     {"id":{"name":"oMoveableBlock","path":"objects/oMoveableBlock/oMoveableBlock.yy",},"order":2,},
