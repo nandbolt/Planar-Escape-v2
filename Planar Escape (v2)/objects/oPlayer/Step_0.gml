@@ -25,6 +25,7 @@ updateAnimations();
 
 // Gadget
 if (!is_undefined(gadget)) gadget.update();
+else if (keyboard_check_pressed(ord("J")) || gamepad_button_check_pressed(0, gp_face2)) audio_play_sound(sfxGuiButtonLockedPressed, 10, false);
 
 #region After Image
 
