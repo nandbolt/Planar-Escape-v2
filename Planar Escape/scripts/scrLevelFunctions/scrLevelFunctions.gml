@@ -434,10 +434,10 @@ function getEntitySpeedDescription(_speed)
 			return "no entity (score x1)";
 			break;
 		case EntitySpeed.NORMAL:
-			return "slow entity (score x2)";
+			return "slow entity (score x10)";
 			break;
 		case EntitySpeed.HYPER:
-			return "fast entity (score x4)";
+			return "fast entity (score x100)";
 			break;
 	}
 	return "???";

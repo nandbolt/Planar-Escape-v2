@@ -108,7 +108,7 @@ else
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_bottom);
 	_y = display_get_gui_height() - 8;
-	draw_text_color(_x, _y, "move:AWSD, dash:space, use:j, pause:esc", c_white, c_white, c_white, c_white, 0.25);
+	draw_text_color(_x, _y, "move:AWSD, dash:space, use:J, pause:esc, hide traces:T", c_white, c_white, c_white, c_white, 0.25);
 	
 	// Entity
 	_x = display_get_gui_width() - 8;
