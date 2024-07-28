@@ -484,7 +484,7 @@ completeLevel = function()
 				// Open save
 				var _levelName = global.customLevelNames[global.customLevelIdx];
 				var _fileName = working_directory + "/custom-levels/" + _levelName + ".txt";
-				var _file = file_text_open_read(_fileName);
+				var _file = file_text_open_write(_fileName);
 				
 				// Save string to file
 				var _jsonString = json_stringify(_saveData);
