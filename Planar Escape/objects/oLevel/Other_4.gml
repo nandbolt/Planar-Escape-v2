@@ -15,6 +15,7 @@ else if (mode == Mode.MARK || mode == Mode.TRACE)
 {
 	// Destroy all stars
 	instance_destroy(oStar);
+	instance_destroy(oStarDisk);
 }
 
 // Entity meter
