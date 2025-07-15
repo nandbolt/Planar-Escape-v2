@@ -50,6 +50,11 @@ levelSelectButton.hoverText = "play levels that have been unlocked.";
 _y += 32;
 levelEditorButton = new GuiButton(guiController, "level editor", _x, _y, levelEditorButtonClicked);
 levelEditorButton.hoverText = "make/play levels designed by those engrossed in the simulation.";
+if (os_browser != browser_not_a_browser || os_type == os_gxgames)
+{
+	levelEditorButton.hoverText = "make/play levels designed by those engrossed in the simulation. (NOT AVAILABLE FOR THE BROWSER!)";
+	levelEditorButton.locked = true;
+}
 _y += 32;
 logbookSelectButton = new GuiButton(guiController, "logbook", _x, _y, levelSelectButtonClicked);
 logbookSelectButton.hoverText = "notes from the awoken that may prove useful (coming soon!).";
@@ -61,6 +66,11 @@ optionsSelectButton.locked = true;
 _y += 32;
 quitButton = new GuiButton(guiController, "quit", _x, _y, quitButtonClicked);
 quitButton.hoverText = "so long...";
+if (os_browser != browser_not_a_browser || os_type == os_gxgames)
+{
+	quitButton.hoverText = "(NOT AVAILABLE FOR THE BROWSER!)";
+	quitButton.locked = true;
+}
 
 // Show cursor
 window_set_cursor(cr_arrow);
