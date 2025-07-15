@@ -50,7 +50,7 @@ levelSelectButton.hoverText = "play levels that have been unlocked.";
 _y += 32;
 levelEditorButton = new GuiButton(guiController, "level editor", _x, _y, levelEditorButtonClicked);
 levelEditorButton.hoverText = "make/play levels designed by those engrossed in the simulation.";
-if (os_browser != browser_not_a_browser || os_type == os_gxgames)
+if (!onDesktop())
 {
 	levelEditorButton.hoverText = "make/play levels designed by those engrossed in the simulation. (NOT AVAILABLE FOR THE BROWSER!)";
 	levelEditorButton.locked = true;
@@ -66,7 +66,7 @@ optionsSelectButton.locked = true;
 _y += 32;
 quitButton = new GuiButton(guiController, "quit", _x, _y, quitButtonClicked);
 quitButton.hoverText = "so long...";
-if (os_browser != browser_not_a_browser || os_type == os_gxgames)
+if (!onDesktop())
 {
 	quitButton.hoverText = "(NOT AVAILABLE FOR THE BROWSER!)";
 	quitButton.locked = true;

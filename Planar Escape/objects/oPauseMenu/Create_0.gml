@@ -35,7 +35,7 @@ var _x = display_get_gui_width() * 0.25 - 75, _y = guiCenterY - 16;
 resumeButton = new GuiButton(guiController, "resume", _x, _y - 48, resumeButtonClicked);
 mainMenuButton = new GuiButton(guiController, "main menu", _x, _y, mainMenuButtonClicked);
 quitButton = new GuiButton(guiController, "quit", _x, _y + 48, quitButtonClicked);
-if (os_browser != browser_not_a_browser || os_type == os_gxgames)
+if (!onDesktop())
 {
 	quitButton.hoverText = "(NOT AVAILABLE FOR THE BROWSER!)";
 	quitButton.locked = true;

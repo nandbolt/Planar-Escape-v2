@@ -84,6 +84,7 @@
     {"id":{"name":"sfxPlayerDeathEntity","path":"sounds/sfxPlayerDeathEntity/sfxPlayerDeathEntity.yy",},"order":1,},
     {"id":{"name":"rLevelCustom02","path":"rooms/rLevelCustom02/rLevelCustom02.yy",},"order":2,},
     {"id":{"name":"sBlaster","path":"sprites/sBlaster/sBlaster.yy",},"order":5,},
+    {"id":{"name":"scrPlatformFunctions","path":"scripts/scrPlatformFunctions/scrPlatformFunctions.yy",},"order":14,},
     {"id":{"name":"oPauseMenu","path":"objects/oPauseMenu/oPauseMenu.yy",},"order":4,},
     {"id":{"name":"rLevelCustom62","path":"rooms/rLevelCustom62/rLevelCustom62.yy",},"order":62,},
     {"id":{"name":"sfxGadgetEquipped","path":"sounds/sfxGadgetEquipped/sfxGadgetEquipped.yy",},"order":5,},
