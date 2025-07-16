@@ -1,7 +1,7 @@
 #region Global Variables
 
 // Build
-global.version = "1.9";
+global.version = "1.9.1";
 
 // Run
 global.mode = Mode.ESCAPE;

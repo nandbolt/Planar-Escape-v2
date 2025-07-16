@@ -302,6 +302,7 @@
     {"id":{"name":"oBlackLaserGadgetMachine","path":"objects/oBlackLaserGadgetMachine/oBlackLaserGadgetMachine.yy",},"order":6,},
     {"id":{"name":"sCircleDottedCenter","path":"sprites/sCircleDottedCenter/sCircleDottedCenter.yy",},"order":4,},
     {"id":{"name":"sPowerRod","path":"sprites/sPowerRod/sPowerRod.yy",},"order":0,},
+    {"id":{"name":"scrFileFunctions","path":"scripts/scrFileFunctions/scrFileFunctions.yy",},"order":15,},
     {"id":{"name":"rLevelCustom58","path":"rooms/rLevelCustom58/rLevelCustom58.yy",},"order":58,},
     {"id":{"name":"sGroundTiles","path":"sprites/sGroundTiles/sGroundTiles.yy",},"order":3,},
     {"id":{"name":"sStardust","path":"sprites/sStardust/sStardust.yy",},"order":1,},

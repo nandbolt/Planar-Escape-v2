@@ -157,15 +157,26 @@ drawMap = function(_startX, _startY)
 /// @func initLevelSelection();
 initLevelSelection = function()
 {
-	// Open save
-	var _file = file_text_open_read("save-data.txt");
+	var _saveData = undefined;
+	if (onDesktop())
+	{
+		// Open save
+		var _file = file_text_open_read("save-data.txt");
 	
-	// Parse save file
-	var _jsonString = file_text_read_string(_file);
-	var _saveData = json_parse(_jsonString);
+		// Parse save file
+		var _jsonString = file_text_read_string(_file);
+		_saveData = json_parse(_jsonString);
 	
-	// Close save
-	file_text_close(_file);
+		// Close save
+		file_text_close(_file);
+	}
+	else
+	{
+		// Parse save file
+		var _jsonString = LoadFromLocalStorage("save-data");
+		if (_jsonString == "") _saveData = getDefaultSaveData();
+		else _saveData = json_parse(_jsonString);
+	}
 	
 	// Create level select buttons
 	for (var _i = 0; _i < array_length(levels); _i++)

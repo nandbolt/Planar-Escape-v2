@@ -262,15 +262,25 @@ completeLevel = function()
 			var _saveData = undefined, _customLevel = roomIsCustomLevel(room);
 			if (!_customLevel)
 			{
-				// Open save
-				var _file = file_text_open_read("save-data.txt");
+				if (onDesktop())
+				{
+					// Open save
+					var _file = file_text_open_read("save-data.txt");
 	
-				// Parse save file
-				var _jsonString = file_text_read_string(_file);
-				_saveData = json_parse(_jsonString);
+					// Parse save file
+					var _jsonString = file_text_read_string(_file);
+					_saveData = json_parse(_jsonString);
 	
-				// Close save
-				file_text_close(_file);
+					// Close save
+					file_text_close(_file);
+				}
+				else
+				{
+					// Parse save file
+					var _jsonString = LoadFromLocalStorage("save-data");
+					if (_jsonString == "") _saveData = getDefaultSaveData();
+					else _saveData = json_parse(_jsonString);
+				}
 			}
 			else
 			{
@@ -469,15 +479,23 @@ completeLevel = function()
 			// Save new scores to file
 			if (!_customLevel)
 			{
-				// Open save
-				var _file = file_text_open_write("save-data.txt");
-	
-				// Save string to file
 				var _jsonString = json_stringify(_saveData);
-				file_text_write_string(_file, _jsonString);
+				if (onDesktop())
+				{
+					// Open save
+					var _file = file_text_open_write("save-data.txt");
 	
-				// Close save
-				file_text_close(_file);
+					// Save string to file
+					file_text_write_string(_file, _jsonString);
+	
+					// Close save
+					file_text_close(_file);
+				}
+				else
+				{
+					// Parse save file
+					SaveToLocalStorage("save-data", _jsonString);
+				}
 			}
 			else
 			{

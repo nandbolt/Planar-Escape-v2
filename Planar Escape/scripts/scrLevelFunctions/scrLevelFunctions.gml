@@ -906,12 +906,25 @@ function loadLevelScores(_roomLevel)
 	// If not a custom level
 	if (!roomIsCustomLevel(_roomLevel))
 	{
-		// Open save
-		var _file = file_text_open_read("save-data.txt");
+		var _saveData = undefined;
+		if (onDesktop())
+		{
+			// Open save
+			var _file = file_text_open_read("save-data.txt");
 	
-		// Parse save file
-		var _jsonString = file_text_read_string(_file);
-		var _saveData = json_parse(_jsonString);
+			// Parse save file
+			var _jsonString = file_text_read_string(_file);
+			_saveData = json_parse(_jsonString);
+	
+			// Close save
+			file_text_close(_file);
+		}
+		else
+		{
+			var _jsonString = LoadFromLocalStorage("save-data");
+			if (_jsonString == "") _saveData = getDefaultSaveData();
+			else _saveData = json_parse(_jsonString);
+		}
 	
 		// Update level scores
 		switch (_roomLevel)
@@ -1077,9 +1090,6 @@ function loadLevelScores(_roomLevel)
 				global.currentLevelTraces = _saveData.levelMain16Traces;
 				break;
 		}
-	
-		// Close save
-		file_text_close(_file);
 	}
 	else
 	{
