@@ -11,8 +11,8 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "agSfxs",
+    "path": "audiogroups/agSfxs",
   },
   "soundFile": "sfxGuiButtonHover.wav",
   "duration": 0.136757,

@@ -1,8 +1,20 @@
+// Load
+loadIdx = 0;
+loadMaxIdx = 2;
+loadText = "Loading music...";
+
+// Hover
+hovering = false;
+
 // Persistent
 instance_create_layer(0, 0, "Instances", oGameManager);
 instance_create_layer(0, 0, "Instances", oDisplayManager);
 instance_create_layer(0, 0, "Instances", oParticleManager);
 instance_create_layer(0, 0, "Instances", oPauseManager);
+
+// Audio
+audio_group_load(agMusic);
+audio_group_load(agSfxs);
 
 // Debugger
 //instance_create_layer(0, 0, "Instances", oDebugger);
