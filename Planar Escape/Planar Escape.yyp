@@ -145,6 +145,7 @@
     {"id":{"name":"sfxCheckpoint","path":"sounds/sfxCheckpoint/sfxCheckpoint.yy",},"order":1,},
     {"id":{"name":"rLevelCustom27","path":"rooms/rLevelCustom27/rLevelCustom27.yy",},"order":27,},
     {"id":{"name":"oLaserPulse","path":"objects/oLaserPulse/oLaserPulse.yy",},"order":0,},
+    {"id":{"name":"ext_localstorage","path":"extensions/ext_localstorage/ext_localstorage.yy",},"order":0,},
     {"id":{"name":"rLevelCustom32","path":"rooms/rLevelCustom32/rLevelCustom32.yy",},"order":32,},
     {"id":{"name":"oButton","path":"objects/oButton/oButton.yy",},"order":4,},
     {"id":{"name":"scrGadgetStruct","path":"scripts/scrGadgetStruct/scrGadgetStruct.yy",},"order":6,},
